@@ -1,0 +1,20 @@
+<div class="demo">
+  <kendo-card class="card">
+    <kendo-card-body class="card-body">
+      <h4 class="header" >{{title}}</h4>
+      <div>
+        <hr kendoCardSeparator />
+        <div class="recipe-wrap">
+          {{(readMore) ? description : description | slice:0:100}} <span *ngIf="!readMore">...</span>
+        </div>
+      </div>
+    </kendo-card-body>
+    <kendo-card-actions class="action-bar"  >
+      <div style="padding: 0">
+        <button class="k-button k-flat" (click)="showMore()"  >
+          {{!readMore? 'SHOW MORE':'SHOW LESS'  }}
+        </button>
+      </div>
+    </kendo-card-actions>
+  </kendo-card>
+</div>
