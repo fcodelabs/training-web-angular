@@ -7,7 +7,9 @@ import { DiaryCardComponent } from './components/diary-card/diary-card.component
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import {LayoutModule} from "@progress/kendo-angular-layout";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {InputsModule} from "@progress/kendo-angular-inputs";
+import {LabelModule} from "@progress/kendo-angular-label";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import {FormsModule} from "@angular/forms";
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    InputsModule,
+    LabelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
