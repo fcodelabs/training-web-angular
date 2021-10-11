@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CardAction} from "@progress/kendo-angular-layout";
+import Post from "../../models/Post";
 
 @Component({
   selector: 'diary-card',
@@ -7,10 +8,9 @@ import {CardAction} from "@progress/kendo-angular-layout";
   styleUrls: ['./diary-card.component.scss']
 })
 export class DiaryCardComponent implements OnInit {
-  constructor() { }
-  description:string = "This is truly the most perfect and easy no-bake cheesecake smooth and creamy dessert that sets up beautifully in the refrigerator."
+  @Input() data: Post;
   readMore: Boolean = false;
-  title: string = "Baken Cheese Cake";
+  constructor() { }
   ngOnInit(): void {
   }
 

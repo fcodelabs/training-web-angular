@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-
+import Post from '../../models/Post';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +8,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class HomeComponent implements OnInit {
   public form: FormGroup;
-
+  public postArray:Post[]=[new Post('Chicker Burgers','I Love to eat them!')];
   constructor() {
     this.form = new FormGroup({
       title: new FormControl('',Validators.required),
@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
 
 
   submitForm() {
-    console.log(this.form.get('title')?.value);
-    console.log(this.form.get('description')?.value);
+    this.postArray.push(new Post(this.form.get('title')?.value,this.form.get('description')?.value));
   }
 }
