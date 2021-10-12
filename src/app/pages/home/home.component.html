@@ -15,5 +15,5 @@
 </div>
 
 <div class="d-flex align-content-around flex-wrap ml-5 p-0 mt-5">
-  <diary-card *ngFor="let post of postArray" [data]="post"   ></diary-card>
+  <diary-card *ngFor="let post of (posts|async)?.posts" [data]="post"   ></diary-card>
 </div>

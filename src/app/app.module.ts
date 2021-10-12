@@ -10,6 +10,8 @@ import {LayoutModule} from "@progress/kendo-angular-layout";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {InputsModule} from "@progress/kendo-angular-inputs";
 import {LabelModule} from "@progress/kendo-angular-label";
+import {StoreModule} from "@ngrx/store";
+import { reducers } from './reducers/'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import {LabelModule} from "@progress/kendo-angular-label";
     FormsModule,
     ReactiveFormsModule,
     InputsModule,
-    LabelModule
+    LabelModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]
