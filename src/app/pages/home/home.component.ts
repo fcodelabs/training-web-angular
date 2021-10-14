@@ -5,6 +5,7 @@ import {select, Store} from "@ngrx/store";
 import {submitPost} from "../../store/actions/add-post.actions";
 import {Observable} from "rxjs";
 import {selectPosts} from "../../store/selectors/post.selectors";
+import {GetPosts} from "../../store/actions/get-post.actions";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,10 +21,12 @@ export class HomeComponent implements OnInit {
     })
   }
   ngOnInit(): void {
+    this.store.dispatch(GetPosts());
   }
 
 
   submitForm() {
+
     let post = new Post(this.form.get('title')?.value,this.form.get('description')?.value);
     this.store.dispatch(submitPost({post:post}));
   }

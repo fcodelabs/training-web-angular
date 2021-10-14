@@ -13,6 +13,11 @@ import {LabelModule} from "@progress/kendo-angular-label";
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {reducers} from "./store";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AddPostEffects} from "./store/effects/add-post.effects";
+import {GetPostsEffects} from "./store/effects/get-posts.effects";
 
 @NgModule({
   declarations: [
@@ -29,8 +34,13 @@ import {reducers} from "./store";
     ReactiveFormsModule,
     InputsModule,
     LabelModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([
+      AddPostEffects,
+      GetPostsEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
