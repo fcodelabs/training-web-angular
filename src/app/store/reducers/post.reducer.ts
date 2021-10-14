@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import Post from "../../models/Post";
+import Post from "../../utils/models/Post";
 import {submitPost, SubmitPostSuccess} from "../actions/add-post.actions";
 import {GetPosts, GetPostsFailure, GetPostsSuccess} from "../actions/get-post.actions";
 
@@ -9,7 +9,7 @@ export interface postsState {
 }
 
 export const initialState: postsState = {
-  posts:[new Post('I Love Cakes','Cake is my Favourite Food i love that taste'),new Post('I Love Cakes','Cake is my Favourite Food i love that taste')]
+  posts:[]
 };
 
 

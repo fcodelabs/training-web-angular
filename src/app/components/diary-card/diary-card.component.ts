@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CardAction} from "@progress/kendo-angular-layout";
-import Post from "../../models/Post";
+import Post from "../../utils/models/Post";
 
 @Component({
   selector: 'diary-card',

@@ -1,0 +1,40 @@
+
+<div class="container">
+  <form id="form" autocomplete="off">
+    <h1 id="message"><b>Diary Card Creator</b></h1><small id="smallMessage"> </small>
+    <div class="field">
+      <input [(ngModel)]="name" id="name" type="text" name="name" placeholder="Enter your Name" autocomplete="off" required/>
+      <label for="name">Email</label>
+    </div>
+    <button (click)="onClick()" id="submit">Let's Go!</button>
+  </form>
+</div>
+
+
+
+
+<!--
+<div class="page-layout&#45;&#45;all-center sign-in">
+  <kendo-card class="card sign-in&#45;&#45;card">
+    <kendo-card-body>
+      <div class="sign-in&#45;&#45;header">
+        <span>Dear Diary</span>
+      </div>
+      <div class="sign-in&#45;&#45;heading">
+        <h1>Sign In</h1>
+      </div>
+      <div class="sign-in&#45;&#45;form">
+        <kendo-textbox
+          placeholder="First Name"
+          [style.width.px]="200"
+          [clearButton]="true"
+          [(ngModel)]="name"
+        ></kendo-textbox>
+      </div>
+      <div class="sign-in&#45;&#45;submit">
+        <button (click)="onClick()">CONTINUE</button>
+      </div>
+    </kendo-card-body>
+  </kendo-card>
+</div>
+-->

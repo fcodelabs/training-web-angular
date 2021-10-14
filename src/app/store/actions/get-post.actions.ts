@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import Post from "../../models/Post";
+import Post from "../../utils/models/Post";
 
 export const GetPosts = createAction(
   '[GetPost] GetPosts'

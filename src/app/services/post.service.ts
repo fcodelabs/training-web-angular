@@ -1,18 +1,15 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
-import Post from "../models/Post";
-import firebase from "firebase/compat";
+import Post from "../utils/models/Post";
 import {map} from "rxjs/operators";
-
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  constructor(private firestore:AngularFirestore) {
-
-  }
+  constructor(private firestore:AngularFirestore) {}
   public async addPost(post:Post):Promise<void>{
-    await this.firestore.collection('posts').add({title:post.title,description:post.description});
+    const createdAt = new Date();
+    await this.firestore.collection('posts').add({user:post.user,title:post.title,description:post.description,createdAt:createdAt});
   }
 
   public getPost(){
@@ -22,7 +19,7 @@ export class PostService {
         const data = doc.payload.doc.data();
         // @ts-ignore
         const post = new Post(data.title,data.description);
-        return post
+        return post;
       });
     }))
   }
