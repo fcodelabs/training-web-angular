@@ -1,0 +1,29 @@
+.demo{
+  display: flex;
+}
+.card{
+  padding:0;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  background-color: aliceblue;
+}
+.body-content {
+  padding-top: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #bae0e0;
+  border-radius: 2px;
+}
+.action-bar{
+  padding: 2px 8px;
+}
+.title{
+  text-align: center;
+  font-weight: 700;
+  font-family: Calibri;
+  font-size: 24px;
+  background-color: deepskyblue;
+  border-radius: 20px;
+}
+.subtitle{
+  color: darkgray;
+}
