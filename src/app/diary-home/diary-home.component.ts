@@ -12,7 +12,6 @@ export class DiaryHomeComponent implements OnInit {
   constructor() {
     this.form = new FormGroup({
       title: new FormControl('',Validators.required),
-      subtitle: new FormControl('',Validators.required),
       description: new FormControl('',Validators.required)
     })
   }
@@ -22,7 +21,6 @@ export class DiaryHomeComponent implements OnInit {
 
   submitForm() {
     console.log(this.form.get('title')?.value);
-    console.log(this.form.get('subtitle')?.value);
     console.log(this.form.get('description')?.value);
     this.form.reset();
   }
