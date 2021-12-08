@@ -1,11 +1,11 @@
 <div class="demo">
   <kendo-card class="card">
     <kendo-card-body class="card-body">
-      <h1 class="title" >{{title}}</h1>
-      <h3 class="subtitle" >{{subtitle}}</h3>
+      <h1 class="title" >{{data?.title}}</h1>
+      <h3 class="subtitle" >{{data?.subtitle}}</h3>
       <hr kendoCardSeparator />
         <div class="body-content">
-          {{(isExpand) ? description : description | slice:0:100}} <span *ngIf="!isExpand">...</span>
+          {{(isExpand) ? data?.description : data?.description | slice:0:100}} <span *ngIf="!isExpand">...</span>
         </div>
     </kendo-card-body>
     <kendo-card-actions class="action-bar"  >
