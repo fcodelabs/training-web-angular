@@ -10,6 +10,7 @@ export class DiaryCardComponent implements OnInit {
   description:string = "This is truly the most perfect and easy no-bake cheesecake smooth and creamy dessert that sets up beautifully in the refrigerator."
   readMore: Boolean = false;
   title: string = "Baken Cheese Cake";
+  subtitle: string = "Shehan"
   ngOnInit(): void {
   }
 
