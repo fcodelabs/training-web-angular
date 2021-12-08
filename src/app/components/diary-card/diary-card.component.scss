@@ -1,5 +1,5 @@
 .demo{
-  display: flex;
+  margin: 5px;
 }
 .card{
   padding:0;
@@ -7,9 +7,7 @@
   background-color: aliceblue;
 }
 .body-content {
-  padding-top: 12px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px;
   background-color: #bae0e0;
   border-radius: 2px;
 }
@@ -26,4 +24,5 @@
 }
 .subtitle{
   color: darkgray;
+  font-size: 15px;
 }
