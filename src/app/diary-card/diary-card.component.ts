@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiaryCardComponent implements OnInit {
   constructor() { }
-  description:string = "This is truly the most perfect and easy no-bake cheesecake smooth and creamy dessert that sets up beautifully in the refrigerator."
+  description:string = "The oldest classical Greek and Latin writing had little or no space between words and could be written in boustrophedon (alternating directions). Over time, text direction (left to right) became standardized, and word dividers and terminal punctuation became common. The first way to divide sentences into groups was the original paragraphs, similar to an underscore at the beginning of the new group.[2] The Greek parágraphos evolved into the pilcrow (¶), which in English manuscripts in the Middle Ages can be seen inserted inline between sentences."
   readMore: Boolean = false;
-  title: string = "Baken Cheese Cake";
+  title: string = "The Paragraph";
   ngOnInit(): void {
   }
 
