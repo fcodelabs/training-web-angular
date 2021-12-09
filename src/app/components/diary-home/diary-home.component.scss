@@ -1,0 +1,35 @@
+$text-box-color : #B9E9FF;
+.k-form {
+  margin: 0 !important;
+  width: auto;
+  background-color: #5094f8;
+  padding: 10px;
+
+  .input-text-wrap{
+    padding: 4px 0 4px 4px;
+    background-color: $text-box-color;
+    border-radius: 24px;
+    input{
+      font-size: medium;
+    }
+  }
+    kendo-textarea{
+      padding-left: 4px;
+      background-color: $text-box-color;
+      border-radius: 12px;
+      font-size: medium;
+      .k-input{
+        min-height: 150px !important;
+      }
+    }
+
+
+  button{
+    background-color: #2271F1EE;
+    border-radius: 20px;
+    width: 100%;
+    padding: 6px 16px;
+    font-size: large;
+    font-weight: bold;
+  }
+}
