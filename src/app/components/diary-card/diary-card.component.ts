@@ -12,12 +12,12 @@ export class DiaryCardComponent implements OnInit {
   constructor() {
   }
 
-  isExpand:boolean= false;
+  public isExpand:boolean= false;
 
   ngOnInit(): void {
   }
 
-  showMore() {
+  public showMore():void {
     this.isExpand = !this.isExpand;
   }
 }

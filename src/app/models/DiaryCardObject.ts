@@ -9,27 +9,27 @@ class DiaryCardObject{
     this._description = description;
   }
 
-  get title(): string {
+  public get title(): string {
     return this._title;
   }
 
-  set title(value: string) {
+  public set title(value: string) {
     this._title = value;
   }
 
-  get subtitle(): string {
+  public get subtitle(): string {
     return this._subtitle;
   }
 
-  set subtitle(value: string) {
+  public set subtitle(value: string) {
     this._subtitle = value;
   }
 
-  get description(): string {
+  public get description(): string {
     return this._description;
   }
 
-  set description(value: string) {
+  public set description(value: string) {
     this._description = value;
   }
 }

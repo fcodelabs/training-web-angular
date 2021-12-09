@@ -13,17 +13,17 @@ export class DiaryHomeComponent implements OnInit {
 
   constructor() {
     this.form = new FormGroup({
-    title: new FormControl('',Validators.required),
-    description: new FormControl('',Validators.required)
+    title: new FormControl(''),
+    description: new FormControl('')
   }) }
 
   ngOnInit(): void {}
 
-  submitForm() {
-    if(!this.form.get('title')){
+  public submitForm():void {
+    if(!this.form.get('title')?.value){
       console.log('Missing title')
     }
-    else if(!this.form.get('description')){
+    else if(!this.form.get('description')?.value){
       console.log('Missing description')
     }
     else{
