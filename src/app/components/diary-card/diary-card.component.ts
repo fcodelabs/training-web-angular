@@ -8,15 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class DiaryCardComponent implements OnInit {
 
   constructor() { }
-  title:string = "title";
-  subtitle:string = "subtitle";
-  description:string = "description  hbhb hgy bhyj yyh byy hyy yybh b hbj jbhbjhnbh fgyyyyyyyy  fyyyf ctfyyyyyy ctyyf cyyyt ct ct ct";
-  isExpand:boolean= false;
+  public title:string = "title";
+  public subtitle:string = "subtitle";
+  public description:string = "A mango is an edible stone fruit produced by the tropical tree Mangifera indica which is believed to have originated from the region between northwestern Myanmar, Bangladesh, and northeastern India.";
+  public isExpand:boolean= false;
 
   ngOnInit(): void {
   }
 
-  showMore() {
+  public showMore():void {
     this.isExpand = !this.isExpand;
   }
 }

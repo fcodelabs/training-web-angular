@@ -16,7 +16,7 @@ export class DiaryHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  submitForm() {
+  public submitForm(): void {
     console.log(this.form.get('title')?.value);
     console.log(this.form.get('description')?.value);
     this.clearForm();
