@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import DiaryCardObject from '../../models/DiaryCardObject';
-import {Store} from "@ngrx/store";
-import * as diaryCardActions from './state/diary-home.actions';
-import { diaryHomeState } from './state/diary-home.state';
+import { select, Store} from "@ngrx/store";
+import * as diaryCardActions from './../../state/diary-home.actions';
+import { diaryHomeState } from '../../state/diary-home.state';
+import { selectDiaryCards} from "../../state/diary-home.selectors";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-diary-home',
@@ -12,18 +14,16 @@ import { diaryHomeState } from './state/diary-home.state';
 })
 export class DiaryHomeComponent implements OnInit {
   public form: FormGroup;
-  public diaryCardArray:DiaryCardObject[]=[];
+  public diaryCardArray$: Observable<DiaryCardObject[]>  = this.store.pipe(select(selectDiaryCards))
   constructor(private store: Store<diaryHomeState>) {
     this.form = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
   })
+    console.log(this.diaryCardArray$)
   }
 
   ngOnInit(): void {
-    this.store.select('diaryCards').subscribe((data) => {
-    console.log(data);
-    });
   }
 
   public submitForm():void {

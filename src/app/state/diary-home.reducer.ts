@@ -1,6 +1,11 @@
 import * as diaryCardActions from './diary-home.actions';
-import { initialState } from './diary-home.state';
 import { createReducer, on } from '@ngrx/store';
+import DiaryCardObject from "../models/DiaryCardObject";
+import {diaryHomeState} from "./diary-home.state";
+
+export const initialState: diaryHomeState = {
+  diaryCards: [new DiaryCardObject('Test title', 'user name', 'test description')]
+};
 
 export const diaryCardReducer = createReducer(
   initialState,
@@ -11,4 +16,3 @@ export const diaryCardReducer = createReducer(
     };
   }),
 );
-
