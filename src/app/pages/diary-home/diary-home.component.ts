@@ -35,4 +35,5 @@ export class DiaryHomeComponent implements OnInit {
   public clearForm(): void {
     this.form.reset();
   }
+
 }
