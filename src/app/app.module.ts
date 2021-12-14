@@ -13,6 +13,9 @@ import { StoreModule } from '@ngrx/store';
 import { diaryCardReducer } from './state/diary-home.reducer';
 import { LoginComponent } from './pages/login/login.component';
 import {NavbarComponent} from "./sharepage/navbar/navbar.component";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -29,6 +32,8 @@ import {NavbarComponent} from "./sharepage/navbar/navbar.component";
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     StoreModule.forRoot({
       diaryCards: diaryCardReducer
     }),
