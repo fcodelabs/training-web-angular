@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { DiaryService } from "../../services/diary.service";
+import { DiaryService } from "../../../services/diary.service";
 import { mergeMap } from 'rxjs/operators';
-import {addDiaryCard, addDiaryCardSuccess, addDiaryCardFailure} from "../actions/diary-home.actions";
+import {addDiaryCard, addDiaryCardSuccess, addDiaryCardFailure} from "../../actions/diary-home.actions";
 
 @Injectable()
-export class AddPostEffects {
+export class AddDiaryCardEffects {
   constructor(private actions$: Actions,private diaryService:DiaryService) {
   }
 
@@ -13,7 +13,7 @@ export class AddPostEffects {
     return this.actions$.pipe(
       ofType(addDiaryCard),
       mergeMap(async (action) => {
-        return this.diaryService.addPost(action.diaryCard).then(()=>addDiaryCardSuccess()).catch((e)=>addDiaryCardFailure({error:e}));
+        return this.diaryService.addDiaryCard(action.diaryCard).then(()=>addDiaryCardSuccess()).catch((e)=>addDiaryCardFailure({error:e}));
       })
     );
   });

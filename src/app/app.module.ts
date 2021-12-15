@@ -16,6 +16,9 @@ import {NavbarComponent} from "./sharepage/navbar/navbar.component";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {environment} from "../environments/environment";
+import {EffectsModule} from "@ngrx/effects";
+import {AddDiaryCardEffects} from "./state/effects/diary-home-effects/add-diary-card.effects";
+import {GetDiaryCardsEffects} from "./state/effects/diary-home-effects/get-diary-cards.effects";
 
 @NgModule({
   declarations: [
@@ -37,6 +40,10 @@ import {environment} from "../environments/environment";
     StoreModule.forRoot({
       diaryCards: diaryCardReducer
     }),
+    EffectsModule.forRoot([
+      AddDiaryCardEffects,
+      GetDiaryCardsEffects,
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

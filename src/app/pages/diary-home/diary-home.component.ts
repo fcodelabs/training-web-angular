@@ -23,6 +23,7 @@ export class DiaryHomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.store.dispatch(diaryCardActions.getDiaryCards());
   }
 
   public submitForm():void {

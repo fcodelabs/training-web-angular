@@ -4,10 +4,12 @@ import DiaryCardObject from "../models/DiaryCardObject";
 import {diaryHomeState} from "./diary-home.state";
 
 export const initialState: diaryHomeState = {
-  diaryCards: [new DiaryCardObject('Test title', 'user name', 'test description')]
+  diaryCards: []
 };
 
 export const diaryCardReducer = createReducer(
   initialState,
   on(diaryCardActions.addDiaryCardSuccess, (state) => ({ ...state})),
+  on(diaryCardActions.getDiaryCardsSuccess, (state, props) =>({...state,diaryCards:[... props.data]}),
+  ),
 );
