@@ -43,6 +43,8 @@
     "@progress/kendo-licensing": "^1.2.1",
     "@progress/kendo-theme-bootstrap": "^4.43.0",
     "@progress/kendo-theme-default": "^4.42.0",
+    "@types/faker": "^5.5.9",
+    "faker": "^5.5.3",
     "firebase": "^9.6.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",

@@ -1,0 +1,53 @@
+$text-box-color : #B9E9FF;
+.sign-in{
+  background-color: #6499ec;
+  min-height:100vh;
+}
+
+.k-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 24px;
+  width: 720px;
+
+  .k-form-legend{
+    text-align: center;
+  }
+
+  .k-input{
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: large;
+    height: 100%;
+
+  }
+  .nickname{
+    display: flex;
+    justify-content: space-between;
+  }
+  .k-form-field{
+    width: 100%;
+  }
+
+  button{
+    background-color: rgba(17, 101, 238, 0.93);
+    border-radius: 20px;
+    //padding: 6px 16px;
+    font-size: large;
+    font-weight: bold;
+  }
+  .random-btn{
+    width: auto;
+    height: auto;
+  }
+
+  .continue-btn{
+    margin-top: 30px;
+    width: 100%;
+  }
+}

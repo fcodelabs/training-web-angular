@@ -21,13 +21,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {DiaryCardEffect} from "./module-1/store/cards.effects";
 import { FormComponent } from './module-1/components/form/form.component';
 import { HomeComponent } from './module-1/containers/home/home.component';
+import { SignInComponent } from './module-1/containers/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiaryCardComponent,
     FormComponent,
-    HomeComponent
+    HomeComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

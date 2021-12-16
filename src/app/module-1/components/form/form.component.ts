@@ -38,7 +38,7 @@ export class FormComponent implements OnInit {
 
     const diarycard : DiaryCard = {
       title : this.diaryForm.controls.title.value,
-      subtitle : "Dushan",
+      subtitle : localStorage.getItem('nickname') || "",
       description : this.diaryForm.controls.description.value,
       created : new Date(),
     }
