@@ -23,9 +23,12 @@ $text-box-color : #B9E9FF;
     border: 1px solid black;
     border-radius: 5px;
     font-size: large;
-    height: 100%;
-
+    min-width: auto !important;
   }
+  kendo-formfield{
+    margin-top: 0;
+  }
+
   .nickname{
     display: flex;
     justify-content: space-between;
@@ -43,7 +46,8 @@ $text-box-color : #B9E9FF;
   }
   .random-btn{
     width: auto;
-    height: auto;
+    margin-top: 0;
+    height: fit-content;
   }
 
   .continue-btn{
