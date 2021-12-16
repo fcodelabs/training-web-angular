@@ -34,7 +34,7 @@ export class DiaryHomeComponent implements OnInit {
       console.log('Missing description')
     }
     else{
-      let newDiaryCard: DiaryCardObject = new DiaryCardObject(this.form.get('title')?.value, "user name", this.form.get('description')?.value);
+      let newDiaryCard: DiaryCardObject = new DiaryCardObject(this.form.get('title')?.value, "user name", this.form.get('description')?.value, new Date());
       this.store.dispatch(diaryCardActions.addDiaryCard({diaryCard: newDiaryCard}));
     }
     this.clearForm();

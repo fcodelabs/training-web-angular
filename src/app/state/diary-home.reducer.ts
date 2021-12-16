@@ -10,6 +10,6 @@ export const initialState: diaryHomeState = {
 export const diaryCardReducer = createReducer(
   initialState,
   on(diaryCardActions.addDiaryCardSuccess, (state) => ({ ...state})),
-  on(diaryCardActions.getDiaryCardsSuccess, (state, props) =>({...state,diaryCards:[... props.data]}),
+  on(diaryCardActions.getDiaryCardsSuccess, (state, props) =>({...state,diaryCards:[... props.data].sort((a,b)=>(a.created < b.created ? 1 : -1))}),
   ),
 );
