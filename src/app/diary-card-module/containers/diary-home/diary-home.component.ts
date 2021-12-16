@@ -13,34 +13,11 @@ import {Observable} from "rxjs";
   styleUrls: ['./diary-home.component.scss']
 })
 export class DiaryHomeComponent implements OnInit {
-  public form: FormGroup;
   public diaryCardArray$: Observable<DiaryCardObject[]>  = this.store.pipe(select(selectDiaryCards))
-  constructor(private store: Store<diaryHomeState>) {
-    this.form = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-  })
-  }
+  constructor(private store: Store<diaryHomeState>) {}
 
   ngOnInit(): void {
     this.store.dispatch(diaryCardActions.getDiaryCards());
   }
 
-  public submitForm():void {
-    if(!this.form.get('title')?.value){
-      console.log('Missing title')
-    }
-    else if(!this.form.get('description')?.value){
-      console.log('Missing description')
-    }
-    else{
-      let newDiaryCard: DiaryCardObject = new DiaryCardObject(this.form.get('title')?.value, "user name", this.form.get('description')?.value, new Date());
-      this.store.dispatch(diaryCardActions.addDiaryCard({diaryCard: newDiaryCard}));
-    }
-    this.clearForm();
-  }
-
-  public clearForm(): void {
-    this.form.reset();
-  }
 }
