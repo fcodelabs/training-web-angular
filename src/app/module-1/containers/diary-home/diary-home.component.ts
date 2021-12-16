@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import DiaryCardObject from '../../models/DiaryCardObject';
 import { select, Store} from "@ngrx/store";
-import * as diaryCardActions from '../../state/actions/diary-home.actions';
-import { diaryHomeState } from '../../state/diary-home.state';
-import { selectDiaryCards} from "../../state/diary-home.selectors";
+import * as diaryCardActions from '../../srore/actions/diary-home.actions';
+import { diaryHomeState } from '../../srore/states/diary-home.state';
+import { selectDiaryCards} from "../../srore/selectors/diary-home.selectors";
 import {Observable} from "rxjs";
 
 @Component({
