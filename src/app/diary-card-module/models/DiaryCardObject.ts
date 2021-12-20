@@ -1,10 +1,10 @@
 class DiaryCardObject{
   private _title:string;
-  private _subtitle:string;
+  private _subtitle:string | null;
   private _description:string;
   private _created: Date;
 
-  constructor(title: string, subtitle: string, description: string, date: Date) {
+  constructor(title: string, subtitle: any, description: string, date: Date) {
     this._title = title;
     this._subtitle = subtitle;
     this._description = description;
@@ -19,11 +19,11 @@ class DiaryCardObject{
     this._title = value;
   }
 
-  public get subtitle(): string {
+  public get subtitle(): string | null {
     return this._subtitle;
   }
 
-  public set subtitle(value: string) {
+  public set subtitle(value: string | null) {
     this._subtitle = value;
   }
 

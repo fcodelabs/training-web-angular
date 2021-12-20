@@ -42,7 +42,7 @@ import { DiaryFormComponent } from './diary-card-module/components/diary-form/di
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     StoreModule.forRoot({
-      diaryCards: diaryCardReducer
+      diaryCards: diaryCardReducer,
     }),
     EffectsModule.forRoot([
       AddDiaryCardEffects,
