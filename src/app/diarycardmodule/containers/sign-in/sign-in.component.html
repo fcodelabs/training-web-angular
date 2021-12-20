@@ -1,19 +1,19 @@
 <div class="sign-in">
   <form class="k-form k-form-horizontal" [formGroup]="signin" >
     <fieldset class="k-form-fieldset">
-      <legend class="k-form-legend"><h1>SIGN IN</h1></legend>
+      <div class="title"><h1>Sign In</h1></div>
       <div class="nickname">
         <kendo-formfield orientation="horizontal">
           <input class="k-text k-input" formControlName="nickname" kendoTextBox placeholder="Your Nickname" required />
-          <!--        <kendo-formhint>Your Nickname</kendo-formhint>-->
-          <!--        <kendo-formerror>Error: Nickname is required</kendo-formerror>-->
-
+          <kendo-formerror>Error: Nickname is required</kendo-formerror>
         </kendo-formfield>
-        <button class="k-button random-btn k-form-buttons" (click)="setRandomName()">RANDOM</button>
+          <button class="random-btn" (click)="setRandomName()"  kendoButton >RANDOM</button>
       </div>
 
     </fieldset>
-    <button class="k-button continue-btn" (click)="onContinue()" [disabled]="isNicknameEmpty()">CONTINUE</button>
+    <div class="continue-btn">
+      <button kendoButton (click)="onContinue()" [disabled]="isNicknameEmpty()">CONTINUE<kendo-icon name="arrow-right" size="medium"></kendo-icon></button>
+    </div>
   </form>
 
 </div>

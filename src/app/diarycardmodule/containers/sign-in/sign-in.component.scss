@@ -15,7 +15,7 @@ $text-box-color : #B9E9FF;
   border-radius: 24px;
   width: 720px;
 
-  .k-form-legend{
+  .title{
     text-align: center;
   }
 
@@ -23,7 +23,8 @@ $text-box-color : #B9E9FF;
     border: 1px solid black;
     border-radius: 5px;
     font-size: large;
-    min-width: auto !important;
+    margin-right: 10px;
+    width: 600px;
   }
   kendo-formfield{
     margin-top: 0;
@@ -36,14 +37,24 @@ $text-box-color : #B9E9FF;
   .k-form-field{
     width: 100%;
   }
+  .input-field{
+    div{
+      max-width:calc(100% - 10px) !important;
+    }
+  }
 
   button{
     background-color: rgba(17, 101, 238, 0.93);
     border-radius: 20px;
-    //padding: 6px 16px;
+    color: white;
     font-size: large;
     font-weight: bold;
   }
+
+  button:hover{
+    background-color: #0026f1;
+  }
+
   .random-btn{
     width: auto;
     margin-top: 0;
@@ -51,7 +62,36 @@ $text-box-color : #B9E9FF;
   }
 
   .continue-btn{
-    margin-top: 30px;
-    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+@media only screen and (max-width: 960px) {
+  .k-form {
+    width: auto;
+    .k-input{
+      min-width: 100%;
+      margin-right: 0;
+      width: auto;
+    }
+
+    .nickname{
+      flex-direction: column;
+      align-items: center;
+    }
+    .random-btn{
+      margin-top: 10px;
+      width: fit-content;
+    }
+    .continue-btn{
+      width: 100%;
+      button{
+        width: 100%;
+      }
+    }
   }
 }

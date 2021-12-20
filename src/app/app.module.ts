@@ -8,7 +8,7 @@ import { LayoutModule } from '@progress/kendo-angular-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GridModule } from '@progress/kendo-angular-grid';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {FormFieldModule, TextAreaModule} from "@progress/kendo-angular-inputs";
+import {FormFieldModule, TextAreaModule, InputsModule} from "@progress/kendo-angular-inputs";
 import {LabelModule} from "@progress/kendo-angular-label";
 import { StoreModule } from '@ngrx/store';
 import {diarycardsReducer} from "./diarycardmodule/store/cards.reducer";
@@ -23,6 +23,9 @@ import {DiaryCardEffect} from "./diarycardmodule/store/cards.effects";
 import { FormComponent } from './diarycardmodule/components/form/form.component';
 import { HomeComponent } from './diarycardmodule/containers/home/home.component';
 import {SignInComponent} from "./diarycardmodule/containers/sign-in/sign-in.component";
+import {ButtonModule, ButtonsModule} from "@progress/kendo-angular-buttons";
+import { IconsModule } from '@progress/kendo-angular-icons';
+
 
 
 @NgModule({
@@ -33,23 +36,27 @@ import {SignInComponent} from "./diarycardmodule/containers/sign-in/sign-in.comp
     HomeComponent,
     SignInComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    LayoutModule,
-    BrowserAnimationsModule,
-    GridModule,
-    ReactiveFormsModule,
-    FormsModule,
-    FormFieldModule,
-    LabelModule,
-    TextAreaModule,
-    StoreModule.forRoot({diaryCards:diarycardsReducer}, {}),
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    EffectsModule.forRoot([DiaryCardEffect]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        LayoutModule,
+        BrowserAnimationsModule,
+        GridModule,
+        ReactiveFormsModule,
+        FormsModule,
+        FormFieldModule,
+        LabelModule,
+        TextAreaModule,
+        StoreModule.forRoot({diaryCards: diarycardsReducer}, {}),
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        EffectsModule.forRoot([DiaryCardEffect]),
+        StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+        ButtonModule,
+        ButtonsModule,
+        IconsModule,
+        InputsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
