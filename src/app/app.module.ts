@@ -9,11 +9,13 @@ import { InputsModule } from "@progress/kendo-angular-inputs";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DiaryHomeComponent } from './diary-card-module/containers/diary-home/diary-home.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NavigationModule } from "@progress/kendo-angular-navigation";
 
 import { StoreModule } from '@ngrx/store';
 import { diaryCardReducer } from './diary-card-module/srore/reducers/diary-home.reducer';
 import { LoginComponent } from './diary-card-module/containers/login/login.component';
 import {NavbarComponent} from "./shared/components/navbar/navbar.component";
+import { IndicatorsModule } from "@progress/kendo-angular-indicators";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {environment} from "../environments/environment";
@@ -38,6 +40,8 @@ import { DiaryFormComponent } from './diary-card-module/components/diary-form/di
     InputsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NavigationModule,
+    IndicatorsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
