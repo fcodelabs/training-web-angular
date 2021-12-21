@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
   public onContinue() : void{
     const nickname = this.signin.controls.nickname.value;
     localStorage.setItem('nickname',nickname);
-    this.router.navigateByUrl('/home').then(r => console.log("navigate error"));
+    this.router.navigateByUrl('/home').then(r => console.log("navigate to home page"));
   }
 
   public isNicknameEmpty() : boolean{

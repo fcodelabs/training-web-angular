@@ -17,6 +17,6 @@ export class NavbarComponent implements OnInit{
 
   public logout() :void{
     localStorage.removeItem("nickname")
-    this.router.navigateByUrl('/').then(r => console.log("navigate error"))
+    this.router.navigateByUrl('/').then(r => console.log("navigate to sign-in page"))
   }
 }
