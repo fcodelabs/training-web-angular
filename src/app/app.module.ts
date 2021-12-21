@@ -29,6 +29,8 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { NavigationModule } from '@progress/kendo-angular-navigation';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import {PopupModule} from "@progress/kendo-angular-popup";
+import { RippleModule } from '@progress/kendo-angular-ripple';
+
 
 
 
@@ -65,7 +67,8 @@ import {PopupModule} from "@progress/kendo-angular-popup";
         InputsModule,
         NavigationModule,
         IndicatorsModule,
-        PopupModule
+        PopupModule,
+        RippleModule
     ],
   providers: [],
   bootstrap: [AppComponent]

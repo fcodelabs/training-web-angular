@@ -11,8 +11,10 @@
   </kendo-card-body>
 
   <kendo-card-actions *ngIf = "description.length>100" orientation="horizontal" layout="start" >
-    <button (click)="toggleShowMore()" class="k-button">
-      {{isShowMore ? "SHOW LESS" : "SHOW MORE"}}
-    </button>
+    <div kendoRippleContainer>
+      <button (click)="toggleShowMore()" class="k-button">
+        {{isShowMore ? "SHOW LESS" : "SHOW MORE"}}
+      </button>
+    </div>
   </kendo-card-actions>
 </kendo-card>

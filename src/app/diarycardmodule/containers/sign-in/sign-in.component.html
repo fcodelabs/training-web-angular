@@ -7,12 +7,16 @@
           <input class="k-text k-input" formControlName="nickname" kendoTextBox placeholder="Your Nickname" required />
           <kendo-formerror>Error: Nickname is required</kendo-formerror>
         </kendo-formfield>
+        <div kendoRippleContainer>
           <button class="random-btn" (click)="setRandomName()"  kendoButton >RANDOM</button>
+        </div>
       </div>
 
     </fieldset>
     <div class="continue-btn">
-      <button kendoButton (click)="onContinue()" [disabled]="isNicknameEmpty()">CONTINUE<kendo-icon name="arrow-right" size="medium"></kendo-icon></button>
+      <div kendoRippleContainer>
+        <button kendoButton (click)="onContinue()" [disabled]="isNicknameEmpty()">CONTINUE<kendo-icon name="arrow-right" size="medium"></kendo-icon></button>
+      </div>
     </div>
   </form>
 

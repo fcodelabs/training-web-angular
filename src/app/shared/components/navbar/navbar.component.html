@@ -37,12 +37,8 @@
   </kendo-appbar-section>
 
   <kendo-appbar-section>
-    <button
-      class="k-button logout-btn"
-      #anchor
-      (click)="logout()"
-    >
-      LOGOUT
-    </button>
+    <div kendoRippleContainer>
+      <button class="k-button logout-btn" (click)="logout()">LOGOUT</button>
+    </div>
   </kendo-appbar-section>
 </kendo-appbar>

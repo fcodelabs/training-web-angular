@@ -1,6 +1,7 @@
 kendo-card{
   border-radius: 12px;
   width: 100% !important;
+  transition: height 5s;
 
   .k-card-title {
     margin-bottom: 0;
@@ -17,6 +18,7 @@ kendo-card{
     }
   }
 }
+
 
 p {
   text-align: justify;
