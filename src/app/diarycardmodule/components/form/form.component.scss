@@ -27,12 +27,16 @@ $text-box-color : #B9E9FF;
     }
   }
   button{
-    background-color: rgba(17, 101, 238, 0.93);
+    background-color: rgba(11, 14, 227, 0.93);
     border-radius: 20px;
     width: 100%;
     padding: 6px 16px;
     font-size: large;
     font-weight: bold;
+    color: white;
+  }
+  button:hover{
+    color: black;
   }
 }
 

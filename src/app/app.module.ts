@@ -25,6 +25,12 @@ import { HomeComponent } from './diarycardmodule/containers/home/home.component'
 import {SignInComponent} from "./diarycardmodule/containers/sign-in/sign-in.component";
 import {ButtonModule, ButtonsModule} from "@progress/kendo-angular-buttons";
 import { IconsModule } from '@progress/kendo-angular-icons';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { NavigationModule } from '@progress/kendo-angular-navigation';
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+import {PopupModule} from "@progress/kendo-angular-popup";
+
+
 
 
 
@@ -34,7 +40,8 @@ import { IconsModule } from '@progress/kendo-angular-icons';
     DiaryCardComponent,
     FormComponent,
     HomeComponent,
-    SignInComponent
+    SignInComponent,
+    NavbarComponent
   ],
     imports: [
         BrowserModule,
@@ -55,7 +62,10 @@ import { IconsModule } from '@progress/kendo-angular-icons';
         ButtonModule,
         ButtonsModule,
         IconsModule,
-        InputsModule
+        InputsModule,
+        NavigationModule,
+        IndicatorsModule,
+        PopupModule
     ],
   providers: [],
   bootstrap: [AppComponent]

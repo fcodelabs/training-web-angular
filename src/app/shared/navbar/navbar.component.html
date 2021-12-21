@@ -1,0 +1,48 @@
+<kendo-appbar position="top" themeColor="light">
+  <kendo-appbar-section class="title">
+    <h1 class="title">Home</h1>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+  <kendo-appbar-section class="appbar-items">
+    <ul>
+      <li><span>What's New</span></li>
+      <li><span>About</span></li>
+      <li><span>Contacts</span></li>
+    </ul>
+  </kendo-appbar-section>
+
+  <kendo-appbar-spacer></kendo-appbar-spacer>
+
+  <kendo-appbar-section class="search-section">
+    <kendo-textbox placeholder="Search..." [clearButton]="true">
+      <ng-template kendoTextBoxPrefixTemplate>
+        <kendo-icon name="search"></kendo-icon>
+      </ng-template>
+    </kendo-textbox>
+  </kendo-appbar-section>
+
+  <kendo-appbar-section class="user-actions">
+    <kendo-badge-container>
+      <kendo-icon name="bell"></kendo-icon>
+      <kendo-badge
+        shape="dot"
+        themeColor="warning"
+        size="small"
+        position="inside"
+      ></kendo-badge>
+    </kendo-badge-container>
+    <span class="k-appbar-separator"></span>
+  </kendo-appbar-section>
+
+  <kendo-appbar-section>
+    <button
+      class="k-button k-flat"
+      #anchor
+      (click)="logout()"
+    >
+      LOGOUT
+    </button>
+  </kendo-appbar-section>
+</kendo-appbar>
