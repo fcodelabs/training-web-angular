@@ -1,6 +1,6 @@
 $text-box-color : #B9E9FF;
 .sign-in{
-  background-color: #6499ec;
+  // background-color: #6499ec;
   min-height:100vh;
 }
 
@@ -53,6 +53,7 @@ $text-box-color : #B9E9FF;
 
   button:hover{
     background-color: #0026f1;
+    color: white;
   }
 
   .random-btn{

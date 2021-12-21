@@ -1,7 +1,27 @@
+.navbar{
+  background: rgba(11, 14, 227, 0.93);
+  color: white;
+}
 .title {
   font-size: 18px;
   margin: 0;
 }
+.k-button{
+  background-color: rgba(11, 14, 227, 0.93);
+  color: white;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 16px;
+  border-color: white ;
+}
+.k-button:hover{
+  color: black;
+}
+
+.k-textbox{
+  border-radius: 16px;
+}
+
 kendo-badge-container {
   margin-right: 8px;
 }
@@ -16,7 +36,7 @@ li {
   margin: 0 9px;
 }
 li:hover {
-  color: rgba(11, 14, 227, 0.93);
+  color: chartreuse;
   cursor: pointer;
 }
 .k-appbar-section {

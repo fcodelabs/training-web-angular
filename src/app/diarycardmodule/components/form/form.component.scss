@@ -29,6 +29,8 @@ $text-box-color : #B9E9FF;
   button{
     background-color: rgba(11, 14, 227, 0.93);
     border-radius: 20px;
+    border-width: 3px;
+    border-color: white;
     width: 100%;
     padding: 6px 16px;
     font-size: large;
@@ -36,7 +38,8 @@ $text-box-color : #B9E9FF;
     color: white;
   }
   button:hover{
-    color: black;
+    color: black !important;
+    border-color: rgba(11, 14, 227, 0.93);
   }
 }
 
