@@ -26,7 +26,7 @@ $text-box-color : #B9E9FF;
       min-height: 150px !important;
     }
   }
-  button{
+  .submit-btn{
     background-color: rgba(11, 14, 227, 0.93);
     border-radius: 20px;
     border-width: 3px;
@@ -37,9 +37,10 @@ $text-box-color : #B9E9FF;
     font-weight: bold;
     color: white;
   }
-  button:hover{
+  .submit-btn:hover{
     color: black !important;
     border-color: rgba(11, 14, 227, 0.93);
+    background-color: white;
   }
 }
 
