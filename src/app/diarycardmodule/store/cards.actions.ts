@@ -11,3 +11,7 @@ export const getDiaryCardsSuccess = createAction("[Home Page] Load Diary Cards S
   props<{diarycards : DiaryCard[]}>()
 );
 export const getDiaryCardsFailure = createAction("[Home Page] Load Diary Cards Failure");
+
+export const setLoadingSpinnerState = createAction("Change Loading Spinner State",
+  props<{loadingStatus:boolean}>()
+  );

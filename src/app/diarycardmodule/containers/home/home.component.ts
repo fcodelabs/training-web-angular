@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from "@ngrx/store";
+import {select, Store} from "@ngrx/store";
 import {DiaryCard} from "../../models/diarycard.model";
 import {getDiaryCards} from "../../store/cards.actions";
 import {Observable} from "rxjs";
-import {selectDiaryCards} from "../../store/cards.selectors";
+import {selectDiaryCards, selectLoadingState} from "../../store/cards.selectors";
+import {AppState} from "../../store/app.state";
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,15 @@ import {selectDiaryCards} from "../../store/cards.selectors";
 export class HomeComponent implements OnInit {
 
   public diaryCards$ : Observable<DiaryCard[]>  = this.store.select(selectDiaryCards);
+  public loadingState$ : Observable<boolean> = this.store.select(selectLoadingState);
 
-  constructor(private store:Store<{diaryCards: DiaryCard[]}>) { }
+  constructor(private store:Store<AppState>) {
+
+  }
 
   ngOnInit(): void {
     this.store.dispatch(getDiaryCards());
   }
-
 }
+
+

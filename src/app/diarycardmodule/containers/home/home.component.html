@@ -3,11 +3,20 @@
 
   <app-form></app-form>
 
-  <div *ngIf="diaryCards$" class="grid">
+  <div class="grid">
     <app-diary-card *ngFor="let diaryCard of diaryCards$ | async"
                     [title]="diaryCard.title"
                     [subtitle]="diaryCard.subtitle"
                     [description]="diaryCard.description">
     </app-diary-card>
+  </div>
+  <div class="spinner" *ngIf="loadingState$ | async">
+    <kendo-loader
+      type="converging-spinner"
+      themeColor="light"
+      size="large"
+    >
+    </kendo-loader>
+    <div class="spinner-text">Loading...</div>
   </div>
 </div>

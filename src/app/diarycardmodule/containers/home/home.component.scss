@@ -2,6 +2,17 @@
   // background-color: #6499ec;
   width: 100%;
   min-height:100vh;
+
+  .spinner{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    .spinner-text{
+      color: white;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
 }
 
 .grid {
