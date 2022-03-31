@@ -8,15 +8,14 @@ kendo-card {
 
 button {
     border-radius: 20px;
-    border: none;
-    cursor: pointer;
     display: inline-flex;
+    cursor: pointer;
     outline: none;
     position: relative;
     align-items: center;
-    user-select: none;
+    font-weight: bold;
     vertical-align: middle;
     justify-content: center;
-    line-height: 1.5;
-    
+    height: 36.75px;
+    background-color: inherit;
 }

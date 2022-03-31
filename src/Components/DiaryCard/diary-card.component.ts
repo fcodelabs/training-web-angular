@@ -7,36 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiaryCardComponent implements OnInit {
 
-  // title!: string;
-  // subtitle!: string;
-  // description!: string;
-
   title: string = "Test";
   subtitle: string = "Noah";
   description: string = "Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world";
-  // description: string = "Hello world Hello world";
-  // color: string = "#b3d4fc"
   color: string = "#B9E9FF"
 
   isExpanded: boolean = false;
+  btnText: string = "SHOW MORE";
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public displayDescription(): string {
+  public showDescription(): string {
     if (this.description.length > 100) {
-      return this.description.substring(0, 100).concat(" ...");
+      if (this.isExpanded) return this.description;
+      else {
+        return this.description.substring(0, 100).concat(" ...");
+      }
     }
     return this.description;
   }
 
   public toggleShowMore() {
-    
-
+    this.isExpanded = !this.isExpanded;
+    this.btnText = this.isExpanded ? "SHOW LESS" : "SHOW MORE";
   }
-
-
 
 }
