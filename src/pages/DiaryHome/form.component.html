@@ -1,0 +1,14 @@
+<div class="card-form">
+    <form class="k-form" [formGroup]="cardForm">
+        <kendo-formfield>
+            <input  class="title" formControlName="title" placeholder="Submit New">
+        </kendo-formfield>
+        <kendo-formfield>
+            <input class="description" formControlName="description" placeholder="Enter Description" resizable="none">
+        </kendo-formfield>
+
+        <div class="k-form-buttons">
+            <button kendoButton themeColor="primary" (click)="submitForm()">SUBMIT</button>
+        </div>
+    </form>
+</div>
