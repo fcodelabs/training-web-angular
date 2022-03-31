@@ -31,7 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              }
             ],
             "scripts": []
           },
@@ -99,7 +102,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              }
             ],
             "scripts": []
           }

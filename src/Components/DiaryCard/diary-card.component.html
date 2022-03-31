@@ -1,0 +1,17 @@
+<div class="main">
+    <kendo-card [ngStyle]="{ 'background-color': color }">
+        <kendo-card-header>
+            <h2 class="k-card-title">{{title}}</h2>
+            <p class="k-card-subtitle">{{subtitle}}</p>
+        </kendo-card-header>
+        <kendo-card-body>
+            <p>{{displayDescription()}}</p>
+        </kendo-card-body>
+
+        <kendo-card-actions orientation="horizontal" layout="stretched">
+            <button kendoButton fillMode="clear" (click)="toggleShowMore()">
+                SHOW MORE
+            </button>
+        </kendo-card-actions>
+    </kendo-card>
+</div>
