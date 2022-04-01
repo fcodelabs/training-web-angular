@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
   public cardForm!: FormGroup;
   title: string = '';
   description: string = '';
+
   constructor() {
     this.cardForm = new FormGroup({
       title: new FormControl(this.title),
@@ -23,9 +24,15 @@ export class FormComponent implements OnInit {
   }
 
   public submitForm(): void {
-    console.log(this.cardForm.get('title')?.value);
-    console.log(this.cardForm.get('description')?.value);
 
+    if (this.cardForm.get('title')?.value == "") {
+      console.log("Missing title");
+    } else if (this.cardForm.get('description')?.value == "") {
+      console.log("Missing description");
+    } else {
+      console.log(this.cardForm.get('title')?.value);
+      console.log(this.cardForm.get('description')?.value);
+    }
     this.cardForm.markAllAsTouched();
     this.clearForm();
   }
