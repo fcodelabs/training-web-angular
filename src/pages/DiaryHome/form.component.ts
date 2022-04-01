@@ -12,6 +12,7 @@ export class FormComponent implements OnInit {
   public cardForm!: FormGroup;
   title: string = '';
   description: string = '';
+  isSubmitted: boolean = false;
 
   constructor() {
     this.cardForm = new FormGroup({
@@ -30,6 +31,7 @@ export class FormComponent implements OnInit {
     } else if (this.cardForm.get('description')?.value == "") {
       console.log("Missing description");
     } else {
+      this.isSubmitted = true;
       console.log(this.cardForm.get('title')?.value);
       console.log(this.cardForm.get('description')?.value);
     }
