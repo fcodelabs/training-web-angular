@@ -10,16 +10,13 @@ input{
     height: 32px;
 }
 
-textarea {  
+.k-textarea {
+    border-radius: 8px;
+    height: 122px;
     resize: none;
     height: 130px;
     background-color: #b3d4fc;
     width: 100%;
-}
-
-.description {
-    border-radius: 8px;
-    height: 122px;
 }
 
 button {

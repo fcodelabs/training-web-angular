@@ -1,10 +1,11 @@
 <div class="card-form">
     <form class="k-form" [formGroup]="cardForm">
         <kendo-formfield>
-            <input  class="title" formControlName="title" placeholder="Submit New">
+            <input class="title" formControlName="title" placeholder="Submit New">
         </kendo-formfield>
         <kendo-formfield>
-            <textarea class="description" formControlName="description" placeholder="Enter Description"></textarea>
+            <kendo-textarea class="k-textarea"  formControlName="description"
+                placeholder="Enter Description"></kendo-textarea>
         </kendo-formfield>
 
         <div class="k-form-buttons">
