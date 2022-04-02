@@ -15,7 +15,7 @@ export class DiaryCardComponent implements OnInit {
   isExpanded: boolean = false;
   btnText: string = "SHOW MORE";
 
-  constructor() { }
+  constructor (){}
 
   ngOnInit(): void {
   }
