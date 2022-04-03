@@ -1,7 +1,8 @@
-import { Component, OnInit, Output, ViewEncapsulation, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Card } from 'src/models/card.model';
-import { CardService } from 'src/services/card.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app.state';
+import * as CardActions from '../../actions/card.actions';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +15,7 @@ export class FormComponent implements OnInit {
   public cardForm!: FormGroup;
   index: number = 0;
 
-  constructor(private cardService: CardService) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     let title = '';
@@ -27,19 +28,18 @@ export class FormComponent implements OnInit {
 
   }
 
+  addCard(title, description) {
+    this.store.dispatch(new CardActions.AddCard({ title: title, description: description }))
+  }
+
   public submitForm(): void {
     const title = this.cardForm.value.title;
     const description = this.cardForm.value.description;
 
-    const card: Card = new Card(
-      title,
-      description
-    );
-
     if (title && description) {
       console.log(title);
       console.log(description);
-      this.cardService.addCard(card);
+      this.addCard(title, description);
     } else {
       if (!title) {
         console.log("Missing title");

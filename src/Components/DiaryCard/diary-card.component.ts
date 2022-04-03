@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Card } from 'src/models/card.model';
-import { CardService } from 'src/services/card.service';
 
 @Component({
   selector: 'app-diary-card',
@@ -18,13 +17,9 @@ export class DiaryCardComponent implements OnInit {
   isExpanded: boolean = false;
   btnText: string = "SHOW MORE";
 
-  constructor(private cardService: CardService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.card);
-    console.log(this.index);
-
-
   }
 
   public showDescription(): string {

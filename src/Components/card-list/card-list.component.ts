@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from 'src/models/card.model';
-import { CardService } from 'src/services/card.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState } from 'src/app.state';
 
 @Component({
   selector: 'app-card-list',
@@ -9,11 +11,13 @@ import { CardService } from 'src/services/card.service';
 })
 export class CardListComponent implements OnInit {
 
-  listOfCards: Card[] = [];
-  constructor(private cardService: CardService) { }
+  cards: Observable<Card[]>;
+  constructor(private store: Store<AppState>) {
+    this.cards = store.select('card')
+  }
 
   ngOnInit(): void {
-    this.listOfCards = this.cardService.getCards();
+
   }
 
 }
