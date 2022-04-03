@@ -1,16 +1,15 @@
 <div class="card-form">
     <form class="k-form" [formGroup]="cardForm">
         <kendo-formfield>
-            <input  class="title" formControlName="title" placeholder="Submit New">
+            <input class="title" formControlName="title" placeholder="Submit New">
         </kendo-formfield>
         <kendo-formfield>
-            <kendo-textarea class="description" formControlName="description" placeholder="Enter Description"></kendo-textarea>
+            <kendo-textarea class="description" formControlName="description" placeholder="Enter Description">
+            </kendo-textarea>
         </kendo-formfield>
-
         <div class="k-form-buttons">
             <button kendoButton themeColor="primary" (click)="submitForm()">SUBMIT</button>
         </div>
     </form>
 </div>
 <br>
-<app-diary-card></app-diary-card>

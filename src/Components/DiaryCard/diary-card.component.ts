@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Card } from 'src/models/card.model';
+import { CardService } from 'src/services/card.service';
 
 @Component({
   selector: 'app-diary-card',
@@ -7,27 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiaryCardComponent implements OnInit {
 
-  title: string = "Test";
-  subtitle: string = "Noah";
-  description: string = "Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world Hello world";
+  @Input() card?: Card;
+  @Input() index: number = 0;
+
+  subtitle: string = "TestUser";
   color: string = "#B9E9FF"
 
   isExpanded: boolean = false;
   btnText: string = "SHOW MORE";
 
-  constructor (){}
+  constructor(private cardService: CardService) { }
 
   ngOnInit(): void {
+    console.log(this.card);
+    console.log(this.index);
+
+
   }
 
   public showDescription(): string {
-    if (this.description.length > 100) {
-      if (this.isExpanded) return this.description;
+    if (this.card.description.length > 100) {
+      if (this.isExpanded) return this.card.description;
       else {
-        return this.description.substring(0, 100).concat(" ...");
+        return this.card.description.substring(0, 100).concat(" ...");
       }
     }
-    return this.description;
+    return this.card.description;
   }
 
   public toggleShowMore() {

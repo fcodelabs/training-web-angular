@@ -9,13 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from '../pages/DiaryHome/form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FormFieldModule, TextAreaModule } from "@progress/kendo-angular-inputs";
+import { CardListComponent } from '../Components/card-list/card-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DiaryCardComponent,
-    FormComponent
+    FormComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,
