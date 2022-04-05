@@ -13,6 +13,11 @@ import { CardListComponent } from './card-module/pages/card-list/card-list.compo
 import { StoreModule } from '@ngrx/store';
 import { cardReducer } from 'src/app/card-module/store/reducers/card.reducer';
 
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {environment} from "../environments/environment";
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,9 @@ import { cardReducer } from 'src/app/card-module/store/reducers/card.reducer';
     TextAreaModule,
     StoreModule.forRoot({
       card: cardReducer
-    })
+    }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
 
   ],
   providers: [],
