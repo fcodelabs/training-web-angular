@@ -6,6 +6,8 @@ export function cardReducer(state: Card[] = [],
     switch (action.type) {
         case CardActions.ADD_CARD:
             return [...state, action.payload];
+        case CardActions.GET_CARD_SUCCESS:
+            return [...action.payload].sort((a, b) => (a.created < b.created ? 1 : -1));
         default:
             return state;
     }

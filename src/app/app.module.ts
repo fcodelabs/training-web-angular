@@ -3,21 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DiaryCardComponent } from './card-module/components/DiaryCard/diary-card.component';
+import { DiaryCardComponent } from './card-module/components/diary-card/diary-card.component';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormComponent } from './card-module/components/DiaryHome/form.component';
+import { FormComponent } from './card-module/components/diary-form/form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FormFieldModule, TextAreaModule } from "@progress/kendo-angular-inputs";
-import { CardListComponent } from './card-module/pages/card-list/card-list.component';
+import { CardListComponent } from './card-module/containers/home/card-list.component';
 import { StoreModule } from '@ngrx/store';
 import { cardReducer } from 'src/app/card-module/store/reducers/card.reducer';
 
-import {AngularFireModule} from "@angular/fire/compat";
-import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
-import {environment} from "../environments/environment";
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
+import { environment } from "../environments/environment";
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CardEffect } from './card-module/store/effects/card.effects';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       card: cardReducer
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    StoreModule.forRoot({ cards: cardReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([CardEffect]),
+
 
   ],
   providers: [],
