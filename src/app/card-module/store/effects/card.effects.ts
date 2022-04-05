@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { CardService } from "../../services/card.service";
 import { catchError, exhaustMap, map, tap } from "rxjs/operators";
 import { EMPTY } from "rxjs";
-import * as cardActions from '../actions/card.actions';
+import { addPost, getPostsSuccess, getPosts } from '../actions/card.actions';
 
 @Injectable()
 export class CardEffect {
@@ -11,17 +11,17 @@ export class CardEffect {
 
     getCards = createEffect(() =>
         this.actions.pipe(
-            ofType(cardActions.GET_CARD),
+            ofType(getPosts),
             exhaustMap(() => this.cardService.getPosts().pipe(
-                map((cards) => new cardActions.GetCards(cards)),
+                map((cards) => getPostsSuccess(cards)),
                 catchError(() => EMPTY)
             ))
         ));
 
     addCards = createEffect(() =>
         this.actions.pipe(
-            ofType(cardActions.ADD_CARD),
-            tap(({ card }) => this.cardService.addPost(card)),
+            ofType(addPost),
+            tap(({ post }) => this.cardService.addPost(post)),
         ), { dispatch: false }
     )
 }

@@ -3,7 +3,7 @@ import { Card } from '../../models/card.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/card-module/store/states/app.state';
-import * as cardActions from '../../store/actions/card.actions';
+import { getPosts } from '../../store/actions/card.actions';
 
 @Component({
   selector: 'app-card-list',
@@ -13,14 +13,13 @@ import * as cardActions from '../../store/actions/card.actions';
 export class CardListComponent implements OnInit {
 
   cards: Observable<Card[]>;
-  // constructor(private store: Store<AppState>) {
-    constructor(private store: Store<{card:Card[]}>) {
-
+  constructor(private store: Store<AppState>) {
     this.cards = store.select('card')
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new cardActions.CheckForCards());
+    this.store.dispatch(getPosts());
   }
+
 
 }

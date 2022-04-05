@@ -17,7 +17,6 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { environment } from "../environments/environment";
 import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { CardEffect } from './card-module/store/effects/card.effects';
 
 @NgModule({
@@ -41,8 +40,6 @@ import { CardEffect } from './card-module/store/effects/card.effects';
     }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    StoreModule.forRoot({ cards: cardReducer }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([CardEffect]),
 
 

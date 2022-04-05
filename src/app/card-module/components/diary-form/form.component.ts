@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/card-module/store/states/app.state';
 import { Card } from '../../models/card.model';
-import * as CardActions from '../../store/actions/card.actions';
+import { addPost } from '../../store/actions/card.actions';
 
 @Component({
   selector: 'app-form',
@@ -31,10 +31,6 @@ export class FormComponent implements OnInit {
 
   }
 
-  // addCard(title, description) {
-  //   this.store.dispatch(new CardActions.AddCard({ user: this.user, title: title, description: description, created: new Date() }))
-  // }
-
   public submitForm(): void {
     const title = this.cardForm.value.title;
     const description = this.cardForm.value.description;
@@ -48,8 +44,7 @@ export class FormComponent implements OnInit {
     if (title && description) {
       console.log(title);
       console.log(description);
-      // this.addCard(title, description);
-      this.store.dispatch(new CardActions.AddCard(post));
+      this.store.dispatch(addPost({ post }));
     } else {
       if (!title) {
         console.log("Missing title");

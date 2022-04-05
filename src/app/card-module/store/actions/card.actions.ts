@@ -1,27 +1,21 @@
-import { Action } from "@ngrx/store";
-import { Card } from '../../models/card.model';
+import { createAction, props } from "@ngrx/store";
+import { Card } from "../../models/card.model";
 
-export const ADD_CARD = "[CARD] Add"
-export const GET_CARD = "[CARD] Get"
-export const GET_CARD_SUCCESS = "[CARD] Get Card Success"
+export const addPost = createAction('[Post] Add post', props<{ post: Card }>());
 
-export class AddCard implements Action {
-    readonly type = ADD_CARD
+export const getPosts = createAction('[Post] Get posts');
 
-    constructor(public payload: Card) { }
-}
+export const getPostsSuccess = createAction('[Post] Get posts successfully', props<{ posts: Card[] }>());
 
-export class GetCards implements Action {
-    readonly type = GET_CARD_SUCCESS
+export const getPostsFailure = createAction('[Post] Get posts fail');
 
-    constructor(public payload: Card[]) { }
-    // constructor() { }
 
-}
 
-export class CheckForCards implements Action {
-    readonly type = GET_CARD;
-}
 
-export type Actions = AddCard | GetCards | CheckForCards
+
+
+
+
+
+
 
