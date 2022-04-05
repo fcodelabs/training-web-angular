@@ -1,4 +1,4 @@
-import { Card } from "../models/card.model";
+import { Card } from "../../models/card.model";
 import * as CardActions from '../actions/card.actions';
 
 export function cardReducer(state: Card[] = [],

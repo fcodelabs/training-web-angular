@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app.state';
-import * as CardActions from '../../actions/card.actions';
+import { AppState } from 'src/app/card-module/store/states/app.state';
+import * as CardActions from '../../store/actions/card.actions';
 
 @Component({
   selector: 'app-form',

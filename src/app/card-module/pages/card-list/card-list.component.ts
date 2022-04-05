@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from 'src/models/card.model';
+import { Card } from '../../models/card.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from 'src/app.state';
+import { AppState } from 'src/app/card-module/store/states/app.state';
 
 @Component({
   selector: 'app-card-list',
