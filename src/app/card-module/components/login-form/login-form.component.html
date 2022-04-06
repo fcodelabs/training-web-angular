@@ -1,0 +1,13 @@
+<div class="login-form">
+    <form class="k-form" [formGroup]="loginForm">
+        <kendo-formfield>
+            <input class="nickname" formControlName="nickname" placeholder="Your Nickname*">
+        </kendo-formfield>
+        <div class="k-form-buttons">
+            <!-- <button kendoButton themeColor="primary" (click)="signIn()" [disabled]="!nickname">Continue</button> -->
+            <button kendoButton themeColor="primary" (click)="signIn()">Continue</button>
+
+        </div>
+    </form>
+</div>
+<br>

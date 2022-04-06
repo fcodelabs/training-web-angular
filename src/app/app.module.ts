@@ -18,13 +18,17 @@ import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { environment } from "../environments/environment";
 import { EffectsModule } from '@ngrx/effects';
 import { CardEffect } from './card-module/store/effects/card.effects';
+import { LoginComponent } from './card-module/containers/login/login.component';
+import { LoginFormComponent } from './card-module/components/login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DiaryCardComponent,
     FormComponent,
-    CardListComponent
+    CardListComponent,
+    LoginComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

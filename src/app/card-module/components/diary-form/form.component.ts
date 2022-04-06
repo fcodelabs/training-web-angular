@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/card-module/store/states/app.state';
 import { Card } from '../../models/card.model';
+import { LoginService } from '../../services/login.service';
 import { addPost } from '../../store/actions/card.actions';
 
 @Component({
@@ -15,9 +16,11 @@ export class FormComponent implements OnInit {
 
   public cardForm!: FormGroup;
   index: number = 0;
-  user: 'Krishalika';
+  // user: 'Krishalika';
+  // constructor(private store: Store<AppState>) { }
 
-  constructor(private store: Store<AppState>) { }
+  user: string;
+  constructor(private store: Store<AppState>, private loginService: LoginService) { }
 
   ngOnInit(): void {
     let title = '';
@@ -29,6 +32,10 @@ export class FormComponent implements OnInit {
       description: new FormControl(description)
     });
 
+    this.user = this.loginService.getUsername()
+    console.log("Username is: ",this.loginService.getUsername());
+    
+
   }
 
   public submitForm(): void {
@@ -36,7 +43,9 @@ export class FormComponent implements OnInit {
     const description = this.cardForm.value.description;
 
     const post: Card = {
-      user: "Krishalika",
+      // user: "Krishalika",
+
+      user: this.loginService.getUsername(),
       title: title,
       description: description,
       created: new Date()
