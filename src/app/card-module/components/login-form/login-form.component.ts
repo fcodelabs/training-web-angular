@@ -11,16 +11,14 @@ import { Router } from '@angular/router';
 export class LoginFormComponent implements OnInit {
 
   public loginForm!: FormGroup;
-  nickname: string;
+  nicknameArray = ['Logan', 'Benjamin', 'James', 'Noah', 'William', 'Liam'];
   constructor(private loginService: LoginService, private router: Router) { }
   @Output() event = new EventEmitter<String>()
+  nickname = ''
 
   ngOnInit(): void {
-   //let nickname = '';
-
     this.loginForm = new FormGroup({
-    //  nickname: new FormControl(nickname, [Validators.required])
-     nickname: new FormControl(this.nickname, [Validators.required])
+      nickname: new FormControl(this.nickname, [Validators.required])
 
     })
   }
@@ -30,6 +28,12 @@ export class LoginFormComponent implements OnInit {
     this.event.emit(this.loginForm.value.nickname);
 
     this.router.navigate(["/home"]);
+  }
+
+  public showNickname() {
+    var randNickname = this.nicknameArray[Math.floor(Math.random() * this.nicknameArray.length)]
+    this.loginForm.setValue({ nickname: randNickname });
+
   }
 
 }
