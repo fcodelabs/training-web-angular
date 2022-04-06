@@ -16,6 +16,6 @@ export class CardService {
   }
 
   public addPost(card: Card): void {
-    this.angularFirestore.collection('posts').add(card).catch(() => Error);
+    this.angularFirestore.collection('posts').add(card);
   }
 }
