@@ -38,7 +38,7 @@ import { CardEffect } from './card-module/store/effects/card.effects';
     StoreModule.forRoot({
       card: cardReducer
     }),
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig, {useFetchStreams:false} as any),
     AngularFirestoreModule,
     EffectsModule.forRoot([CardEffect]),
 

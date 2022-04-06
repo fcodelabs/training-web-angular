@@ -7,7 +7,7 @@
         <kendo-card-body>
             <p>{{showDescription()}}</p>
         </kendo-card-body>
-        <kendo-card-actions *ngIf="card.description.length>100" orientation="horizontal" layout="start">
+        <kendo-card-actions  orientation="horizontal" layout="start">
             <button kendoButton (click)="toggleShowMore()">
                 {{btnText}}
             </button>

@@ -13,7 +13,7 @@ export class CardEffect {
         this.actions.pipe(
             ofType(getPosts),
             exhaustMap(() => this.cardService.getPosts().pipe(
-                map((cards) => getPostsSuccess(cards)),
+                map((posts) => getPostsSuccess({posts})),
                 catchError(() => EMPTY)
             ))
         ));
