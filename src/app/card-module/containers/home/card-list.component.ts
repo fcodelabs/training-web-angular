@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/card-module/store/states/app.state';
 import { getPosts } from '../../store/actions/card.actions';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-card-list',
@@ -13,13 +14,13 @@ import { getPosts } from '../../store/actions/card.actions';
 export class CardListComponent implements OnInit {
 
   cards: Observable<Card[]>;
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private titleService: Title) {
+    this.titleService.setTitle("Dear Diary - Home");
     this.cards = store.select('card')
   }
 
   ngOnInit(): void {
     this.store.dispatch(getPosts());
   }
-
 
 }

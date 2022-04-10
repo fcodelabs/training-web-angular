@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DiaryCardComponent } from './card-module/components/diary-card/diary-card.component';
 import { LayoutModule } from '@progress/kendo-angular-layout';
+import { Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './card-module/components/diary-form/form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -48,7 +49,7 @@ import { LoginFormComponent } from './card-module/components/login-form/login-fo
 
 
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

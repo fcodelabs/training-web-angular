@@ -1,14 +1,16 @@
 <div class="login-form">
+    <h4>Sign In</h4>
     <form class="k-form" [formGroup]="loginForm">
         <div class="grid">
             <kendo-formfield>
                 <input class="nickname" formControlName="nickname" placeholder="Your Nickname*">
             </kendo-formfield>
-            <button kendoButton themeColor="primary" (click)="showNickname()">RANDOM</button>
+            <div>
+                <button class="btnNickname" kendoButton themeColor="primary" (click)="showNickname()">RANDOM</button>
+            </div>
         </div>
-        
         <div class="k-form-buttons">
-            <button kendoButton themeColor="primary" (click)="signIn()" [disabled]="!loginForm.valid">Continue</button>
+            <button class="btnContinue" kendoButton themeColor="primary" (click)="signIn()" [disabled]="!loginForm.valid">CONTINUE</button>
         </div>
     </form>
 </div>

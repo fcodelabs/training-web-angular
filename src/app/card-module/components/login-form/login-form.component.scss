@@ -1,29 +1,63 @@
-.grid{
+$buttonColor: #039be5;
+$buttonHeight: 36.5px;
+$btnTextColor: white;
+
+.grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 15px;
 }
 
 .login-form {
-    width: 100%;
+    height: 323.02px;
+    width: 720px;
+    background-color: $btnTextColor;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h4 {
+        text-align: center;
+        color: #039be5;
+    }
+    .btnNickname {
+        height: $buttonHeight;
+        background-color: $buttonColor;
+        border-radius: 20px;
+        width: 100%;
+        cursor: pointer;
+        color: $btnTextColor;
+        border: none;
+        margin-top: 12px;
+        &:hover {
+            background: #022958;
+        }
+    }
+    .btnContinue {
+        height: $buttonHeight;
+        background-color: $buttonColor;
+        border-radius: 20px;
+        width: 100%;
+        cursor: pointer;
+        color: $btnTextColor;
+        border: none;
+        margin-top: 12px;
+    }
+    .btnContinue:disabled{
+        background-color: rgb(205, 203, 203);
+        cursor: auto;
+    }
 }
 
-.nickname{
+.nickname {
     border-radius: 24px;
     height: 32px;
-    background-color: #b3d4fc;
     width: 100%;
+    border: none;
 }
 
 kendo-formfield {
     padding-top: 0px;
 }
 
-button {
-    height: 36.5px;
-    background-color: #2271F1EE;
-    border-radius: 20px;
-    width: 100%;
-    cursor: pointer;
-}
