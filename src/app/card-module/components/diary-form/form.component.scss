@@ -1,12 +1,16 @@
 .card-form {
     width: 100%;
 }
-input{
+input {
     background-color: #b3d4fc;
     width: 100%;
     border: none;
+
+    &:focus {
+        outline: none;
+    }
 }
-.title{
+.title {
     border-radius: 24px;
     height: 32px;
 }
@@ -22,7 +26,7 @@ input{
 
 button {
     height: 36.5px;
-    background-color: #2271F1EE;
+    background-color: #2271f1ee;
     border-radius: 20px;
     width: 100%;
     cursor: pointer;

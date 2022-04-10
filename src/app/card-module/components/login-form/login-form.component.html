@@ -1,16 +1,23 @@
 <div class="login-form">
-    <h4>Sign In</h4>
+    <div class="top-diary-name">
+        <img class="icon-image" src="../../../../assets/icon.svg" alt="">
+        <h3 class="icon-name">Dear Diary</h3>
+    </div>
+    <h1>Sign In</h1>
     <form class="k-form" [formGroup]="loginForm">
         <div class="grid">
             <kendo-formfield>
                 <input class="nickname" formControlName="nickname" placeholder="Your Nickname*">
             </kendo-formfield>
-            <div>
+            <div class="btnName">
                 <button class="btnNickname" kendoButton themeColor="primary" (click)="showNickname()">RANDOM</button>
             </div>
         </div>
         <div class="k-form-buttons">
-            <button class="btnContinue" kendoButton themeColor="primary" (click)="signIn()" [disabled]="!loginForm.valid">CONTINUE</button>
+            <button class="btnContinue" kendoButton themeColor="primary" (click)="signIn()"
+                [disabled]="!loginForm.valid">CONTINUE
+                <span class="k-icon k-i-arrow-right k-icon-md"></span>
+            </button>
         </div>
     </form>
 </div>

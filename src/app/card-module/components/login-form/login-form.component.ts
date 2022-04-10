@@ -17,9 +17,9 @@ export class LoginFormComponent implements OnInit {
   nickname = ''
 
   ngOnInit(): void {
+
     this.loginForm = new FormGroup({
       nickname: new FormControl(this.nickname, [Validators.required])
-
     })
   }
 

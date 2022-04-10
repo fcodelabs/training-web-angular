@@ -1,12 +1,30 @@
 $buttonColor: #039be5;
 $buttonHeight: 36.5px;
 $btnTextColor: white;
+$btnHoverColor: #022958;
 
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 15px;
+    grid-row-start: auto;
+}
+.top-diary-name {
+    margin-top: 8px;
+    margin-left: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    .icon-image {
+        width: 30px;
+        margin-right: 10px;
+        display: inline-block;
+    }
+    .icon-name {
+        display: inline-block;
+        margin-left: 10px;
+    }
 }
 
 .login-form {
@@ -17,9 +35,22 @@ $btnTextColor: white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    h4 {
+    border-radius: 20px;
+    justify-content: center;
+    h1 {
         text-align: center;
         color: #039be5;
+        margin-top: 0px;
+    }
+    .k-form {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        width: 60%;
+        .k-form-buttons {
+            justify-content: center;
+        }
     }
     .btnNickname {
         height: $buttonHeight;
@@ -31,20 +62,26 @@ $btnTextColor: white;
         border: none;
         margin-top: 12px;
         &:hover {
-            background: #022958;
+            background: $btnHoverColor;
         }
     }
     .btnContinue {
         height: $buttonHeight;
         background-color: $buttonColor;
         border-radius: 20px;
-        width: 100%;
+        width: 50%;
         cursor: pointer;
         color: $btnTextColor;
         border: none;
         margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            background: $btnHoverColor;
+        }
     }
-    .btnContinue:disabled{
+    .btnContinue:disabled {
         background-color: rgb(205, 203, 203);
         cursor: auto;
     }
@@ -55,9 +92,11 @@ $btnTextColor: white;
     height: 32px;
     width: 100%;
     border: none;
+    &:focus {
+        outline-color: grey;
+    }
 }
 
 kendo-formfield {
     padding-top: 0px;
 }
-

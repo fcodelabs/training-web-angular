@@ -16,6 +16,11 @@ button {
     font-weight: bold;
     vertical-align: middle;
     justify-content: center;
+    width: 40%;
     height: 36.75px;
-    background-color: inherit;
+    background-color: transparent;
+
+    &:hover {
+        background-color: #039be5;
+    }
 }
