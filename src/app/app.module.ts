@@ -9,13 +9,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from '../pages/DiaryHome/form.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { FormFieldModule, TextAreaModule } from "@progress/kendo-angular-inputs";
+import { CardListComponent } from '../Components/card-list/card-list.component';
+import { StoreModule } from '@ngrx/store';
+import { cardReducer } from 'src/reducers/card.reducer';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DiaryCardComponent,
-    FormComponent
+    FormComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,11 @@ import { FormFieldModule, TextAreaModule } from "@progress/kendo-angular-inputs"
     FormsModule,
     ReactiveFormsModule,
     FormFieldModule,
-    TextAreaModule
+    TextAreaModule,
+    StoreModule.forRoot({
+      card: cardReducer
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
