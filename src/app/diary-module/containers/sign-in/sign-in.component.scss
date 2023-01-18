@@ -1,0 +1,91 @@
+#container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#sign-in-card {
+  width: 48%;
+  height: 45%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo {
+  width: 5vh;
+  padding: 1vh;
+}
+
+#logoSec {
+  margin: 1vh;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#sign-in {
+  font-weight: lighter;
+  color: #039be5;
+  font-size: 35px;
+  text-align: center;
+}
+
+.grey-color {
+  color: gray;
+}
+
+#username-txt {
+  border-radius: 5px;
+  padding: 12px;
+  border: 1px solid silver;
+  font-size: medium;
+  width: 20vw;
+}
+
+input:focus-visible {
+  outline: 1px solid silver !important;
+}
+
+#random-btn {
+  margin-left: 2vw;
+  padding: 1.5vh;
+}
+
+#continue-btn {
+  font-size: 15px;
+  padding: 2vh;
+  justify-content: space-evenly;
+  width: 10vw;
+}
+
+.btn{
+    border-radius: 25px;
+    border: none;
+}
+
+.btn:enabled{
+  background-color: #039be5;
+  color: white;
+}
+
+.btn:disabled{
+    background-color:rgba(0, 0, 0, 0.12);
+
+}
+
+
+.btn:enabled:hover {
+  background-color: #01579b;
+}
+
+#inputArea {
+  margin-top: 5vh;
+  margin-bottom: 4vh;
+}
+#icon {
+  height: 3vh;
+}
