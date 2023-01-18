@@ -1,29 +1,38 @@
-<div class="signin-container">
-  <form [formGroup]="signInForm">
-    <div>
-      <label for="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        formControlName="name"
-        [(ngModel)]="inputName"
-      />
-      <mat-form-field appearance="fill">
-        <input matInput type="text" />
-      </mat-form-field>
-      <div
-        *ngIf="
-          signInForm?.get('name')?.hasError('required') &&
-          signInForm?.get('name')?.touched
-        "
-      >
-        Name is required
-      </div>
-      <button (click)="generateRandomName()">Random</button>
-    </div>
+<div class="signin-container center-div">
+  <h1 style="color: white; font-weight: bolder">Dear Diary</h1>
+  <mat-card>
+    <form [formGroup]="signInForm">
+      <div>
+        <mat-form-field appearance="fill" class="input-space">
+          <mat-label>Name</mat-label>
+          <input
+            matInput
+            type="text"
+            id="name"
+            formControlName="name"
+            [(ngModel)]="inputName"
+          />
+        </mat-form-field>
 
-    <button type="submit" [disabled]="signInForm.invalid" (click)="onSubmit()">
-      Sign In
-    </button>
-  </form>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="generateRandomName()"
+        >
+          Random
+        </button>
+      </div>
+
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="signInForm.invalid"
+        (click)="onSubmit()"
+        class="input-space"
+      >
+        Sign In
+      </button>
+    </form>
+  </mat-card>
 </div>

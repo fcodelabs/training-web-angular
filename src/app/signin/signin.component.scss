@@ -38,3 +38,21 @@
 //     font-size: medium;
 //     font-weight: bold;
 //   }
+
+.center-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.input-space{
+    margin: 10px 20px;
+}
+
+.bg-color{
+    background: fixed;
+    background-color: aqua;
+}
+
+
