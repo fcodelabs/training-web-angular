@@ -1,0 +1,29 @@
+<div class="signin-container">
+  <form [formGroup]="signInForm">
+    <div>
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        [(ngModel)]="inputName"
+      />
+      <mat-form-field appearance="fill">
+        <input matInput type="text" />
+      </mat-form-field>
+      <div
+        *ngIf="
+          signInForm?.get('name')?.hasError('required') &&
+          signInForm?.get('name')?.touched
+        "
+      >
+        Name is required
+      </div>
+      <button (click)="generateRandomName()">Random</button>
+    </div>
+
+    <button type="submit" [disabled]="signInForm.invalid" (click)="onSubmit()">
+      Sign In
+    </button>
+  </form>
+</div>
