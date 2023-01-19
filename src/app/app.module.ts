@@ -7,21 +7,16 @@ import { SignInComponent } from './diary-module/containers/sign-in/sign-in.compo
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignInComponent
-  ],
+  declarations: [AppComponent, SignInComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     InputsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

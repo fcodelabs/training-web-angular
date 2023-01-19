@@ -1,4 +1,4 @@
-#container {
+.container {
   width: 100vw;
   height: 100vh;
 }
@@ -18,11 +18,11 @@
 
 #logo {
   width: 5vh;
-  padding: 1vh;
+  padding: 10px;
 }
 
 #logoSec {
-  margin: 1vh;
+  margin: 10px;
   display: flex;
   justify-content: flex-start;
 }
@@ -51,40 +51,38 @@ input:focus-visible {
 }
 
 #random-btn {
-  margin-left: 2vw;
-  padding: 1.5vh;
+  margin-left: 20px;
+  padding: 15px;
 }
 
 #continue-btn {
   font-size: 15px;
-  padding: 2vh;
+  padding: 20px;
   justify-content: space-evenly;
   width: 10vw;
 }
 
-.btn{
-    border-radius: 25px;
-    border: none;
+.btn {
+  border-radius: 30px;
+  border: none;
 }
 
-.btn:enabled{
+.btn:enabled {
   background-color: #039be5;
   color: white;
 }
 
-.btn:disabled{
-    background-color:rgba(0, 0, 0, 0.12);
-
+.btn:disabled {
+  background-color: rgba(0, 0, 0, 0.12);
 }
-
 
 .btn:enabled:hover {
   background-color: #01579b;
 }
 
 #inputArea {
-  margin-top: 5vh;
-  margin-bottom: 4vh;
+  margin-top: 30px;
+  margin-bottom: 25px;
 }
 #icon {
   height: 3vh;

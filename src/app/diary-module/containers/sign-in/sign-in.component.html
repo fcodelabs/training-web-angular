@@ -1,27 +1,31 @@
-<div id="container" class="center">
+<div class="center container">
   <div id="sign-in-card">
     <div id="logoSec" class="center">
       <img id="logo" src="../../../../assets/logo.png" alt="logo" />
       <p class="grey-color">Dear Diary</p>
     </div>
-
     <div>
       <h1 id="sign-in">Sign In</h1>
       <div class="center" id="inputArea">
-        <input placeholder="Your Nickname*" id="username-txt" type="text" [formControl]="username" (input)="enableDisable()"/>
-
-        <button id="random-btn" class="btn" (click)="generateName()">RANDOM</button>
+        <input
+          placeholder="Your Nickname*"
+          id="username-txt"
+          type="text"
+          [formControl]="username"
+        />
+        <button id="random-btn" class="btn" (click)="generateName()">
+          RANDOM
+        </button>
       </div>
-
       <div class="center">
         <button
           type="button"
           id="continue-btn"
           class="center btn"
-          [disabled]="disable.value"
+          [disabled]="!username.valid"
         >
-          <span>CONTINUE </span
-          ><img
+          <span>CONTINUE </span>
+          <img
             id="icon"
             src="../../../../assets/right-arrow.png"
             alt="right-arrow"

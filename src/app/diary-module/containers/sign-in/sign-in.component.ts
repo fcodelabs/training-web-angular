@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,8 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
-  username = new FormControl('');
-  disable = new FormControl(true);
+  username = new FormControl('', Validators.required);
   constructor() {}
 
   ngOnInit(): void {}
@@ -26,14 +25,5 @@ export class SignInComponent implements OnInit {
     ];
     const randomName = names[Math.floor(Math.random() * names.length)];
     this.username.setValue(randomName);
-    this.disable.setValue(false);
-  }
-
-  enableDisable() {
-    if (this.username.value) {
-      this.disable.setValue(false);
-    } else {
-      this.disable.setValue(true);
-    }
   }
 }
