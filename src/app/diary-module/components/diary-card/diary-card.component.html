@@ -1,0 +1,19 @@
+<div class="card">
+  <div>
+    <div *ngIf="card">
+      <h2 id="title">{{ card.title }}</h2>
+      <p id="sub-title">{{ card.subtitle }}</p>
+      <p id="description">{{ text.value }}</p>
+    </div>
+  </div>
+  <div>
+    <button
+      type="button"
+      id="showMoreBtn"
+      [class]="visibility.value"
+      (click)="handleShowMore()"
+    >
+      {{ btnName.value }}
+    </button>
+  </div>
+</div>
