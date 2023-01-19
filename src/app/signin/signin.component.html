@@ -1,38 +1,67 @@
-<div class="signin-container center-div">
+<!-- <div class="signin-container center-div">
   <h1 style="color: white; font-weight: bolder">Dear Diary</h1>
   <mat-card>
-    <form [formGroup]="signInForm">
+    <form>
       <div>
         <mat-form-field appearance="fill" class="input-space">
           <mat-label>Name</mat-label>
-          <input
-            matInput
-            type="text"
-            id="name"
-            formControlName="name"
-            [(ngModel)]="inputName"
-          />
+          <input matInput type="text" id="name" [formControl]="nameControl" />
         </mat-form-field>
 
         <button
+          type="button"
           mat-raised-button
           color="primary"
-          (click)="generateRandomName()"
+          (click)="generateRandomName($event)"
         >
           Random
         </button>
       </div>
 
       <button
-        type="submit"
+        type="button"
         mat-raised-button
         color="primary"
-        [disabled]="signInForm.invalid"
-        (click)="onSubmit()"
+        [disabled]="nameControl.invalid"
         class="input-space"
+        (click)="onSubmit($event)"
       >
         Sign In
       </button>
     </form>
   </mat-card>
+</div> -->
+
+<div class="example center-div">
+  <h1 style="font-size: x-large; font-weight: bolder; color: white">
+    Dear Diary
+  </h1>
+  <kendo-card style="padding: 20px 40px">
+    <form class="k-form" [formGroup]="form">
+      <fieldset class="k-form-fieldset">
+        <kendo-formfield>
+          <kendo-label [for]="username" text="Username"></kendo-label>
+          <kendo-textbox
+            formControlName="username"
+            #username
+            required
+          ></kendo-textbox>
+
+          <kendo-formerror>Error: Username is required</kendo-formerror>
+        </kendo-formfield>
+
+        <div class="k-form-buttons" style="margin-top: 20px">
+          <button
+            kendoButton
+            themeColor="primary"
+            [disabled]="form.invalid || form.get('username')?.value?.length < 3"
+            (click)="login()"
+          >
+            Continue
+          </button>
+          <button kendoButton (click)="generateRandomName()">Random</button>
+        </div>
+      </fieldset>
+    </form>
+  </kendo-card>
 </div>

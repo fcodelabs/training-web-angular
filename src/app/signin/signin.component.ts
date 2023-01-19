@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -7,31 +7,23 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  names = ['John', 'Mary', 'Peter', 'Sarah', 'David'];
-  inputName: string = '';
-  randomName: string = '';
-  signInForm: FormGroup;
-  constructor(private fb: FormBuilder) {
-    this.signInForm = new FormGroup({});
-  }
+  form: FormGroup;
 
-  ngOnInit(): void {
-    this.signInForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+  constructor() {
+    this.form = new FormGroup({
+      username: new FormControl('', Validators.required),
     });
   }
 
-  generateRandomName() {
-    const randomIndex = Math.floor(Math.random() * this.names.length);
-    this.randomName = this.names[randomIndex];
-    this.inputName = this.randomName;
+  ngOnInit(): void {}
+
+  generateRandomName(): void {
+    const names = ['John', 'Mary', 'Peter', 'Sarah', 'David'];
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    this.form.patchValue({ username: randomName });
   }
 
-  onSubmit() {
-    if (this.signInForm.valid) {
-      console.log(this.signInForm.value);
-      // Handle the form submission here
-      localStorage.setItem('name', this.signInForm.value);
-    }
+  public login() {
+    console.log(this.form.value);
   }
 }
