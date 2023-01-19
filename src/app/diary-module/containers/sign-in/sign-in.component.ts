@@ -1,39 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core'
+import { FormControl, Validators } from '@angular/forms'
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss'],
+    selector: 'app-sign-in',
+    templateUrl: './sign-in.component.html',
+    styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
-  username = new FormControl('');
-  disable = new FormControl(true);
-  constructor() {}
+    username = new FormControl('', Validators.required)
 
-  ngOnInit(): void {}
+    constructor() {}
 
-  generateName(): void {
-    const names = [
-      'John',
-      'Nick',
-      'Anne',
-      'Henry',
-      'James',
-      'Robert',
-      'William',
-      'Merry',
-    ];
-    const randomName = names[Math.floor(Math.random() * names.length)];
-    this.username.setValue(randomName);
-    this.disable.setValue(false);
-  }
+    ngOnInit(): void {}
 
-  enableDisable() {
-    if (this.username.value) {
-      this.disable.setValue(false);
-    } else {
-      this.disable.setValue(true);
+    generateName(): void {
+        const names = ['John', 'Anne', 'Henry', 'James', 'William', 'Merry']
+        const randomName = names[Math.floor(Math.random() * names.length)]
+        this.username.setValue(randomName)
     }
-  }
 }
