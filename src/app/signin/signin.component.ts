@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -9,7 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class SigninComponent implements OnInit {
   public username = new FormControl('');
 
-  constructor() {
+  constructor(private router: Router) {
     this.username = new FormControl('', Validators.required);
   }
 
@@ -23,5 +24,6 @@ export class SigninComponent implements OnInit {
 
   public login() {
     console.log(this.username.value);
+    this.router.navigate(['/home']);
   }
 }

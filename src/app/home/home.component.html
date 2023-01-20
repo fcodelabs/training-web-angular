@@ -1,0 +1,40 @@
+<!-- Diary Form -->
+<div>
+  <div style="margin-left: 20px">
+    <form class="k-form" [formGroup]="form">
+      <fieldset class="k-form-fieldset">
+        <kendo-formfield style="margin: 12px 0px">
+          <kendo-textbox
+            formControlName="title"
+            placeholder="Enter the title"
+            [clearButton]="true"
+            #title
+            required
+          ></kendo-textbox>
+
+          <kendo-formerror>Error: Title is Required</kendo-formerror>
+        </kendo-formfield>
+
+        <kendo-formfield>
+          <kendo-textarea
+            [style.width.px]="500"
+            resizable="auto"
+            placeholder="Enter the description"
+            formControlName="description"
+            #description
+            required
+          ></kendo-textarea>
+          <kendo-formerror>Error: Description is Required</kendo-formerror>
+        </kendo-formfield>
+
+        <div class="k-form-buttons" style="margin: 10px 0px">
+          <button kendoButton themeColor="primary" (click)="submit()">
+            Sumbit
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<!-- Diary Cards -->
+<div></div>

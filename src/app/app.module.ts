@@ -16,9 +16,10 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, SigninComponent],
+  declarations: [AppComponent, SigninComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
