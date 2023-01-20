@@ -23,7 +23,7 @@ export class SigninComponent implements OnInit {
     }
   }
 
-  public randomNameGeneratetor(): void {
+  public randomNameGenerator(): void {
     const config: Config = {
       dictionaries: [names],
       separator: ' ',
