@@ -15,6 +15,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, SigninComponent],
@@ -32,6 +33,7 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
     InputsModule,
     LayoutModule,
     ButtonsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

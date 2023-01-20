@@ -7,12 +7,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  form: FormGroup;
+  public username = new FormControl('');
 
   constructor() {
-    this.form = new FormGroup({
-      username: new FormControl('', Validators.required),
-    });
+    this.username = new FormControl('', Validators.required);
   }
 
   ngOnInit(): void {}
@@ -20,10 +18,10 @@ export class SigninComponent implements OnInit {
   generateRandomName(): void {
     const names = ['John', 'Mary', 'Peter', 'Sarah', 'David'];
     const randomName = names[Math.floor(Math.random() * names.length)];
-    this.form.patchValue({ username: randomName });
+    this.username.setValue(randomName);
   }
 
   public login() {
-    console.log(this.form.value);
+    console.log(this.username.value);
   }
 }
