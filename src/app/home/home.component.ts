@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +13,11 @@ export class HomeComponent implements OnInit {
   });
 
   public submit(): void {
-    console.log(this.form.value);
     this.form.markAllAsTouched();
+    if (this.form.valid) {
+      console.log(this.form.value);
+      this.form.reset();
+    }
   }
 
   constructor() {}
