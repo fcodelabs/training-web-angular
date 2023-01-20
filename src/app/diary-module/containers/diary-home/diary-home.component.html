@@ -1,0 +1,40 @@
+<div class="container">
+    <div id="content">
+        <h1>HOME</h1>
+        <div id="addForm">
+            <div id="titleSec">
+                <input
+                    type="text"
+                    id="title"
+                    class="txt"
+                    placeholder="Enter Title"
+                    value="{{ title.value }}"
+                    [formControl]="title"
+                    (click)="handleExpand()"
+                />
+                <button
+                    type="submit"
+                    id="btnSubmit"
+                    (click)="handleSubmit()"
+                    [class]="expand.value"
+                >
+                    SUBMIT
+                </button>
+            </div>
+            <div>
+                <textarea
+                    name="description"
+                    [formControl]="description"
+                    (click)="handleExpand()"
+                    id="description"
+                    cols="30"
+                    rows="5"
+                    placeholder="Enter description"
+                    class="txt"
+                    [class]="expand.value"
+                    >{{ description.value }}</textarea
+                >
+            </div>
+        </div>
+    </div>
+</div>

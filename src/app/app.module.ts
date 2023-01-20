@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { SignInComponent } from './diary-module/containers/sign-in/sign-in.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { DiaryHomeComponent } from './diary-module/containers/diary-home/diary-home.component'
 
 @NgModule({
-    declarations: [AppComponent, SignInComponent],
+    declarations: [AppComponent, SignInComponent, DiaryHomeComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
