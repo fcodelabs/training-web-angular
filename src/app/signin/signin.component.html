@@ -1,0 +1,28 @@
+<div class="example center-div">
+  <h1 style="font-size: x-large; font-weight: bolder; color: white">
+    Dear Diary
+  </h1>
+  <kendo-card style="padding: 20px 20px">
+    <kendo-label class="k-form" text="Username">
+      <kendo-textbox
+        [formControl]="username"
+        [style.width.px]="200"
+        placeholder="Type your name here"
+        [clearButton]="true"
+      >
+      </kendo-textbox>
+    </kendo-label>
+
+    <div class="k-form-buttons" style="margin-top: 20px">
+      <button
+        kendoButton
+        themeColor="primary"
+        [disabled]="username.invalid"
+        (click)="login()"
+      >
+        Continue
+      </button>
+      <button kendoButton (click)="generateRandomName()">Random</button>
+    </div>
+  </kendo-card>
+</div>
