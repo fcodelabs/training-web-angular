@@ -11,29 +11,33 @@ export class DiaryCardComponent implements OnInit {
     @Input()
     card!: Card
 
-    text = new FormControl('')
-    visibility = new FormControl('')
+    text = new FormControl<String>('')
+    visibility = new FormControl<String>('')
     btnName = new FormControl('SHOW MORE')
 
     ngOnInit(): void {
-        if (this.card.description.length < 100) {
-            this.text.setValue(this.card.description)
-            this.visibility.setValue('hide')
-        } else {
-            const textTemp = this.card.description.substring(1, 100)
-            this.text.setValue(textTemp + '...')
-            this.visibility.setValue('visible')
+        if (this.card.description != null) {
+            if (this.card.description.length < 100) {
+                this.text.setValue(this.card.description)
+                this.visibility.setValue('hide')
+            } else {
+                const textTemp = this.card.description.substring(1, 100)
+                this.text.setValue(textTemp + '...')
+                this.visibility.setValue('visible')
+            }
         }
     }
 
     handleShowMore() {
-        if (this.btnName.value == 'SHOW MORE') {
-            this.text.setValue(this.card.description)
-            this.btnName.setValue('SHOW LESS')
-        } else {
-            const textTemp = this.card.description.substring(1, 100)
-            this.text.setValue(textTemp + '...')
-            this.btnName.setValue('SHOW MORE')
+        if (this.card.description != null) {
+            if (this.btnName.value == 'SHOW MORE') {
+                this.text.setValue(this.card.description)
+                this.btnName.setValue('SHOW LESS')
+            } else {
+                const textTemp = this.card.description.substring(1, 100)
+                this.text.setValue(textTemp + '...')
+                this.btnName.setValue('SHOW MORE')
+            }
         }
     }
 }

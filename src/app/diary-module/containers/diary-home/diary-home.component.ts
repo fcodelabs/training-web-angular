@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl } from '@angular/forms'
+import { FormControl, Validators } from '@angular/forms'
+import { Card } from '../../components/diary-card/card'
 
 @Component({
     selector: 'app-diary-home',
@@ -7,9 +8,11 @@ import { FormControl } from '@angular/forms'
     styleUrls: ['./diary-home.component.scss'],
 })
 export class DiaryHomeComponent implements OnInit {
-    title = new FormControl('')
-    description = new FormControl('')
+    title = new FormControl('',Validators.required)
+    description = new FormControl('',Validators.required)
     expand = new FormControl('collapse')
+
+    cards = new FormControl<Array<Card>>([])
 
     constructor() {}
 
@@ -22,8 +25,19 @@ export class DiaryHomeComponent implements OnInit {
     }
 
     handleSubmit() {
-        console.log('Title : ' + this.title.value)
-        console.log('Description : ' + this.description.value)
+        if (this.title.valid && this.description.valid) {
+            const card: Card = {
+                title: this.title.value,
+                description:this.description.value,
+                subtitle:localStorage.getItem("Username")
+            }
+            this.cards.value?.push(card)
+        }else{
+            if(!this.title.valid)
+            console.log('Missing title')
+            if(!this.description.valid)
+            console.log('Missing description')
+        }
 
         this.title.setValue('')
         this.description.setValue('')

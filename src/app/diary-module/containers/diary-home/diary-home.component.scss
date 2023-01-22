@@ -75,3 +75,15 @@ h1 {
 .collapse {
     display: none;
 }
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto ;
+    margin: 50px;
+    margin-top: 0px;
+    gap: 10px;
+}
+
+.grid-item{
+ 
+}

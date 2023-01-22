@@ -1,5 +1,5 @@
 export interface Card {
-    title: string
-    subtitle: string
-    description: string
+    title: string|null
+    subtitle: string|null
+    description: string|null
 }

@@ -19,10 +19,11 @@
             </div>
             <div class="center">
                 <button
-                    type="button"
+                    type="submit"
                     id="continue-btn"
                     class="center btn"
                     [disabled]="!username.valid"
+                    (click)="handleContinue()"
                 >
                     <span>CONTINUE </span>
                     <img
