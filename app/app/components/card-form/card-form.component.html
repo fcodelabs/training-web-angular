@@ -1,0 +1,23 @@
+<div class="cardformcontainer">
+  <div class="formhelper"></div>
+  <h2 class="cardformtitle">Add New Card</h2>
+  <div class="cardforminputs">
+    <input
+      type="text"
+      class="cardforminput"
+      value="{{ title }}"
+      required
+      #userInputTitle
+      (change)="changeTitle(userInputTitle.value)"
+    />
+    <textarea
+      type="text"
+      class="cardformteatarea"
+      value="{{ description }}"
+      required
+      #userInputDescription
+      (change)="changeDescription(userInputDescription.value)"
+    ></textarea>
+  </div>
+  <button class="cardformbutton">Submit!!</button>
+</div>
