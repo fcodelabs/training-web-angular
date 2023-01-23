@@ -1,0 +1,36 @@
+<kendo-card width="320px" class="card-main">
+  <kendo-card-header class="k-hstack">
+    <div>
+      <h1 kendoCardTitle>Title</h1>
+      <p kendoCardSubtitle>Name</p>
+    </div>
+  </kendo-card-header>
+
+  <kendo-card-body>
+    <p>
+      {{
+        sliceText(
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec turpis
+      erat, sodales et sodales a, semper a metus. Vivamus libero ex, pulvinar
+      vel placerat non, finibus ac velit. Aenean vehicula, justo ac feugiat
+      maximus, eros nisl elementum mauris, nec eleifend ex sem quis justo. Sed
+      euismod libero vel est scelerisque, ut interdum nulla egestas. Donec justo
+      massa, finibus vitae ligula a, tempor volutpat odio. Pellentesque et dui
+      vel est dapibus mattis. Sed sit amet arcu non ipsum tempus efficitur ac
+      vitae enim. Donec ornare id ipsum nec suscipit. Quisque aliquet bibendum
+      pharetra."
+        )
+      }}
+    </p>
+  </kendo-card-body>
+  <kendo-card-actions orientation="horizontal" layout="stretched">
+    <button
+      kendoButton
+      fillMode="flat"
+      (click)="buttonClick()"
+      [hidden]="!showAction"
+    >
+      {{ buttonName() }}
+    </button>
+  </kendo-card-actions>
+</kendo-card>
