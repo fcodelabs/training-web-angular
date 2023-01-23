@@ -8,7 +8,7 @@ import { Diary } from '../model/diary';
 })
 export class CardComponent implements OnInit {
   @Input() id: string = '';
-  @Input() name: string = '';
+  @Input() name: string = 'Anonymous';
   @Input() description: string = '';
   @Input() title: string = '';
 

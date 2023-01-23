@@ -1,14 +1,14 @@
 <kendo-card width="320px" class="card-main">
   <kendo-card-header class="k-hstack">
     <div>
-      <h1 kendoCardTitle>{{ title }}</h1>
-      <p kendoCardSubtitle>{{ name }}</p>
+      <h1 kendoCardTitle>{{ title ? title : "No Title" }}</h1>
+      <p kendoCardSubtitle>{{ name ? name : "Anonymous" }}</p>
     </div>
   </kendo-card-header>
 
   <kendo-card-body>
     <p>
-      {{ sliceText(description) }}
+      {{ description ? sliceText(description) : "No Description" }}
     </p>
   </kendo-card-body>
   <kendo-card-actions orientation="horizontal" layout="stretched">
