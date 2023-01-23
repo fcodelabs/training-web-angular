@@ -1,0 +1,36 @@
+<div class="example-wrap">
+  <form class="k-form" [formGroup]="registerForm">
+    <h1 class="dear-diary-heading">Dear Diary</h1>
+    <fieldset class="k-form-fieldset">
+      <kendo-formfield>
+        <h2 class="sign-in-heading">Sign In</h2>
+        <input
+          formControlName="userName"
+          kendoTextBox
+          #userName
+          required
+          placeholder="Username"
+        />
+        <kendo-formerror>Error: Username is required</kendo-formerror>
+      </kendo-formfield>
+
+      <div class="k-form-buttons">
+        <button
+          kendoButton
+          themeColor="primary"
+          (click)="submitForm()"
+          [disabled]="!registerForm.valid"
+        >
+          Submit
+        </button>
+        <button
+          themeColor="secondary"
+          kendoButton
+          (click)="randomNameGenerator()"
+        >
+          Random
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>

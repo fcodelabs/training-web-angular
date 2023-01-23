@@ -1,0 +1,26 @@
+.example-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.k-form {
+  width: 400px;
+  padding: 40px;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+.user-name {
+  padding-bottom: 20px;
+}
+
+.sign-in-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(188, 203, 239);
+}
+
+.dear-diary-heading {
+  color: rgb(188, 203, 239);
+}
