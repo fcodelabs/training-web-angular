@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { Card } from './card'
+import { Card } from '../../util/card'
 
 @Component({
     selector: 'app-diary-card',
