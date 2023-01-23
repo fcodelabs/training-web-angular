@@ -32,6 +32,8 @@
     "@progress/kendo-licensing": "^1.0.2",
     "@progress/kendo-svg-icons": "^1.0.0",
     "@progress/kendo-theme-default": "^6.0.0",
+    "ngx-ellipsis": "^4.1.1",
+    "ngx-hooks": "^0.0.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

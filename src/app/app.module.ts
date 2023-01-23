@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './containers/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { CardformComponent } from './components/cardform/cardform.component';
+import { CardlistComponent } from './components/cardlist/cardlist.component';
+import { EllipsisModule } from 'ngx-ellipsis';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { CardformComponent } from './components/cardform/cardform.component';
     HomeComponent,
     CardComponent,
     CardformComponent,
+    CardlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { CardformComponent } from './components/cardform/cardform.component';
     LayoutModule,
     ButtonsModule,
     FormsModule,
+    EllipsisModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

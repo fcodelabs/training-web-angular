@@ -8,9 +8,26 @@
     </kendo-card-header>
 
     <kendo-card-body>
-      <p>body</p>
+      <p
+        #ellipsisRef
+        ellipsis
+        (ellipsis-change)="truncated($event)"
+        [ngClass]="{ 'line-clamp': !showMore }"
+      >
+        This product was not very satisfactory. I was disappointed with a lot of
+        things. But the biggest was its shoddy packaging. I received damaged
+        goods. Please beware of sellers on this site, not all of them are
+        trusted!
+      </p>
     </kendo-card-body>
 
-    <!-- <button kendoButton themeColor="primary"></button> -->
+    <div class="showbtn">
+      <span class="btn" *ngIf="!showMoreButton" (click)="showComplete()"
+        >Show more</span
+      >
+      <span class="btn" *ngIf="showMore" (click)="showMore = false"
+        >Show less</span
+      >
+    </div>
   </kendo-card>
 </div>
