@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
+import { select, Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
 import { Card } from '../../components/diary-card/card'
+import { addCardSuccess } from '../../store/actions/cards.actions'
+import { DiaryHomeState } from '../../store/reducers/cards.reducers'
+import { selectCards } from '../../store/selectors/cards.selectors'
 
 @Component({
     selector: 'app-diary-home',
@@ -12,9 +17,9 @@ export class DiaryHomeComponent implements OnInit {
     description = new FormControl('', Validators.required)
     expand = new FormControl('collapse')
 
-    cards = new FormControl<Array<Card>>([])
+    public cards: Observable<Card[]> = this.store.pipe(select(selectCards))
 
-    constructor() {}
+    constructor(private store: Store<DiaryHomeState>) {}
 
     ngOnInit(): void {
         const handleClickOutside = (e: any) => {
@@ -31,7 +36,7 @@ export class DiaryHomeComponent implements OnInit {
                 description: this.description.value,
                 subtitle: localStorage.getItem('Username'),
             }
-            this.cards.value?.push(card)
+            this.store.dispatch(addCardSuccess({ card }))
         } else {
             if (!this.title.valid) console.log('Missing title')
             if (!this.description.valid) console.log('Missing description')

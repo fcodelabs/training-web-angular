@@ -39,7 +39,7 @@
     </div>
 
     <div class="grid-container" *ngIf="cards">
-        <div class="grid-item" *ngFor="let card of cards.value">
+        <div class="grid-item" *ngFor="let card of cards | async">
             <app-diary-card [card]="card"></app-diary-card>
         </div>
     </div>
