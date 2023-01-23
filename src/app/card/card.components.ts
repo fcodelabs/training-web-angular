@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Diary } from '../model/diary';
 
 @Component({
   selector: 'app-card',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
+  @Input() id: string = '';
+  @Input() name: string = '';
+  @Input() description: string = '';
+  @Input() title: string = '';
+
   constructor() {}
 
   seeMore: boolean = false;

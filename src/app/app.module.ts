@@ -19,6 +19,12 @@ import { CardComponent } from './card/card.components';
 import { AddCardComponent } from './add-card/add-card.component';
 
 import { environment } from '../environments/environment';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import {
+  provideRemoteConfig,
+  getRemoteConfig,
+} from '@angular/fire/remote-config';
 
 // import {  } from '@angular/fire';
 
@@ -44,6 +50,9 @@ import { environment } from '../environments/environment';
     LayoutModule,
     IndicatorsModule,
     NavigationModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideRemoteConfig(() => getRemoteConfig()),
   ],
   providers: [],
   bootstrap: [AppComponent],
