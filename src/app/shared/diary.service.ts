@@ -6,7 +6,6 @@ import {
   Firestore,
   getDocs,
   addDoc,
-  onSnapshot,
 } from '@angular/fire/firestore';
 import { Observable } from '@firebase/util';
 import { Diary } from '../model/diary';
