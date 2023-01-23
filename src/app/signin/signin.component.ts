@@ -20,7 +20,6 @@ export class SigninComponent implements OnInit {
   public submitForm(): void {
     this.registerForm.markAllAsTouched();
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
       this.route.navigate(['/home']);
     }
   }

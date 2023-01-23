@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { DiaryService } from './../shared/diary.service';
 
 @Component({
   selector: 'app-add-card',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./add-card.component.scss'],
 })
 export class AddCardComponent implements OnInit {
-  constructor() {}
+  constructor(private data: DiaryService) {}
 
   ngOnInit(): void {}
 
@@ -22,7 +23,8 @@ export class AddCardComponent implements OnInit {
   public submitForm(): void {
     this.addCardForm.markAllAsTouched();
     if (this.addCardForm.valid) {
-      console.log(this.addCardForm.value);
+      this.data.addDiarie(this.addCardForm.value);
+      this.addCardForm.reset();
     }
   }
 }
