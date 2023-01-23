@@ -4,12 +4,12 @@
 
 export const environment = {
   firebase: {
-    apiKey: process.env.ANGULAR_APP_API_KEY,
-    authDomain: process.env.ANGULAR_APP_AUTH_DOMAIN,
-    projectId: process.env.ANGULAR_APP_PROJECT_ID,
-    storageBucket: process.env.ANGULAR_APP_STORAGE_BUCKET,
-    messagingSenderId: process.env.ANGULAR_APP_MESSAGING_SENDER_ID,
-    appId: process.env.ANGULAR_APP_APP_ID,
+    apiKey: 'AIzaSyDBC3Ywe1GP_CIFkRyFop0K_Wro8eTdMOE',
+    authDomain: 'dear-diary-nalimfcodelabs.firebaseapp.com',
+    projectId: 'dear-diary-nalimfcodelabs',
+    storageBucket: 'dear-diary-nalimfcodelabs.appspot.com',
+    messagingSenderId: '919651168743',
+    appId: '1:919651168743:web:825d47fd8a8d8571334d42',
   },
   production: false,
 };
