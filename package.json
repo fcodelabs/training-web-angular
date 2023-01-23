@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^14.2.12",
     "@angular/platform-browser-dynamic": "^14.2.12",
     "@angular/router": "^14.2.12",
+    "@ngrx/effects": "^15.1.0",
+    "@ngrx/store": "^15.1.0",
     "@progress/kendo-angular-buttons": "11.0.0",
     "@progress/kendo-angular-common": "11.0.0",
     "@progress/kendo-angular-dialog": "11.0.0",
