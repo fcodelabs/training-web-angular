@@ -25,6 +25,8 @@ import {
   provideRemoteConfig,
   getRemoteConfig,
 } from '@angular/fire/remote-config';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 // import {  } from '@angular/fire';
 
@@ -53,6 +55,8 @@ import {
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideRemoteConfig(() => getRemoteConfig()),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
   bootstrap: [AppComponent],
