@@ -12,10 +12,10 @@ export class CardsComponent implements OnInit {
   constructor(private data: DiaryService) {}
 
   ngOnInit(): void {
-    this.getDiaries();
+    // this.getDiaries();
   }
 
   getDiaries() {
-    this.diaries = this.data.getDiaries();
+    // this.diaries = this.data.getDiaries();
   }
 }

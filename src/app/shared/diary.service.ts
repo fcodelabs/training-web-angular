@@ -7,7 +7,7 @@ import {
   getDocs,
   addDoc,
 } from '@angular/fire/firestore';
-import { Observable } from '@firebase/util';
+import { Observable, delay, of, map } from 'rxjs';
 import { Diary } from '../model/diary';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class DiaryService {
     this.diaryCollection = collection(firestore, 'diaries');
   }
 
-  public getDiaries() {
+  public getDiaries(): Observable<Diary[]> {
     let diaries: Diary[] = [];
     getDocs(this.diaryCollection).then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -33,7 +33,7 @@ export class DiaryService {
         diaries.push(diary);
       });
     });
-    return diaries;
+    return of(diaries).pipe(delay(1000));
   }
 
   public addDiarie(diary: Diary) {
