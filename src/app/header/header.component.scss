@@ -1,6 +1,9 @@
 body {
   background: #adadb1;
 }
+.header {
+  z-index: 10;
+}
 .title {
   text-transform: capitalize;
   font-size: 18px;
