@@ -8,8 +8,8 @@ import { Card } from '../../components/diary-card/card'
     styleUrls: ['./diary-home.component.scss'],
 })
 export class DiaryHomeComponent implements OnInit {
-    title = new FormControl('',Validators.required)
-    description = new FormControl('',Validators.required)
+    title = new FormControl('', Validators.required)
+    description = new FormControl('', Validators.required)
     expand = new FormControl('collapse')
 
     cards = new FormControl<Array<Card>>([])
@@ -28,15 +28,13 @@ export class DiaryHomeComponent implements OnInit {
         if (this.title.valid && this.description.valid) {
             const card: Card = {
                 title: this.title.value,
-                description:this.description.value,
-                subtitle:localStorage.getItem("Username")
+                description: this.description.value,
+                subtitle: localStorage.getItem('Username'),
             }
             this.cards.value?.push(card)
-        }else{
-            if(!this.title.valid)
-            console.log('Missing title')
-            if(!this.description.valid)
-            console.log('Missing description')
+        } else {
+            if (!this.title.valid) console.log('Missing title')
+            if (!this.description.valid) console.log('Missing description')
         }
 
         this.title.setValue('')
