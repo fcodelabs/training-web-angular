@@ -24,16 +24,13 @@ import { loadDiaries } from './../store/actions/diaryActions';
   styleUrls: ['./cards.component.scss'],
 })
 export class CardsComponent implements OnInit {
-  isLoading$: Observable<boolean>;
   diaries$: Observable<Diary[]>;
-  error$: Observable<string | null>;
 
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(loadDiaries());
-    this.isLoading$ = this.store.pipe(select(isLoadingSelect));
     this.diaries$ = this.store.pipe(select(diariesSelect));
-    this.error$ = this.store.pipe(select(errorSelect));
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.store.dispatch(loadDiaries());
+  }
 }
