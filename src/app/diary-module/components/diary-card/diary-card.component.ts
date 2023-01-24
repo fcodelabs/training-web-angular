@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { FormControl } from '@angular/forms'
-import { Card } from '../../util/card'
+import { Card } from 'src/app/models/card'
 
 @Component({
     selector: 'app-diary-card',
@@ -12,28 +12,22 @@ export class DiaryCardComponent implements OnInit {
     card!: Card
 
     text = new FormControl('')
-    visibility = new FormControl('')
-    btnName = new FormControl('SHOW MORE')
 
     ngOnInit(): void {
         if (this.card.description.length < 100) {
             this.text.setValue(this.card.description)
-            this.visibility.setValue('hide')
         } else {
             const textTemp = this.card.description.substring(1, 100)
             this.text.setValue(textTemp + '...')
-            this.visibility.setValue('visible')
         }
     }
 
     handleShowMore() {
-        if (this.btnName.value == 'SHOW MORE') {
+        if (this.text.value?.endsWith('...')) {
             this.text.setValue(this.card.description)
-            this.btnName.setValue('SHOW LESS')
         } else {
             const textTemp = this.card.description.substring(1, 100)
             this.text.setValue(textTemp + '...')
-            this.btnName.setValue('SHOW MORE')
         }
     }
 }
