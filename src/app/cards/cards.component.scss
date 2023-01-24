@@ -1,0 +1,24 @@
+.diaries {
+  max-width: 100%;
+  display: grid;
+  margin: 5px;
+  grid-gap: 5px;
+}
+
+@media screen and (min-width: 600px) {
+  .diaries {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .diaries {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .diaries {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
