@@ -7,7 +7,6 @@ import { uniqueNamesGenerator, Config, names } from 'unique-names-generator';
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class SigninComponent implements OnInit {
   constructor(private route: Router) {
@@ -22,8 +21,8 @@ export class SigninComponent implements OnInit {
   public submitForm(): void {
     this.registerForm.markAllAsTouched();
     if (this.registerForm.valid) {
-      localStorage.setItem('userName', this.registerForm.value.userName);
       localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('userName', this.registerForm.value.userName);
       this.route.navigate(['/home']);
     }
   }

@@ -22,30 +22,24 @@ export class DiaryService {
 
   public getDiaries(): Observable<Diary[]> {
     let diaries: Diary[] = [];
-    return new Observable((observer) => {
-      getDocs(this.diaryCollection).then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          diaries.push({
-            id: doc.id,
-            title: doc.data().title,
-            description: doc.data().description,
-            name: doc.data().name,
-          });
-        });
-        observer.next(diaries);
+    getDocs(this.diaryCollection).then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        let diary: Diary = {
+          id: doc.id,
+          title: doc.data().title,
+          description: doc.data().description,
+          name: doc.data().name,
+        };
+        diaries.push(diary);
       });
     });
+    return of(diaries).pipe(delay(2000));
   }
 
-  public addDiarie(diary: Diary) {
-    return new Observable((observer) => {
-      addDoc(this.diaryCollection, {
-        title: diary.title,
-        description: diary.description,
-        name: diary.name,
-      }).then((docRef) => {
-        observer.next(docRef);
-      });
-    });
+  public addDiarie(diary: Diary): Observable<Diary> {
+    const date = new Date();
+    addDoc(this.diaryCollection, diary);
+
+    return of({ ...diary, id: date.toUTCString() }).pipe(delay(2000));
   }
 }
