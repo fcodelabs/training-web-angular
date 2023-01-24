@@ -17,6 +17,7 @@ import { CardsComponent } from './cards/cards.component';
 import { HeaderComponent } from './header/header.component';
 import { CardComponent } from './card/card.components';
 import { AddCardComponent } from './add-card/add-card.component';
+import { NgFor } from '@angular/common';
 
 import { environment } from '../environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -30,6 +31,7 @@ import { ReducerObservable, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DiaryEffects } from './store/effects/diaryEffects';
 import { diaryReducer } from './store/reducers/diaryReducer';
+import { LoaderComponent } from './loader/loader.component';
 
 // import {  } from '@angular/fire';
 
@@ -42,6 +44,7 @@ import { diaryReducer } from './store/reducers/diaryReducer';
     HeaderComponent,
     CardComponent,
     AddCardComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ import { diaryReducer } from './store/reducers/diaryReducer';
     provideFirestore(() => getFirestore()),
     provideRemoteConfig(() => getRemoteConfig()),
     EffectsModule.forRoot([DiaryEffects]),
-    StoreModule.forRoot({ diary: diaryReducer }),
+    StoreModule.forRoot({ diaries: diaryReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

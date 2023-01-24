@@ -31,9 +31,7 @@ export class DiaryEffects {
       ofType(addDiary),
       mergeMap((action) => {
         return this.diaryService.addDiarie(action.diary).pipe(
-          map((docRef: any) =>
-            addDiarySuccess({ diary: { ...action.diary, id: docRef.id } })
-          ),
+          map((diary) => addDiarySuccess({ diary })),
           catchError((error) => [addDiaryFailure({ error })])
         );
       })

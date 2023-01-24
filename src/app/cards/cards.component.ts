@@ -29,12 +29,11 @@ export class CardsComponent implements OnInit {
   error$: Observable<string | null>;
 
   constructor(private store: Store<AppState>) {
+    this.store.dispatch(loadDiaries());
     this.isLoading$ = this.store.pipe(select(isLoadingSelect));
     this.diaries$ = this.store.pipe(select(diariesSelect));
     this.error$ = this.store.pipe(select(errorSelect));
   }
 
-  ngOnInit(): void {
-    this.store.dispatch(loadDiaries());
-  }
+  ngOnInit() {}
 }
