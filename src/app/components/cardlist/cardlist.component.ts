@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectFeatureCards } from 'src/app/store/selectors/card.selector';
+import { getCard } from 'src/app/store/actions/card.action';
 
 @Component({
   selector: 'app-cardlist',
@@ -6,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cardlist.component.scss'],
 })
 export class CardlistComponent implements OnInit {
-  data = [1, 2, 3, 4, 5, 6];
-  constructor() {}
+  cards$ = this.store.select(selectFeatureCards);
 
-  ngOnInit(): void {}
+  constructor(private store: Store) {}
+
+  ngOnInit() {
+    this.store.dispatch(getCard());
+  }
 }

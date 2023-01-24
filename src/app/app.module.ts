@@ -21,6 +21,11 @@ import { CardComponent } from './components/card/card.component';
 import { CardformComponent } from './components/cardform/cardform.component';
 import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { EllipsisModule } from 'ngx-ellipsis';
+import { CardsEffects } from './store/effects/card.effect';
+
+import { StoreModule } from '@ngrx/store';
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -47,8 +52,14 @@ import { EllipsisModule } from 'ngx-ellipsis';
     ButtonsModule,
     FormsModule,
     EllipsisModule,
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+    }),
   ],
-  providers: [],
+  providers: [CardsEffects],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

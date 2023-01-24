@@ -8,11 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.scss'],
 })
 export class SigninComponent implements OnInit {
-  public username = new FormControl('');
+  username = new FormControl('', Validators.required);
 
-  constructor(private router: Router) {
-    this.username = new FormControl('', Validators.required);
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -22,8 +20,8 @@ export class SigninComponent implements OnInit {
     this.username.setValue(randomName);
   }
 
-  public login() {
-    console.log(this.username.value);
+  public async login() {
     this.router.navigate(['/home']);
+    localStorage.setItem('username', this.username.value as any);
   }
 }
