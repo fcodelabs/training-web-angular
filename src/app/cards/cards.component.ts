@@ -1,21 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  CollectionReference,
-  DocumentData,
-  Firestore,
-  onSnapshot,
-} from '@angular/fire/firestore';
 import { select, Store } from '@ngrx/store';
-import { collection } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/types/appState.interface';
 import { Diary } from '../model/diary';
-import { DiaryService } from '../shared/diary.service';
-import {
-  diariesSelect,
-  errorSelect,
-  isLoadingSelect,
-} from '../store/selectors/diarySelector';
+import { diariesSelect } from '../store/selectors/diarySelector';
 import { loadDiaries } from './../store/actions/diaryActions';
 
 @Component({

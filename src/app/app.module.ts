@@ -17,8 +17,6 @@ import { CardsComponent } from './cards/cards.component';
 import { HeaderComponent } from './header/header.component';
 import { CardComponent } from './card/card.components';
 import { AddCardComponent } from './add-card/add-card.component';
-import { NgFor } from '@angular/common';
-
 import { environment } from '../environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
@@ -32,8 +30,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DiaryEffects } from './store/effects/diaryEffects';
 import { diaryReducer } from './store/reducers/diaryReducer';
 import { LoaderComponent } from './loader/loader.component';
-
-// import {  } from '@angular/fire';
 
 @NgModule({
   declarations: [
