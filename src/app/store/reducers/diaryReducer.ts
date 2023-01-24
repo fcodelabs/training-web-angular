@@ -31,7 +31,7 @@ export const diaryReducer = createReducer(
   on(addDiary, (state) => ({ ...state, isLoading: true })),
   on(addDiarySuccess, (state, { diary }) => ({
     ...state,
-    diaries: [...state.diaries, diary],
+    diaries: [...state.diaries],
     isLoading: false,
   })),
   on(addDiaryFailure, (state, { error }) => ({

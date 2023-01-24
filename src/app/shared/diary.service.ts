@@ -6,8 +6,9 @@ import {
   Firestore,
   getDocs,
   addDoc,
+  onSnapshot,
 } from '@angular/fire/firestore';
-import { Observable, delay, of, map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Diary } from '../model/diary';
 
 @Injectable({
@@ -22,24 +23,27 @@ export class DiaryService {
 
   public getDiaries(): Observable<Diary[]> {
     let diaries: Diary[] = [];
-    getDocs(this.diaryCollection).then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        let diary: Diary = {
-          id: doc.id,
-          title: doc.data().title,
-          description: doc.data().description,
-          name: doc.data().name,
-        };
-        diaries.push(diary);
+    return new Observable((observer) => {
+      onSnapshot(this.diaryCollection, (querySnapshot) => {
+        diaries = [];
+        querySnapshot.forEach((doc) => {
+          diaries.push({ ...doc.data(), id: doc.id } as Diary);
+        });
+        observer.next(diaries);
       });
     });
-    return of(diaries).pipe(delay(2000));
   }
 
   public addDiarie(diary: Diary): Observable<Diary> {
     const date = new Date();
-    addDoc(this.diaryCollection, diary);
-
-    return of({ ...diary, id: date.toUTCString() }).pipe(delay(2000));
+    return new Observable((observer) => {
+      addDoc(this.diaryCollection, {
+        ...diary,
+        created: date,
+        updated: date,
+      }).then((docRef) => {
+        observer.next({ ...diary, id: docRef.id } as Diary);
+      });
+    });
   }
 }

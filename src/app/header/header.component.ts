@@ -11,8 +11,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   public logout(): void {
-    localStorage.setItem('isLoggedIn', 'false');
-    localStorage.removeItem('userName');
-    window.location.reload();
+    let confirm: boolean = false;
+    window.confirm('Are you sure you want to logout?') && (confirm = true);
+    if (confirm) {
+      localStorage.setItem('isLoggedIn', 'false');
+      localStorage.removeItem('userName');
+      window.location.reload();
+    }
   }
 }
