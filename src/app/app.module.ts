@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { NavigationModule } from '@progress/kendo-angular-navigation';
-
+import { IconsModule } from '@progress/kendo-angular-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
@@ -51,6 +51,7 @@ import { diaryReducer } from './store/reducers/diaryReducer';
     ReactiveFormsModule,
     InputsModule,
     LabelModule,
+    IconsModule,
     ButtonsModule,
     LayoutModule,
     IndicatorsModule,
