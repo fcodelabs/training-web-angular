@@ -10,7 +10,9 @@ import { uniqueNamesGenerator, Config, names } from 'unique-names-generator';
   encapsulation: ViewEncapsulation.None,
 })
 export class SigninComponent implements OnInit {
-  constructor(private route: Router) {}
+  constructor(private route: Router) {
+    localStorage.setItem('isLoggedIn', 'false');
+  }
 
   ngOnInit(): void {}
   public registerForm: FormGroup = new FormGroup({
@@ -20,6 +22,8 @@ export class SigninComponent implements OnInit {
   public submitForm(): void {
     this.registerForm.markAllAsTouched();
     if (this.registerForm.valid) {
+      localStorage.setItem('userName', this.registerForm.value.userName);
+      localStorage.setItem('isLoggedIn', 'true');
       this.route.navigate(['/home']);
     }
   }

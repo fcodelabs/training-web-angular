@@ -1,6 +1,8 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { DiaryService } from './../shared/diary.service';
+import { addDiary } from '../store/actions/diaryActions';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/types/appState.interface';
 
 @Component({
   selector: 'app-add-card',
@@ -8,11 +10,11 @@ import { DiaryService } from './../shared/diary.service';
   styleUrls: ['./add-card.component.scss'],
 })
 export class AddCardComponent implements OnInit {
-  constructor(private data: DiaryService) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {}
 
-  userName: string = 'Rajesh';
+  userName: string | null = localStorage.getItem('userName');
 
   public addCardForm: FormGroup = new FormGroup({
     name: new FormControl(this.userName),
@@ -23,7 +25,7 @@ export class AddCardComponent implements OnInit {
   public submitForm(): void {
     this.addCardForm.markAllAsTouched();
     if (this.addCardForm.valid) {
-      this.data.addDiarie(this.addCardForm.value);
+      this.store.dispatch(addDiary({ diary: this.addCardForm.value }));
       this.addCardForm.reset();
     }
   }
