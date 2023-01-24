@@ -7,8 +7,12 @@
 .k-form {
   width: 400px;
   padding: 40px;
-  border-radius: 5px;
+  border-radius: 20px;
   background-color: #f5f5f5;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 }
 
 .k-textbox {
