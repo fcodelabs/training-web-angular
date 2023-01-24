@@ -7,7 +7,7 @@ import {
   getDocs,
   addDoc,
 } from '@angular/fire/firestore';
-import { Observable } from '@firebase/util';
+import { Observable, delay, of, map } from 'rxjs';
 import { Diary } from '../model/diary';
 
 @Injectable({
@@ -20,29 +20,32 @@ export class DiaryService {
     this.diaryCollection = collection(firestore, 'diaries');
   }
 
-  public getDiaries() {
+  public getDiaries(): Observable<Diary[]> {
     let diaries: Diary[] = [];
-    getDocs(this.diaryCollection).then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        let diary: Diary = {
-          id: doc.id,
-          title: doc.data().title,
-          description: doc.data().description,
-          name: doc.data().name,
-        };
-        diaries.push(diary);
+    return new Observable((observer) => {
+      getDocs(this.diaryCollection).then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          diaries.push({
+            id: doc.id,
+            title: doc.data().title,
+            description: doc.data().description,
+            name: doc.data().name,
+          });
+        });
+        observer.next(diaries);
       });
     });
-    return diaries;
   }
 
   public addDiarie(diary: Diary) {
-    addDoc(this.diaryCollection, {
-      title: diary.title,
-      description: diary.description,
-      name: diary.name,
-    }).then((docRef) => {
-      console.log('Document written with ID: ', docRef.id);
+    return new Observable((observer) => {
+      addDoc(this.diaryCollection, {
+        title: diary.title,
+        description: diary.description,
+        name: diary.name,
+      }).then((docRef) => {
+        observer.next(docRef);
+      });
     });
   }
 }
