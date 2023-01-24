@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DiaryService } from 'src/app/shared/diary.service';
+import { DiaryService } from 'src/app/utils/diary.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
   loadDiaries,

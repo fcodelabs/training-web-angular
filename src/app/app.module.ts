@@ -13,10 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
-import { CardsComponent } from './cards/cards.component';
-import { HeaderComponent } from './header/header.component';
-import { CardComponent } from './card/card.components';
-import { AddCardComponent } from './add-card/add-card.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CardComponent } from './components/card/card.components';
+import { AddCardComponent } from './components/add-card/add-card.component';
 import { environment } from '../environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
@@ -25,11 +25,11 @@ import {
   getRemoteConfig,
 } from '@angular/fire/remote-config';
 import { EffectsModule } from '@ngrx/effects';
-import { ReducerObservable, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DiaryEffects } from './store/effects/diaryEffects';
 import { diaryReducer } from './store/reducers/diaryReducer';
-import { LoaderComponent } from './loader/loader.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [

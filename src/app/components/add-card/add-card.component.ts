@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { addDiary } from '../store/actions/diaryActions';
+import { addDiary } from '../../store/actions/diaryActions';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/types/appState.interface';
 
