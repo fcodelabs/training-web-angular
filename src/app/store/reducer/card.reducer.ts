@@ -1,9 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import * as CardsActions from '../actions/card.action';
+import { CardStateInterface } from '../states/card.state';
 
-export const initialState: any = {
+export const initialState: CardStateInterface = {
   isLoading: false,
-  posts: [],
+  cards: [],
   error: null,
 };
 

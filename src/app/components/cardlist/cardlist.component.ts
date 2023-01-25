@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { selectFeatureCards } from 'src/app/store/selectors/card.selector';
+import { select, Store } from '@ngrx/store';
+import { cardsSelector } from 'src/app/store/selectors/card.selector';
 import { getCard } from 'src/app/store/actions/card.action';
+import { Observable } from 'rxjs';
+import { Card } from 'src/app/models/card.model';
+import { AppState } from 'src/types/app-state.interface';
 
 @Component({
   selector: 'app-cardlist',
@@ -9,9 +12,11 @@ import { getCard } from 'src/app/store/actions/card.action';
   styleUrls: ['./cardlist.component.scss'],
 })
 export class CardlistComponent implements OnInit {
-  cards$ = this.store.select(selectFeatureCards);
+  cards$: Observable<Card[]>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store<AppState>) {
+    this.cards$ = this.store.pipe(select(cardsSelector));
+  }
 
   ngOnInit() {
     this.store.dispatch(getCard());

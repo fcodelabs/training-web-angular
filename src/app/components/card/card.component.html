@@ -2,8 +2,8 @@
   <kendo-card width="260px">
     <kendo-card-header class="k-hstack">
       <div>
-        <h1 kendoCardTitle>title</h1>
-        <p kendoCardSubtitle>subtitle</p>
+        <h1 kendoCardTitle>{{ title }}</h1>
+        <p kendoCardSubtitle>{{ name }}</p>
       </div>
     </kendo-card-header>
 
@@ -14,10 +14,7 @@
         (ellipsis-change)="truncated($event)"
         [ngClass]="{ 'line-clamp': !showMore }"
       >
-        This product was not very satisfactory. I was disappointed with a lot of
-        things. But the biggest was its shoddy packaging. I received damaged
-        goods. Please beware of sellers on this site, not all of them are
-        trusted!
+        {{ description }}
       </p>
     </kendo-card-body>
 

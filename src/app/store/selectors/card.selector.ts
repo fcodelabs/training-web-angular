@@ -1,6 +1,7 @@
 import { createSelector } from '@ngrx/store';
+import { AppState } from 'src/types/app-state.interface';
 
-export const selectFeatureCards = (state: any) => state.cards;
+export const selectFeatureCards = (state: AppState) => state.cards;
 
 export const isLoadingSelector = createSelector(
   selectFeatureCards,

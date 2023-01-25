@@ -4,12 +4,12 @@
 
 export const environment = {
   firebase: {
-    apiKey: 'AIzaSyDBC3Ywe1GP_CIFkRyFop0K_Wro8eTdMOE',
-    authDomain: 'dear-diary-nalimfcodelabs.firebaseapp.com',
-    projectId: 'dear-diary-nalimfcodelabs',
-    storageBucket: 'dear-diary-nalimfcodelabs.appspot.com',
-    messagingSenderId: '919651168743',
-    appId: '1:919651168743:web:825d47fd8a8d8571334d42',
+    apiKey: 'AIzaSyA84tInm_FM7xflCZxmb-8m5LfGieBbxjA',
+    authDomain: 'angular-cards-814d7.firebaseapp.com',
+    projectId: 'angular-cards-814d7',
+    storageBucket: 'angular-cards-814d7.appspot.com',
+    messagingSenderId: '1004342643138',
+    appId: '1:1004342643138:web:f11734e22908f3ee5b6e5b',
   },
   production: false,
 };

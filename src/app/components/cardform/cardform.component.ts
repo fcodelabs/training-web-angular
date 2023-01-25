@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { AppState } from 'src/types/app-state.interface';
 import { addCardStart } from '../../store/actions/card.action';
 
 @Component({
@@ -9,25 +10,21 @@ import { addCardStart } from '../../store/actions/card.action';
   styleUrls: ['./cardform.component.scss'],
 })
 export class CardformComponent implements OnInit {
-  cardData: any;
-  public form: FormGroup = new FormGroup({
+  username: string | null = localStorage.getItem('username');
+
+  public cardData: FormGroup = new FormGroup({
     title: new FormControl(''),
+    name: new FormControl(this.username),
     description: new FormControl(''),
   });
 
-  constructor(private store: Store) {}
+  constructor(private store: Store<AppState>) {}
 
   public submit(): void {
-    this.form.markAllAsTouched();
-    if (this.form.valid) {
-      this.cardData = {
-        timestamp: new Date(),
-        title: this.form.value.title,
-        name: localStorage.getItem('username') as string,
-        description: this.form.value.description,
-      };
-      this.store.dispatch(addCardStart({ card: this.cardData }));
-      this.form.reset();
+    this.cardData.markAllAsTouched();
+    if (this.cardData.valid) {
+      this.store.dispatch(addCardStart({ card: this.cardData.value }));
+      this.cardData.reset();
     }
   }
 

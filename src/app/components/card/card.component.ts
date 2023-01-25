@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { EllipsisDirective } from 'ngx-ellipsis';
 
 @Component({
@@ -12,6 +18,11 @@ export class CardComponent implements OnInit {
   showMore = false;
 
   showMoreButton = false;
+
+  @Input() id: string = '';
+  @Input() title: string = '';
+  @Input() name: string = 'Anonymous';
+  @Input() description: string = '';
 
   constructor(private cd: ChangeDetectorRef) {}
 

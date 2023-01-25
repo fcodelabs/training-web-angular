@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,10 +22,18 @@ import { CardformComponent } from './components/cardform/cardform.component';
 import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { EllipsisModule } from 'ngx-ellipsis';
 import { CardsEffects } from './store/effects/card.effect';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import {
+  provideRemoteConfig,
+  getRemoteConfig,
+} from '@angular/fire/remote-config';
 
 import { StoreModule } from '@ngrx/store';
 import { environment } from '../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers } from './store/reducer/card.reducer';
 
 @NgModule({
   declarations: [
@@ -52,11 +60,14 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ButtonsModule,
     FormsModule,
     EllipsisModule,
-    StoreModule.forRoot({}),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideRemoteConfig(() => getRemoteConfig()),
+    EffectsModule.forRoot([CardsEffects]),
+    StoreModule.forRoot({ cards: reducers }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
-      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
   ],
   providers: [CardsEffects],

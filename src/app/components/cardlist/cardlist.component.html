@@ -1,5 +1,10 @@
 <div class="cardList">
-  <div *ngFor="let item of data">
-    <app-card></app-card>
+  <div *ngFor="let card of cards$ | async; let i = index">
+    <app-card
+      [id]="card.id"
+      [title]="card.title"
+      [name]="card.name"
+      [description]="card.description"
+    ></app-card>
   </div>
 </div>

@@ -14,7 +14,7 @@ export class CardsEffects {
         return this.cardsService.addCards(newcard.card).pipe(
           map((card) => CardsActions.addCardSuccess({ card })),
           catchError((error) =>
-            of(CardsActions.getCardFailure({ error: error.message }))
+            of(CardsActions.addCardFailure({ error: error.message }))
           )
         );
       })

@@ -2,55 +2,48 @@ import { Injectable } from '@angular/core';
 import {
   DocumentData,
   Firestore,
-  onSnapshot,
   addDoc,
+  getDocs,
 } from '@angular/fire/firestore';
-import { collection, CollectionReference } from '@firebase/firestore';
+import {
+  collection,
+  CollectionReference,
+  onSnapshot,
+} from '@firebase/firestore';
 
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { Card } from '../models/card.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CardsService {
-  cardList: any[] = [];
+  cards: Card[] = [];
   cardCollection: CollectionReference<DocumentData>;
 
   constructor(firestore: Firestore) {
     this.cardCollection = collection(firestore, 'diaryCards');
   }
 
-  getCards(): Observable<any[]> {
+  getCards(): Observable<Card[]> {
     onSnapshot(this.cardCollection, (snapshot) => {
       snapshot.forEach((change) => {
-        this.cardList.push({
-          timestamp: change.data()['time'],
+        this.cards.push({
+          id: change.data()['time'],
           title: change.data()['title'],
           name: change.data()['name'],
           description: change.data()['description'],
         });
-        const source = snapshot.metadata.fromCache ? 'local cache' : 'server';
-        console.log('Data came from ' + source);
       });
-      console.log(this.cardList);
     });
-    return of(this.cardList).pipe(delay(2000));
+    return of(this.cards).pipe(delay(2000));
   }
 
-  addCards(card: any): Observable<any> {
-    addDoc(this.cardCollection, {
-      timeStamp: card.timeStamp,
-      title: card.title,
-      name: card.name,
-      description: card.description,
-    });
-    const postobj = {
-      timeStamp: '1',
-      title: 'title1',
-      name: 'username1',
-      description: 'description1',
-    };
-    return of(postobj).pipe(delay(2000));
+  addCards(card: Card): Observable<Card> {
+    const date = new Date();
+    addDoc(this.cardCollection, card);
+
+    return of({ ...card, id: date.toUTCString() }).pipe(delay(3000));
   }
 }
