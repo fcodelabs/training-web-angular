@@ -1,4 +1,4 @@
-<div class="cardformcontainer">
+<div class="cardformcontainer" [ngStyle]="{'height': height}">
   <div class="formhelper"></div>
   <h2 class="cardformtitle">Add New Card</h2>
   <div class="cardforminputs">
@@ -9,6 +9,7 @@
       required
       #userInputTitle
       (change)="changeTitle(userInputTitle.value)"
+      (click)="handleClick()"
     />
     <textarea
       type="text"
@@ -21,4 +22,3 @@
   </div>
   <button class="cardformbutton" (click)="addPostHandle()">Submit!!</button>
 </div>
-

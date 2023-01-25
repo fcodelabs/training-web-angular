@@ -15,24 +15,14 @@ export const reducers = createReducer(
     ...state,
     isLoading: false,
     posts: action.posts,
-  })),
+
+  }
+)),
   on(PostActions.getPostFailure, (state, action) => ({
     ...state,
     isLoading: false,
     error: action.error,
   })),
 
-  on(PostActions.addPostStart, (state, actions) => ({
-    ...state,
-    isLoading: true,
-  })),
-  on(PostActions.addPostSuccess, (state, actions) => ({
-    ...state,
-    isLoading: false,
-  })),
-  on(PostActions.addPostFailure, (state, action) => ({
-    ...state,
-    isLoading: false,
-    error: action.error,
-  }))
+  
 );

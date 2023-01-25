@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PostsService } from './../../services/posts-service';
+import { PostsService } from '../../post-module/services/posts-service';
 import { createEffect, ofType, Actions } from '@ngrx/effects';
 import { map, mergeMap, catchError, of, switchMap } from 'rxjs';
 import * as PostsActions from '../actions/postAction';
@@ -9,7 +9,7 @@ export class PostsEffects {
   getPost$ = createEffect(() =>
     this.actions$.pipe(
       ofType(PostsActions.getPost),
-      mergeMap(() => {
+      switchMap(() => {
         return this.postsService.getCards().pipe(
           map((posts) => PostsActions.getPostSuccess({ posts })),
           catchError((error) =>

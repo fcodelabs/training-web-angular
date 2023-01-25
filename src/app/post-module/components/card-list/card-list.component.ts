@@ -22,6 +22,7 @@ export class CardListComponent {
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
   posts$: Observable<PostInterface[]>;
+
   constructor(private store: Store<AppStateInterface>) {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errSelector));

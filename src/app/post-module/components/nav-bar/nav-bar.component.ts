@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
   // Do not show the Dialog initially.
-  public opened = false;
+  opened = false;
 
-  public close(): void {
+  constructor(private router: Router) {}
+
+  close(): void {
     this.opened = false;
   }
 
-  public open(): void {
+  open(): void {
     this.opened = true;
+  }
+
+  logOut(): void {
+    localStorage.removeItem('username');
+    this.router.navigate(['/']);
   }
 }

@@ -1,3 +1,4 @@
+import { LoadingComponent } from './components/loading/loading.component';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { PostsEffects } from './../store/effects/effects';
@@ -22,6 +23,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
     CardFormComponent,
     CardListComponent,
     DataCardComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
     LayoutModule,
     IconsModule,
     ButtonsModule,
-DialogsModule,
+    DialogsModule,
     LabelModule,
   ],
   exports: [HomePageComponent],
