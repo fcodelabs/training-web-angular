@@ -12,6 +12,15 @@ import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment'
 import { cardsReducer } from '../app/diary-module/store/reducers/cards.reducers'
+import { DiaryHomeEffects } from './diary-module/store/effects/diaryHome.effects'
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import {
+  provideRemoteConfig,
+  getRemoteConfig,
+} from '@angular/fire/remote-config';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
+
+
 
 @NgModule({
     declarations: [
@@ -26,11 +35,15 @@ import { cardsReducer } from '../app/diary-module/store/reducers/cards.reducers'
         BrowserAnimationsModule,
         ReactiveFormsModule,
         StoreModule.forRoot({ cards: cardsReducer }),
-        EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,
         }),
+        EffectsModule.forRoot([DiaryHomeEffects]),
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => getFirestore()),
+        provideRemoteConfig(() => getRemoteConfig()),
+               
     ],
     providers: [],
     bootstrap: [AppComponent],

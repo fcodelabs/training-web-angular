@@ -1,11 +1,8 @@
 import { Action, createReducer, on } from '@ngrx/store'
 import { Card } from '../../components/diary-card/card'
 import * as CardActions from '../actions/cards.actions'
+import { DiaryHomeState } from '../state/diaryHome.state'
 
-export interface DiaryHomeState {
-    cards: Card[]
-    error: string | null
-}
 
 export const initialState: DiaryHomeState = {
     cards: [],
@@ -25,9 +22,8 @@ export const cardsReducer = createReducer(
     on(CardActions.addCard, (state, action) => ({
         ...state,
     })),
-    on(CardActions.addCardSuccess, (state, action) => ({
+    on(CardActions.addCardSuccess, (state,) => ({
         ...state,
-        cards: [action.card, ...state.cards],
     })),
     on(CardActions.addCardFailure, (state, action) => ({
         ...state,

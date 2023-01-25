@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store'
-import { DiaryHomeState } from '../reducers/cards.reducers'
+import { DiaryHomeState } from '../state/diaryHome.state'
 
 export const diaryCardFeature = createFeatureSelector<DiaryHomeState>('cards')
 

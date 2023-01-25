@@ -14,10 +14,7 @@ export const addCard = createAction(
     '[Home Page] Add Card',
     props<{ card: Card }>()
 )
-export const addCardSuccess = createAction(
-    '[Home Page] Add Card Success',
-    props<{ card: Card }>()
-)
+export const addCardSuccess = createAction('[Home Page] Add Card Success')
 export const addCardFailure = createAction(
     '[Home Page] Add Card Failure',
     props<{ error: string }>()

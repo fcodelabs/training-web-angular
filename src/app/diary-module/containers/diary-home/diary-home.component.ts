@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
+import { dispatch } from 'rxjs/internal/observable/pairs'
 import { Card } from '../../components/diary-card/card'
-import { addCardSuccess } from '../../store/actions/cards.actions'
-import { DiaryHomeState } from '../../store/reducers/cards.reducers'
+import { addCard, addCardSuccess, getCards } from '../../store/actions/cards.actions'
 import { selectCards } from '../../store/selectors/cards.selectors'
+import { DiaryHomeState } from '../../store/state/diaryHome.state'
 
 @Component({
     selector: 'app-diary-home',
@@ -27,6 +28,7 @@ export class DiaryHomeComponent implements OnInit {
             this.expand.setValue('collapse')
         }
         document.addEventListener('click', handleClickOutside)
+        this.store.dispatch(getCards())
     }
 
     handleSubmit() {
@@ -36,7 +38,7 @@ export class DiaryHomeComponent implements OnInit {
                 description: this.description.value,
                 subtitle: localStorage.getItem('Username'),
             }
-            this.store.dispatch(addCardSuccess({ card }))
+            this.store.dispatch(addCard({ card }))
         } else {
             if (!this.title.valid) console.log('Missing title')
             if (!this.description.valid) console.log('Missing description')
