@@ -17,9 +17,12 @@ import { AppState } from 'src/types/appState.interface';
   styleUrls: ['./add-card.component.scss'],
 })
 export class AddCardComponent implements OnInit {
-  constructor(private store: Store<AppState>, private elementRef: ElementRef) {}
-
   @Output() clickOutside = new EventEmitter<MouseEvent>();
+
+  userName: string | null = localStorage.getItem('userName');
+  expand: boolean = false;
+
+  constructor(private store: Store<AppState>, private elementRef: ElementRef) {}
 
   @HostListener('document:click', ['$event', '$event.target'])
   public onClick(event: MouseEvent, targetElement: HTMLElement): void {
@@ -34,9 +37,6 @@ export class AddCardComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-
-  userName: string | null = localStorage.getItem('userName');
-  expand: boolean = false;
 
   public addCardForm: FormGroup = new FormGroup({
     name: new FormControl(this.userName),
