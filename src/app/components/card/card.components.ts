@@ -11,11 +11,11 @@ export class CardComponent implements OnInit {
   @Input() description: string = '';
   @Input() title: string = '';
 
-  constructor() {}
-
   seeMore: boolean = false;
 
   showAction: boolean = false;
+
+  constructor() {}
 
   ngOnInit(): void {}
 
