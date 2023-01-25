@@ -4,6 +4,8 @@ import {
   Firestore,
   addDoc,
   getDocs,
+  doc,
+  getDocsFromServer,
 } from '@angular/fire/firestore';
 import {
   collection,
@@ -19,7 +21,6 @@ import { Card } from '../models/card.model';
   providedIn: 'root',
 })
 export class CardsService {
-  cards: Card[] = [];
   cardCollection: CollectionReference<DocumentData>;
 
   constructor(firestore: Firestore) {
@@ -27,17 +28,20 @@ export class CardsService {
   }
 
   getCards(): Observable<Card[]> {
-    onSnapshot(this.cardCollection, (snapshot) => {
-      snapshot.forEach((change) => {
-        this.cards.push({
-          id: change.data()['time'],
-          title: change.data()['title'],
-          name: change.data()['name'],
-          description: change.data()['description'],
-        });
+    let cards: Card[] = [];
+    getDocsFromServer(this.cardCollection).then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        let diary: Card = {
+          id: doc.id,
+          title: doc.data().title,
+          name: doc.data().name,
+          description: doc.data().description,
+        };
+        cards.push(diary);
       });
     });
-    return of(this.cards).pipe(delay(2000));
+
+    return of(cards).pipe(delay(2000));
   }
 
   addCards(card: Card): Observable<Card> {

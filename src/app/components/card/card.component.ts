@@ -21,10 +21,10 @@ export class CardComponent implements OnInit {
 
   @Input() id: string = '';
   @Input() title: string = '';
-  @Input() name: string = 'Anonymous';
+  @Input() name: string = '';
   @Input() description: string = '';
 
-  constructor(private cd: ChangeDetectorRef) {}
+  constructor() {}
 
   ngOnInit() {}
 
@@ -35,7 +35,6 @@ export class CardComponent implements OnInit {
   showComplete() {
     if (this.ellipsisRef) {
       this.showMore = true;
-      this.cd.detectChanges();
       this.ellipsisRef.applyEllipsis();
     }
   }
