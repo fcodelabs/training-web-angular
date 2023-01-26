@@ -11,23 +11,17 @@ export class DiaryCardComponent implements OnInit {
     @Input()
     card!: Card
 
-    text = new FormControl('')
+    public hasMore: boolean = false;
+    public showMore:boolean=!this.hasMore;
+
+    constructor() {   
+    }
 
     ngOnInit(): void {
-        if (this.card.description.length < 100) {
-            this.text.setValue(this.card.description)
-        } else {
-            const textTemp = this.card.description.substring(1, 100)
-            this.text.setValue(textTemp + '...')
-        }
+        this.hasMore=this.card.description.length > 100;
     }
 
     handleShowMore() {
-        if (this.text.value?.endsWith('...')) {
-            this.text.setValue(this.card.description)
-        } else {
-            const textTemp = this.card.description.substring(1, 100)
-            this.text.setValue(textTemp + '...')
-        }
+        this.showMore=!this.showMore
     }
 }

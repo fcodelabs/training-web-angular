@@ -3,16 +3,16 @@
         <div *ngIf="card">
             <h2 id="title">{{ card.title }}</h2>
             <p id="sub-title">{{ card.subtitle }}</p>
-            <p id="description">{{ text.value }}</p>
+            <p id="description">{{hasMore && showMore ? card.description.substring(0, 100)+'...' :card.description }}</p>
         </div>
     </div>
-    <div *ngIf="card.description.length>100">
+    <div *ngIf="hasMore">
         <button
             type="button"
             id="showMoreBtn" 
             (click)="handleShowMore()"
         >
-            {{ text.value?.endsWith('...')?'SHOW MORE':'SHOW LESS' }}
+            {{ showMore?'SHOW MORE':'SHOW LESS' }}
         </button>
     </div>
 </div>
