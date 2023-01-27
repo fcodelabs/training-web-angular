@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as chance from 'chance';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,10 +8,13 @@ import * as chance from 'chance';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
-  username: string;
+   form: FormGroup;
+  username = new FormControl('');
 
   constructor() {
-    this.username = '';
+    this.form = new FormGroup({
+      name: this.username
+    });
   }
 
   ngOnInit(): void {}
@@ -19,7 +23,7 @@ export class SignInComponent implements OnInit {
     const generator = new chance();
     this.username = generator.name();
   }
-  handleChange(value: string) {
-    this.username = value;
+ onSubmit() {
+    console.log(this.form.value);
   }
 }
