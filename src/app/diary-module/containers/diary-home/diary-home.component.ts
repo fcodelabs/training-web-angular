@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { Card } from '../../components/diary-card/card'
+import { Card } from 'src/app/models/card'
 import { addCardSuccess } from '../../store/actions/cards.actions'
 import { DiaryHomeState } from '../../store/reducers/cards.reducers'
 import { selectCards } from '../../store/selectors/cards.selectors'
@@ -31,11 +31,11 @@ export class DiaryHomeComponent implements OnInit {
 
     handleSubmit() {
         if (this.title.valid && this.description.valid) {
-            const card: Card = {
+            const card = {
                 title: this.title.value,
                 description: this.description.value,
                 subtitle: localStorage.getItem('Username'),
-            }
+            } as Card
             this.store.dispatch(addCardSuccess({ card }))
         } else {
             if (!this.title.valid) console.log('Missing title')
