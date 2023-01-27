@@ -6,10 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() id: string = '';
-  @Input() name: string = 'Anonymous';
-  @Input() description: string = '';
-  @Input() title: string = '';
+  input = {
+    id: '',
+    name: '',
+    description: '',
+    title: '',
+  };
+
+  @Input() set data(data: any) {
+    this.input = data;
+  }
 
   seeMore: boolean = false;
 
