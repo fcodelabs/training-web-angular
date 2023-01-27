@@ -26,8 +26,6 @@ export class DiaryHomeService {
                     id: doc.id,
                     ...doc.data(),
                 }))
-                console.log(cards)
-
                 observer.next(cards)
             })
         })
