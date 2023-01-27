@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Card } from 'src/app/models/card'
+import { select, Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
+import { addCardSuccess } from '../../store/actions/cards.actions'
+import { DiaryHomeState } from '../../store/reducers/cards.reducers'
+import { selectCards } from '../../store/selectors/cards.selectors'
 
 @Component({
     selector: 'app-diary-home',
@@ -15,9 +20,9 @@ export class DiaryHomeComponent implements OnInit {
         },
     )
     expanded: boolean = false
-    cards: Card[] = []
+    public cards: Observable<Card[]> = this.store.pipe(select(selectCards))
 
-    constructor() {}
+    constructor(private store: Store<DiaryHomeState>) {}
 
     ngOnInit(): void {}
 
@@ -28,7 +33,7 @@ export class DiaryHomeComponent implements OnInit {
                 description: this.form.value.description,
                 subtitle: localStorage.getItem('Username'),
             } as Card
-            this.cards?.push(card)
+            this.store.dispatch(addCardSuccess({ card }))
         } else {
             if (!this.form.controls.title.valid) console.log('Missing title')
             if (!this.form.controls.description.valid)
