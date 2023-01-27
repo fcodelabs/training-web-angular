@@ -3,17 +3,16 @@
         <div *ngIf="card">
             <h2 id="title">{{ card.title }}</h2>
             <p id="sub-title">{{ card.subtitle }}</p>
-            <p id="description">{{ text.value }}</p>
+            <p id="description">{{hasMore && showMore ? card.description.substring(0, 100)+'...' :card.description }}</p>
         </div>
     </div>
-    <div>
+    <div *ngIf="hasMore">
         <button
             type="button"
-            id="showMoreBtn"
-            [class]="visibility.value"
+            id="showMoreBtn" 
             (click)="handleShowMore()"
         >
-            {{ btnName.value }}
+            {{ showMore?'SHOW MORE':'SHOW LESS' }}
         </button>
     </div>
 </div>
