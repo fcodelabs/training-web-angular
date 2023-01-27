@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl, Validators } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { Card } from 'src/app/models/card'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { Card } from 'src/app/models/card'
 import { addCardSuccess } from '../../store/actions/cards.actions'
 import { DiaryHomeState } from '../../store/reducers/cards.reducers'
 import { selectCards } from '../../store/selectors/cards.selectors'
@@ -13,40 +13,34 @@ import { selectCards } from '../../store/selectors/cards.selectors'
     styleUrls: ['./diary-home.component.scss'],
 })
 export class DiaryHomeComponent implements OnInit {
-    title = new FormControl('', Validators.required)
-    description = new FormControl('', Validators.required)
-    expand = new FormControl('collapse')
-
+    form = new FormGroup(
+        {
+            title: new FormControl('',Validators.required),
+            description: new FormControl('',Validators.required),
+        },
+    )
+    expanded: boolean = false
     public cards: Observable<Card[]> = this.store.pipe(select(selectCards))
 
     constructor(private store: Store<DiaryHomeState>) {}
 
-    ngOnInit(): void {
-        const handleClickOutside = (e: any) => {
-            if (e.target.id === 'title' || e.target.id === 'description') return
-            this.expand.setValue('collapse')
-        }
-        document.addEventListener('click', handleClickOutside)
-    }
+    ngOnInit(): void {}
 
     handleSubmit() {
-        if (this.title.valid && this.description.valid) {
+        if (this.form.valid) {
             const card = {
-                title: this.title.value,
-                description: this.description.value,
+                title: this.form.value.title,
+                description: this.form.value.description,
                 subtitle: localStorage.getItem('Username'),
             } as Card
             this.store.dispatch(addCardSuccess({ card }))
         } else {
-            if (!this.title.valid) console.log('Missing title')
-            if (!this.description.valid) console.log('Missing description')
+            if (!this.form.controls.title.valid) console.log('Missing title')
+            if (!this.form.controls.description.valid)
+                console.log('Missing description')
         }
 
-        this.title.setValue('')
-        this.description.setValue('')
-    }
-
-    handleExpand() {
-        this.expand.setValue('expand')
+        this.form.reset()
+        this.expanded = false
     }
 }

@@ -33,12 +33,12 @@ h1 {
     width: 88%;
 }
 
-#title {
+.title {
     width: 30%;
     transition: width 1s;
 }
 
-#title:focus {
+.expandTitle {
     width: 90%;
 }
 
@@ -82,8 +82,4 @@ h1 {
     margin: 50px;
     margin-top: 0px;
     gap: 10px;
-}
-
-.grid-item{
- 
 }
