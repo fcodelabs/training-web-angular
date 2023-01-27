@@ -11,13 +11,13 @@ const routes: Routes = [
     component: AppComponent,
     children: [
       { path: '', component: SignInComponent },
-      { path: 'home', component: HomePageComponent,canActivate: [AuthGuard]  },
+      { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
     ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
