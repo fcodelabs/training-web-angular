@@ -10,8 +10,8 @@ import { Card } from 'src/app/models/card'
 export class DiaryHomeComponent implements OnInit {
     form = new FormGroup(
         {
-            title: new FormControl('', Validators.required),
-            description: new FormControl('', Validators.required),
+            title: new FormControl(''),
+            description: new FormControl(''),
         },
         Validators.required
     )
@@ -23,10 +23,7 @@ export class DiaryHomeComponent implements OnInit {
     ngOnInit(): void {}
 
     handleSubmit() {
-        const validTitle = this.form.controls.title.valid
-        const validDescription = this.form.controls.description.valid
-
-        if (validTitle && validDescription) {
+        if (this.form.valid) {
             const card = {
                 title: this.form.value.title,
                 description: this.form.value.description,
@@ -34,8 +31,9 @@ export class DiaryHomeComponent implements OnInit {
             } as Card
             this.cards?.push(card)
         } else {
-            if (!validTitle) console.log('Missing title')
-            if (!validDescription) console.log('Missing description')
+            if (!this.form.controls.title.valid) console.log('Missing title')
+            if (!this.form.controls.description.valid)
+                console.log('Missing description')
         }
 
         this.form.reset()
