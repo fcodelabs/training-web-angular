@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
     selector: 'app-sign-in',
@@ -8,7 +9,7 @@ import { FormControl, Validators } from '@angular/forms'
 })
 export class SignInComponent implements OnInit {
     username = new FormControl('', Validators.required)
-    constructor() {}
+    constructor(private route: Router) {}
 
     ngOnInit(): void {}
 
@@ -25,5 +26,12 @@ export class SignInComponent implements OnInit {
         ]
         const randomName = names[Math.floor(Math.random() * names.length)]
         this.username.setValue(randomName)
+    }
+
+    handleContinue() {
+        if (this.username.value != null) {
+            localStorage.setItem('Username', this.username.value)
+            this.route.navigateByUrl('/home')
+        }
     }
 }

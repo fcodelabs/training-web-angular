@@ -37,4 +37,10 @@
             </div>
         </div>
     </div>
+
+    <div class="grid-container" *ngIf="cards">
+        <div class="grid-item" *ngFor="let card of cards">
+            <app-diary-card [card]="card"></app-diary-card>
+        </div>
+    </div>
 </div>
