@@ -1,5 +1,4 @@
-import { Action, createReducer, on } from '@ngrx/store'
-import { Card } from "../../../models/card"
+import { createReducer, on } from '@ngrx/store'
 import * as CardActions from '../actions/cards.actions'
 import { DiaryHomeState } from '../state/diaryHome.state'
 
