@@ -6,10 +6,15 @@ import { AppComponent } from './app.component'
 import { SignInComponent } from './diary-module/containers/sign-in/sign-in.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { DiaryHomeComponent } from './diary-module/containers/diary-home/diary-home.component'
-import { DiaryCardComponent } from './diary-module/components/diary-card/diary-card.component'
+import { ClickOutsideDirective } from './utils/directives/clickOutside.directives'
 
 @NgModule({
-    declarations: [AppComponent, SignInComponent, DiaryHomeComponent,DiaryCardComponent],
+    declarations: [
+        AppComponent,
+        SignInComponent,
+        ClickOutsideDirective,
+        DiaryHomeComponent,
+    ],
     imports: [
         BrowserModule,
         AppRoutingModule,

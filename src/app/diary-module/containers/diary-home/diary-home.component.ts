@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl, Validators } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Card } from 'src/app/models/card'
-
 
 @Component({
     selector: 'app-diary-home',
@@ -9,40 +8,37 @@ import { Card } from 'src/app/models/card'
     styleUrls: ['./diary-home.component.scss'],
 })
 export class DiaryHomeComponent implements OnInit {
-    title = new FormControl('', Validators.required)
-    description = new FormControl('', Validators.required)
-    expand = new FormControl('collapse')
-
-    cards = new FormControl<Array<Card>>([])
+    form = new FormGroup(
+        {
+            title: new FormControl('', Validators.required),
+            description: new FormControl('', Validators.required),
+        },
+        Validators.required
+    )
+    expanded: boolean = false
+    cards: Card[] = []
 
     constructor() {}
 
-    ngOnInit(): void {
-        const handleClickOutside = (e: any) => {
-            if (e.target.id === 'title' || e.target.id === 'description') return
-            this.expand.setValue('collapse')
-        }
-        document.addEventListener('click', handleClickOutside)
-    }
+    ngOnInit(): void {}
 
     handleSubmit() {
-        if (this.title.valid && this.description.valid) {
+        const validTitle = this.form.controls.title.valid
+        const validDescription = this.form.controls.description.valid
+
+        if (validTitle && validDescription) {
             const card = {
-                title: this.title.value,
-                description: this.description.value,
+                title: this.form.value.title,
+                description: this.form.value.description,
                 subtitle: localStorage.getItem('Username'),
             } as Card
-            this.cards.value?.push(card)
+            this.cards?.push(card)
         } else {
-            if (!this.title.valid) console.log('Missing title')
-            if (!this.description.valid) console.log('Missing description')
+            if (!validTitle) console.log('Missing title')
+            if (!validDescription) console.log('Missing description')
         }
 
-        this.title.setValue('')
-        this.description.setValue('')
-    }
-
-    handleExpand() {
-        this.expand.setValue('expand')
+        this.form.reset()
+        this.expanded = false
     }
 }

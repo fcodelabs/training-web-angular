@@ -1,22 +1,23 @@
 <div class="container">
     <div id="content">
         <h1>HOME</h1>
-        <div id="addForm">
+        <div id="addForm" (clickOutside)="expanded = false">
             <div id="titleSec">
                 <input
                     type="text"
                     id="title"
-                    class="txt"
                     placeholder="Enter Title"
-                    value="{{ title.value }}"
-                    [formControl]="title"
-                    (click)="handleExpand()"
+                    value="{{ form.value.title }}"
+                    [formControl]="form.controls.title"
+                    (click)="expanded = true"
+                    class="txt title"
+                    [class]="expanded ? 'expandTitle' : ''"
                 />
                 <button
                     type="submit"
                     id="btnSubmit"
                     (click)="handleSubmit()"
-                    [class]="expand.value"
+                    [class]="expanded ? 'expand' : 'collapse'"
                 >
                     SUBMIT
                 </button>
@@ -24,22 +25,21 @@
             <div>
                 <textarea
                     name="description"
-                    [formControl]="description"
-                    (click)="handleExpand()"
+                    [formControl]="form.controls.description"
                     id="description"
                     cols="30"
                     rows="5"
                     placeholder="Enter description"
                     class="txt"
-                    [class]="expand.value"
-                    >{{ description.value }}</textarea
+                    [class]="expanded ? 'expand' : 'collapse'"
+                    >{{ form.value.description }}</textarea
                 >
             </div>
         </div>
     </div>
 
     <div class="grid-container" *ngIf="cards">
-        <div class="grid-item" *ngFor="let card of cards.value">
+        <div class="grid-item" *ngFor="let card of cards">
             <app-diary-card [card]="card"></app-diary-card>
         </div>
     </div>
