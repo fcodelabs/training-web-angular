@@ -6,6 +6,8 @@ import {
     CollectionReference,
     DocumentData,
     Firestore,
+    orderBy,
+    query,
 } from '@angular/fire/firestore'
 import { Observable } from 'rxjs'
 import { Card } from 'src/app/models/card'
@@ -21,7 +23,8 @@ export class DiaryHomeService {
 
     getCards(): Observable<Card[]> {
         return new Observable((observer) => {
-            onSnapshot(this.cardCollection, (snapshot) => {
+            const qry = query(this.cardCollection, orderBy('created', 'desc'))
+            onSnapshot(qry, (snapshot) => {
                 const cards: any[] = snapshot.docs.map((doc) => ({
                     id: doc.id,
                     ...doc.data(),
@@ -37,9 +40,8 @@ export class DiaryHomeService {
             addDoc(this.cardCollection, {
                 ...card,
                 created: date,
-            }).then((doc) => {
-                observer.next({ ...card, id: doc.id } as Card)
             })
+            observer.next()
         })
     }
 }
