@@ -7,6 +7,7 @@ import { SignInComponent } from './diary-module/containers/sign-in/sign-in.compo
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { DiaryHomeComponent } from './diary-module/containers/diary-home/diary-home.component'
 import { DiaryCardComponent } from './diary-module/components/diary-card/diary-card.component'
+import { ClickOutsideDirective } from './utils/directives/clickOutside.directives'
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
@@ -26,6 +27,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
     declarations: [
         AppComponent,
         SignInComponent,
+        ClickOutsideDirective,
         DiaryHomeComponent,
         DiaryCardComponent,
     ],
