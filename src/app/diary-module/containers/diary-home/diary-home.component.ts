@@ -10,10 +10,9 @@ import { Card } from 'src/app/models/card'
 export class DiaryHomeComponent implements OnInit {
     form = new FormGroup(
         {
-            title: new FormControl(''),
-            description: new FormControl(''),
+            title: new FormControl('',Validators.required),
+            description: new FormControl('',Validators.required),
         },
-        Validators.required
     )
     expanded: boolean = false
     cards: Card[] = []
