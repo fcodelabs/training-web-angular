@@ -20,8 +20,7 @@ export class DiaryHomeComponent implements OnInit {
     handleSubmit() {
         console.log('Title : ' + this.form.value.title)
         console.log('Description : ' + this.form.value.description)
-        this.form.patchValue({ title: '' })
-        this.form.patchValue({ description: '' })
+        this.form.reset()
         this.expanded = false
     }
 }
