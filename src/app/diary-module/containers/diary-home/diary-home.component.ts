@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormControl } from '@angular/forms'
+import { FormControl, FormGroup, Validators } from '@angular/forms'
 
 @Component({
     selector: 'app-diary-home',
@@ -7,29 +7,21 @@ import { FormControl } from '@angular/forms'
     styleUrls: ['./diary-home.component.scss'],
 })
 export class DiaryHomeComponent implements OnInit {
-    title = new FormControl('')
-    description = new FormControl('')
-    expand = new FormControl('collapse')
+    form = new FormGroup({
+        title: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required),
+    })
+    expanded: boolean = false
 
     constructor() {}
 
-    ngOnInit(): void {
-        const handleClickOutside = (e: any) => {
-            if (e.target.id === 'title' || e.target.id === 'description') return
-            this.expand.setValue('collapse')
-        }
-        document.addEventListener('click', handleClickOutside)
-    }
+    ngOnInit(): void {}
 
     handleSubmit() {
-        console.log('Title : ' + this.title.value)
-        console.log('Description : ' + this.description.value)
-
-        this.title.setValue('')
-        this.description.setValue('')
-    }
-
-    handleExpand() {
-        this.expand.setValue('expand')
+        console.log('Title : ' + this.form.value.title)
+        console.log('Description : ' + this.form.value.description)
+        this.form.patchValue({ title: '' })
+        this.form.patchValue({ description: '' })
+        this.expanded = false
     }
 }
