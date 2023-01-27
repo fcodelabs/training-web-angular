@@ -1,0 +1,18 @@
+<div class="card">
+    <div>
+        <div *ngIf="card">
+            <h2 id="title">{{ card.title }}</h2>
+            <p id="sub-title">{{ card.subtitle }}</p>
+            <p id="description">{{hasMore && showMore ? card.description.substring(0, 100)+'...' :card.description }}</p>
+        </div>
+    </div>
+    <div *ngIf="hasMore">
+        <button
+            type="button"
+            id="showMoreBtn" 
+            (click)="handleShowMore()"
+        >
+            {{ showMore?'SHOW MORE':'SHOW LESS' }}
+        </button>
+    </div>
+</div>
