@@ -6,6 +6,8 @@ import * as UserActions from "../../../store/actions/userAction";
 import { Store, select } from "@ngrx/store";
 import { AppStateInterface } from "src/app/types/appState.interface";
 import { Router } from "@angular/router";
+import { environment } from "src/environments/environment"; 
+
 
 @Component({
   selector: "app-sign-in",
@@ -14,9 +16,7 @@ import { Router } from "@angular/router";
   encapsulation: ViewEncapsulation.None,
 })
 export class SignInComponent {
-  public thumbnailSrc =
-    "https://firebasestorage.googleapis.com/v0/b/dailydiary-96e2f.appspot.com/o/rose-flower-icon-vector-3720361.jpg?alt=media&token=6633787a-d348-4287-a29a-0e251002f1e0";
-
+  public imageSrc: string = environment.loginSrc;
   constructor(
     private router: Router
   ) {}
