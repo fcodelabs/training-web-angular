@@ -1,33 +1,76 @@
-<div class="login-content">
-  <div id="logincard">
-    <div id="logincard-content">
+<div class="sign-in-container">
+  <kendo-card width="560px">
+    <kendo-card-header class="k-hstack">
+      <kendo-avatar
+        width="40px"
+        height="40px"
+        [imageSrc]="thumbnailSrc"
+        shape="circle"
+      ></kendo-avatar>
       <div>
-        <h2>Dear Diary</h2>
+        <h1 kendoCardTitle>Dear Diary</h1>
+        <p kendoCardSubtitle>nuwan perera</p>
       </div>
-      <div id="logincard-title">
-        <h2>Sign In</h2>
-      </div>
-      <div class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <label for="user-name" class="usernamelable"> &nbsp;Username </label>
-        <div class="grid-container">
-          <div class="grid-item">
+    </kendo-card-header>
+
+    <kendo-card-body>
+      <h1 align="center" class="login-title">Sign In</h1>
+      <div class="example-wrap">
+        <form class="k-form" [formGroup]="loginForm">
+          <kendo-formfield>
+            <label class="login-label" kendoLabel>Username</label>
             <input
-              formControlName="username"
-              id="user-name"
-              class="form-content"
-              type="text"
-              autocomplete="on"
+              kendoTextBox
+              size="large"
               required
-              #userInput
-             
+              formControlName="username"
+              kendoTextBox
+              #username
+              required
+              name="first"
+              class="login-input"
             />
-          </div>
-          <div>
-            <button id="random-button" (click)="handleClick()">rondom</button>
-          </div>
-        </div>
-        <input id="submit-btn" type="submit" name="submit" value="LOGIN" />
+
+            <kendo-formerror>Error: Username is required</kendo-formerror>
+          </kendo-formfield>
+          <button
+            (click)="handleClick()"
+            kendoButton
+            align="end"
+            class="login-button-rondom"
+            themeColor="info"
+          >
+            random
+          </button>
+        </form>
       </div>
-    </div>
-  </div>
+    </kendo-card-body>
+    <kendo-card-actions
+      class="login-button-action"
+      orientation="horizontal"
+      layout="stretched"
+    >
+      <button
+        (click)="submitForm()"
+        [disabled]="!registerForm.valid"
+        kendoButton
+        rounded="large"
+        size="medium"
+        class="login-button-action"
+        themeColor="info"
+      >
+        continue
+      </button>
+      <button
+        kendoButton
+        class="login-button-action"
+        rounded="large"
+        size="medium"
+        themeColor="info"
+      >
+        cancel
+      </button>
+    </kendo-card-actions>
+  </kendo-card>
 </div>
+
