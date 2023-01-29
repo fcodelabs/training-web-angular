@@ -11,9 +11,7 @@ describe('DataCardComponent', () => {
       declarations: [ DataCardComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(DataCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

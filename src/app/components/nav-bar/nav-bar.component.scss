@@ -3,6 +3,7 @@
   width: 100%;
   background: -webkit-linear-gradient(right, #7be9f7, #2d67bd);
   position: fixed;
+z-index: 10;
 }
 
 .nav > .nav-header {
@@ -99,4 +100,12 @@
 
 .navbarsearch:focus {
   width: 250px;
+}
+
+.logout-button {
+  background-color: #ff0202;
+  color: #eee;
+  border: none;
+  border-radius: 34px;
+  padding: 10px;
 }

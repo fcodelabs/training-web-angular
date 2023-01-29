@@ -11,9 +11,7 @@ describe('CardFormComponent', () => {
       declarations: [ CardFormComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(CardFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

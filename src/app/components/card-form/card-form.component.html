@@ -1,23 +1,30 @@
-<div class="cardformcontainer">
+<div class="cardformcontainer" [ngStyle]="{ height: height }">
   <div class="formhelper"></div>
   <h2 class="cardformtitle">Add New Card</h2>
-  <div class="cardforminputs">
-    <input
-      type="text"
-      class="cardforminput"
-      value="{{ title }}"
-      required
-      #userInputTitle
-      (change)="changeTitle(userInputTitle.value)"
-    />
-    <textarea
-      type="text"
-      class="cardformteatarea"
-      value="{{ description }}"
-      required
-      #userInputDescription
-      (change)="changeDescription(userInputDescription.value)"
-    ></textarea>
-  </div>
-  <button class="cardformbutton">Submit!!</button>
+  <form [formGroup]="addCardForm" (ngSubmit)="formSubmit()">
+    <div class="cardforminputs">
+      <input
+        type="text"
+        class="cardforminput"
+        required
+        formControlName="title"
+        #userInputTitle
+        (click)="handleClick()"
+      />
+      <textarea
+        type="text"
+        class="cardformteatarea"
+        required
+        #userInputDescription
+        formControlName="description"
+      ></textarea>
+    </div>
+    <button
+      type="submit"
+      class="cardformbutton"
+      [disabled]="!addCardForm.valid"
+    >
+      Submit!!
+    </button>
+  </form>
 </div>
