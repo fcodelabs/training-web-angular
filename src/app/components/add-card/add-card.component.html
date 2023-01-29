@@ -1,0 +1,41 @@
+<div class="main-container">
+  <div class="wrap">
+    <form class="k-form" [formGroup]="addCardForm">
+      <fieldset class="k-form-fieldset">
+        <kendo-formfield>
+          <input
+            formControlName="title"
+            kendoTextBox
+            #title
+            required
+            placeholder="Enter the Title"
+            (click)="handleClick()"
+          />
+          <kendo-formerror>Error: Title is required</kendo-formerror>
+        </kendo-formfield>
+        <ng-container *ngIf="expand">
+          <kendo-formfield>
+            <input
+              formControlName="description"
+              kendoTextBox
+              #description
+              required
+              placeholder="Enter the Description"
+              class="description"
+            />
+            <kendo-formerror>Error: Description is required</kendo-formerror>
+          </kendo-formfield>
+
+          <button
+            class="k-form-buttons"
+            kendoButton
+            themeColor="primary"
+            (click)="submitForm()"
+          >
+            ADD
+          </button>
+        </ng-container>
+      </fieldset>
+    </form>
+  </div>
+</div>
