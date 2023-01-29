@@ -8,7 +8,11 @@
 
   <kendo-card-body>
     <p>
-      {{ input.description ? sliceText(input.description) : "No Description" }}
+      {{
+        input.description.length > 100 && !seeMore
+          ? input.description.substring(0, 100) + "..."
+          : input.description
+      }}
     </p>
   </kendo-card-body>
   <kendo-card-actions orientation="horizontal" layout="stretched">
@@ -16,9 +20,9 @@
       kendoButton
       fillMode="flat"
       (click)="buttonClick()"
-      [hidden]="!showAction"
+      [hidden]="input.description.length <= 100"
     >
-      {{ buttonName() }}
+      {{ input.description.length > 100 && !seeMore ? "See More" : "See Less" }}
     </button>
   </kendo-card-actions>
 </kendo-card>
