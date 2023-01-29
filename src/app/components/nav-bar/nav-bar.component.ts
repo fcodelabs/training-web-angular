@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,7 +10,6 @@ export class NavBarComponent {
   // Do not show the Dialog initially.
   opened = false;
 
-  constructor(private router: Router) {}
 
   close(): void {
     this.opened = false;
