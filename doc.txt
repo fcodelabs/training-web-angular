@@ -1,0 +1,2 @@
+command for turn off anonimous data
+ng analytics project off 
