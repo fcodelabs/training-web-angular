@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+ loginSrc:
+    "https://firebasestorage.googleapis.com/v0/b/dailydiary-96e2f.appspot.com/o/rose-flower-icon-vector-3720361.jpg?alt=media&token=6633787a-d348-4287-a29a-0e251002f1e0",
+
 };
 
 /*
