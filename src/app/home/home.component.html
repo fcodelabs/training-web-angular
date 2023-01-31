@@ -1,3 +1,6 @@
 <app-header></app-header>
 <app-add-card></app-add-card>
-<app-card></app-card>
+<app-cards></app-cards>
+<ng-container *ngIf="isLoading$ | async">
+  <app-loader></app-loader>
+</ng-container>
