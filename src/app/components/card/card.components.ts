@@ -13,10 +13,6 @@ export class CardComponent implements OnInit {
     title: '',
   };
 
-  @Input() set data(data: any) {
-    this.input = data;
-  }
-
   seeMore: boolean = false;
 
   showAction: boolean = false;
@@ -26,7 +22,7 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     //dummy data
     this.input.description =
-      'fhf fh f gfhofhfy  f jvb yfyfgfd  fgyfh wufhyhfgf fhfiugh yh fhuhg ighufh uf whefghefhw9fh  hfwhgeyrh fwufh fuw fhfgh ghyu  gygh ehge ughy ehger yh';
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
     this.input.name = 'Card Name';
     this.input.title = 'Card Title';
   }
