@@ -3,16 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "training-web-angular": {
+    "dear-diary-angular": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -20,18 +13,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/training-web-angular",
+            "outputPath": "dist/dear-diary-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -72,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "training-web-angular:build:production"
+              "browserTarget": "dear-diary-angular:build:production"
             },
             "development": {
-              "browserTarget": "training-web-angular:build:development"
+              "browserTarget": "dear-diary-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "training-web-angular:build"
+            "browserTarget": "dear-diary-angular:build"
           }
         },
         "test": {
@@ -93,13 +85,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -107,5 +98,7 @@
       }
     }
   },
-  "defaultProject": "training-web-angular"
+  "cli": {
+    "analytics": "7885e8e9-9a41-4e49-a8fa-f9ccb4d8c920"
+  }
 }
