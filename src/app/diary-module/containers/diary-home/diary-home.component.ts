@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { Card } from 'src/app/models/card'
 import { select, Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { addCardSuccess } from '../../store/actions/cards.actions'
-import { DiaryHomeState } from '../../store/reducers/cards.reducers'
+import { addCard, getCards } from '../../store/actions/cards.actions'
 import { selectCards } from '../../store/selectors/cards.selectors'
+import { DiaryHomeState } from '../../store/state/diaryHome.state'
 
 @Component({
     selector: 'app-diary-home',
@@ -13,18 +13,18 @@ import { selectCards } from '../../store/selectors/cards.selectors'
     styleUrls: ['./diary-home.component.scss'],
 })
 export class DiaryHomeComponent implements OnInit {
-    form = new FormGroup(
-        {
-            title: new FormControl('',Validators.required),
-            description: new FormControl('',Validators.required),
-        },
-    )
+    form = new FormGroup({
+        title: new FormControl('', Validators.required),
+        description: new FormControl('', Validators.required),
+    })
     expanded: boolean = false
     public cards: Observable<Card[]> = this.store.pipe(select(selectCards))
 
     constructor(private store: Store<DiaryHomeState>) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.store.dispatch(getCards())
+    }
 
     handleSubmit() {
         if (this.form.valid) {
@@ -33,7 +33,7 @@ export class DiaryHomeComponent implements OnInit {
                 description: this.form.value.description,
                 subtitle: localStorage.getItem('Username'),
             } as Card
-            this.store.dispatch(addCardSuccess({ card }))
+            this.store.dispatch(addCard({ card }))
         } else {
             if (!this.form.controls.title.valid) console.log('Missing title')
             if (!this.form.controls.description.valid)

@@ -1,36 +1,36 @@
-import { Action, createReducer, on } from '@ngrx/store'
-import { Card } from '../../components/diary-card/card'
+import { createReducer, on } from '@ngrx/store'
 import * as CardActions from '../actions/cards.actions'
+import { DiaryHomeState } from '../state/diaryHome.state'
 
-export interface DiaryHomeState {
-    cards: Card[]
-    error: string | null
-}
 
 export const initialState: DiaryHomeState = {
     cards: [],
+    isLoading:false,
     error: null,
 }
 
 export const cardsReducer = createReducer(
     initialState,
-    on(CardActions.getCards, (state) => ({ ...state })),
+    on(CardActions.getCards, (state) => ({
+        ...state,
+        isLoading: true,
+    })),
     on(CardActions.getCardsSuccess, (state, action) => ({
         ...state,
         cards: action.cards,
+        isLoading: false,
     })),
-    on(CardActions.getCardsFailure, (state, action) => ({
+    on(CardActions.addCard, (state) => ({
         ...state,
-    })),
-    on(CardActions.addCard, (state, action) => ({
-        ...state,
+        isLoading: true,
     })),
     on(CardActions.addCardSuccess, (state, action) => ({
         ...state,
-        cards: [action.card, ...state.cards],
+        isLoading: false,
     })),
-    on(CardActions.addCardFailure, (state, action) => ({
+    on(CardActions.actionFailed, (state, action) => ({
         ...state,
-        error: action.error,
-    }))
+        error:action.error,
+        isLoading: false,
+    })),
 )
