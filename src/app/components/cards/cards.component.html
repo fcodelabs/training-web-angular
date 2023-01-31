@@ -1,0 +1,8 @@
+<hr kendoCardSeparator />
+<div class="content">
+  <div class="diaries">
+    <div *ngFor="let diary of diaries$ | async">
+      <app-card [data]="diary"></app-card>
+    </div>
+  </div>
+</div>

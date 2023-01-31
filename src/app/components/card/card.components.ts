@@ -15,15 +15,7 @@ export class CardComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    //dummy data
-    this.data = {
-      id: '1',
-      name: 'Name',
-      description: 'Description',
-      title: 'Title',
-    } as InputData;
-  }
+  ngOnInit(): void {}
 
   public buttonClick(): void {
     this.seeMore = !this.seeMore;

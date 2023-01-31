@@ -13,7 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { HomeComponent } from './home/home.component';
+import { CardsComponent } from './components/cards/cards.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CardComponent } from './components/card/card.components';
 import { AddCardComponent } from './components/add-card/add-card.component';
 import { environment } from '../environments/environment';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -25,18 +27,22 @@ import {
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { DiaryEffects } from './store/effects/diaryEffects';
+import { diaryReducer } from './store/reducers/diaryReducer';
+import { LoaderComponent } from './components/loader/loader.component';
 import { ClickoutsidedirectiveDirective } from '../app/utils/directive/clickoutsidedirective.directive';
-import { CardComponent } from './components/card/card.components';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     HomeComponent,
+    CardsComponent,
     HeaderComponent,
-    AddCardComponent,
-    ClickoutsidedirectiveDirective,
     CardComponent,
+    AddCardComponent,
+    LoaderComponent,
+    ClickoutsidedirectiveDirective,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,11 @@ import { CardComponent } from './components/card/card.components';
     LayoutModule,
     IndicatorsModule,
     NavigationModule,
-
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideRemoteConfig(() => getRemoteConfig()),
+    EffectsModule.forRoot([DiaryEffects]),
+    StoreModule.forRoot({ diaries: diaryReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
