@@ -61,16 +61,13 @@ export class CardFormComponent {
     }
   }
 
-  formSubmit() {
+ formSubmit() {
     console.log(this.addCardForm.value.description);
     this.username$.pipe(first()).subscribe((val) => (this.username = val));
-    if (
-      this.addCardForm.value.description === "" ||
-      this.addCardForm.value.title === ""
-    ) {
+    if (!this.addCardForm.valid) {
       alert("Please fill the form");
     } else {
-      if (this.username !== undefined) {
+      if (this.username) {
         this.store.dispatch(
           addPostStart({
             post: {
@@ -82,11 +79,11 @@ export class CardFormComponent {
             },
           })
         );
-        this.addCardForm.value.description == "";
-        this.addCardForm.value.title == "";
+        this.addCardForm.reset();
       }
     }
   }
+
 
   public handleClick(): void {
     this.height = "350px";
