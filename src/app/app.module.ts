@@ -26,6 +26,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ClickoutsidedirectiveDirective } from '../app/utils/directive/clickoutsidedirective.directive';
+import { CardComponent } from './components/card/card.components';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ClickoutsidedirectiveDirective } from '../app/utils/directive/clickouts
     HeaderComponent,
     AddCardComponent,
     ClickoutsidedirectiveDirective,
+    CardComponent,
   ],
   imports: [
     BrowserModule,

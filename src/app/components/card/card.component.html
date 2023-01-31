@@ -1,0 +1,28 @@
+<kendo-card width="320px" class="card-main">
+  <kendo-card-header class="k-hstack">
+    <div>
+      <h1 kendoCardTitle>{{ input.title ? input.title : "No Title" }}</h1>
+      <p kendoCardSubtitle>{{ input.name ? input.name : "Anonymous" }}</p>
+    </div>
+  </kendo-card-header>
+
+  <kendo-card-body>
+    <p>
+      {{
+        input.description.length > 100 && !seeMore
+          ? input.description.substring(0, 100) + "..."
+          : input.description
+      }}
+    </p>
+  </kendo-card-body>
+  <kendo-card-actions orientation="horizontal" layout="stretched">
+    <button
+      kendoButton
+      fillMode="flat"
+      (click)="buttonClick()"
+      [hidden]="input.description.length <= 100"
+    >
+      {{ input.description.length > 100 && !seeMore ? "See More" : "See Less" }}
+    </button>
+  </kendo-card-actions>
+</kendo-card>
