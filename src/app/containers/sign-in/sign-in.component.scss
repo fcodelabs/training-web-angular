@@ -4,6 +4,51 @@ $font-family_1: "Raleway", sans-serif;
 $font-family_2: "Raleway Thin", sans-serif;
 $font-family_3: "Raleway SemiBold", sans-serif;
 
+.example-wrap {
+  display: flex;
+  justify-content: center;
+}
+.k-form {
+  width: 400px;
+}
+.sign-in-container {
+  width: 100%;
+  height: 700px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 40px;
+}
+.login-label{
+  font-family: $font-family_1;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: left;
+}
+.login-input {
+  height: 40px;
+  border-style: solid;
+  border-color: black !important;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+.login-button-action {
+  margin: 5px 40px;
+  padding: 10px;
+
+}
+
+.login-err {
+  color: red;
+}
 .login-content {
   width: full;
   height: 700px;
@@ -12,35 +57,37 @@ $font-family_3: "Raleway SemiBold", sans-serif;
   justify-content: center;
   background-color: #24c6be;
 }
-
+.login-button-rondom {
+  margin: 5px;
+  padding: 10px;
+}
 #logincard {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-  height: 380px;
+  height: 400px;
   filter: brightness(1.3);
- 
 }
 
 @media (min-width: 450px) {
-#logincard{
-  width: 500px;
-}
+  #logincard {
+    width: 500px;
+  }
 }
 @media (min-width: 350px) {
-#logincard{
-  width: 500px;
-}
+  #logincard {
+    width: 500px;
+  }
 }
 @media (min-width: 800px) {
-#logincard-content {
-  padding: 12px 44px;
-}
+  #logincard-content {
+    padding: 12px 44px;
+  }
 }
 @media (min-width: 600px) {
-#logincard-content {
-  padding: 12px 24px;
-}
+  #logincard-content {
+    padding: 12px 24px;
+  }
 }
 #logincard-title {
   font-family: $font-family_2;
@@ -51,9 +98,9 @@ $font-family_3: "Raleway SemiBold", sans-serif;
 }
 
 @media (min-width: 600px) {
-#logincard-title  {
-  padding-top: 15px;
-}
+  #logincard-title {
+    padding-top: 15px;
+  }
 }
 #logincard-title h2 {
   font-size: 40px;
@@ -78,14 +125,12 @@ $font-family_3: "Raleway SemiBold", sans-serif;
   }
 }
 
-
 .form {
   align-items: left;
   display: flex;
   flex-direction: column;
-
 }
-.usernamelable{
+.usernamelable {
   font-family: $font-family_1;
   font-size: 20px;
   font-weight: 600;
@@ -141,4 +186,3 @@ $font-family_3: "Raleway SemiBold", sans-serif;
     box-shadow: 0px 1px 18px #249bc6;
   }
 }
-

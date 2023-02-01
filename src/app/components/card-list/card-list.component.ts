@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
+import { AppStateInterface } from 'src/app/types/appState.interface';
 import { Observable } from 'rxjs';
+import {
+  cardsSelector,
+  errSelector,
+  isLoadingSelector,
+} from './../../../store/selectors/postsSelector';
+
 import { OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import * as PostsActions from '../../../store/actions/postAction';
+import { PostInterface } from 'src/app/models/post-interface';
 
 @Component({
   selector: 'app-card-list',
@@ -9,9 +19,18 @@ import { OnInit } from '@angular/core';
 })
 export class CardListComponent {
   data = [1, 2, 3, 4, 5, 6, 7, 8];
-  test1 = 'test1';
-  test2 = 'test2';
-  test3 = 'test3';
+  isLoading$: Observable<boolean>;
+  error$: Observable<string | null>;
+  posts$: Observable<PostInterface[]>;
 
-  ngOnInit(): void {}
+  constructor(private store: Store<AppStateInterface>) {
+    this.isLoading$ = this.store.pipe(select(isLoadingSelector));
+    this.error$ = this.store.pipe(select(errSelector));
+    this.posts$ = this.store.pipe(select(cardsSelector));
+    console.log(this.posts$);
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(PostsActions.getPost());
+  }
 }

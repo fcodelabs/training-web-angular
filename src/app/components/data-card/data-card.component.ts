@@ -11,5 +11,5 @@ export class DataCardComponent {
   @Input() description: any;
   @Input() username: any;
    isExpanded = false;
-
+  public cardSrc: string = environment.cardSrc;
 }
