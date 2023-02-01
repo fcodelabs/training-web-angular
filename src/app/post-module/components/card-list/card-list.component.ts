@@ -27,7 +27,7 @@ export class CardListComponent {
     this.isLoading$ = this.store.pipe(select(isLoadingSelector));
     this.error$ = this.store.pipe(select(errSelector));
     this.posts$ = this.store.pipe(select(cardsSelector));
-    console.log(this.posts$);
+   
   }
 
   ngOnInit(): void {
