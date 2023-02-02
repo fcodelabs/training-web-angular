@@ -1,0 +1,25 @@
+<div class="SignInPage">
+    <div class="loginForm">
+         <img class="logo" src="../../../assets/star.jpg" alt="logo">
+        <h4 class="title1">Dear Diary</h4>
+        <h1 class="title2">Sign In</h1>
+          <div class="inputsArea" >
+                <input
+                class="text-field"
+                    placeholder="  Your Nickname"
+                    id="username-txt"
+                    type="text"
+                    [formControl]="userName"
+                    (keyup)="onKey($event)"
+                />
+                <button class="random-btn" (click)="getNewName()">
+                    RANDOM
+                </button>
+            </div>
+            <div class="loginBtnArea">
+                <button class="login-btn" [disabled]="!userName.valid" (click)="logInAction()">
+                    Login
+                </button>
+            </div>
+    </div>
+</div>
