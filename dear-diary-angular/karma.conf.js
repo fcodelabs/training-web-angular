@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/training-web-angular'),
+      dir: require('path').join(__dirname, './coverage/dear-diary-angular'),
       subdir: '.',
       reporters: [
         { type: 'html' },
