@@ -1,6 +1,39 @@
-<p>home-page works!</p>
-<div>
-<app-diary-card></app-diary-card>
+<div class="mainArea">
+  <div class="navbar">
+    <h4 class="pageName">DIARY HOME</h4>
+  </div>
 
+  <div class="contentA">
+    <div class="inputFields">
+      <h2 class="lable" (click)="expand = false">Home</h2>
+      <input
+        type="text"
+        placeholder="Title"
+        class="titleInput"
+        (click)="expand = true"
+        [style.width]="expand ? '82rem' : '20rem'"
+        [formControl]="titleTxt"
+      />
+      <button
+        class="submitBtn"
+        [style.display]="expand ? 'inline' : 'none'"
+        (click)="submitBtnAction()"
+      >
+        Submit
+      </button>
+      <textarea
+        name="Description"
+        placeholder="Description"
+        id="descInput"
+        cols="30"
+        rows="10"
+        [style.display]="expand ? 'inline' : 'none'"
+        [formControl]="descTxt"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="cardsArea" >
+    <app-diary-card class="card"[card]="card" *ngFor="let card of cards" ></app-diary-card>
+  </div>
 </div>
-
