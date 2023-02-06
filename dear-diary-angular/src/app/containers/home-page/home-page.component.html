@@ -34,6 +34,6 @@
   </div>
 
   <div class="cardsArea" >
-    <app-diary-card class="card"[card]="card" *ngFor="let card of cards" ></app-diary-card>
+    <app-diary-card class="card"[card]="card" *ngFor="let card of cards | async" ></app-diary-card>
   </div>
 </div>

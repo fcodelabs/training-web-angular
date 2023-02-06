@@ -7,26 +7,19 @@ import { cardDetails } from 'src/app/models/cardDetails';
 })
 export class DiaryCardComponent implements OnInit {
   @Input()
-  card!:cardDetails;
-  isLarge:boolean=false;
+  card!: cardDetails;
+  isLarge: boolean = false;
   showMore: boolean = false;
-  
-  constructor() {
-    // this.card = {
-    //   title: '',
-    //   userName: '',
-    //   description:
-    //     '',
-    // };
-  }
+
+  constructor() {}
 
   ngOnInit(): void {
     console.log(this.card?.description.length);
-    this.isLarge = this.card?.description.length>100 ? true : false
-    this.showMore = true
+    this.isLarge = this.card?.description.length > 100 ? true : false;
+    this.showMore = true;
   }
 
-  showMoreAction(): void {  
+  showMoreAction(): void {
     this.showMore = this.showMore ? false : true;
   }
 }
