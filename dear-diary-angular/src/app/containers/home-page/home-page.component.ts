@@ -4,7 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { DiaryCard } from 'src/app/store/types/DiaryCard';
-import { addCardSuccess } from 'src/app/store/actions/card.action';
+import { addCardSuccess, getCards } from 'src/app/store/actions/card.action';
 import { selectCards } from 'src/app/store/selectors/card.selectors';
 @Component({
   selector: 'app-home-page',
@@ -26,8 +26,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.titleTxt.setValue(this.titleTxt.value);
     this.descTxt.setValue(this.descTxt.value);
-    console.log(this.cards);
-  }
+    console.log('card ',this.cards);
+    this.store.dispatch(getCards());
+  } 
 
   submitBtnAction(): void {
     console.log(this.cards);
