@@ -11,14 +11,14 @@ export const getCardsFailure = createAction(
   props<{ error: string }>()
 );
 export const addCard = createAction(
-  '[Home Page] Add Card',
+  '[Dear-diary Page] Add Card',
   props<{ card: cardDetails }>()
 );
 export const addCardSuccess = createAction(
-  '[Home Page] Add Card Success',
+  '[Dear-diary Page] Add Card Success',
   props<{ card: cardDetails }>()
 );
 export const addCardFailure = createAction(
-  '[Home Page] Add Card Failure',
+  '[Dear-diary Page] Add Card Failure',
   props<{ error: string }>()
 );

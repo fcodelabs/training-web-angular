@@ -12,28 +12,23 @@ export const cardReducer = createReducer(
 
   on(CardActions.getCards, (state) => ({ ...state })),
 
-
   on(CardActions.getCardsSuccess, (state, action) => ({
     ...state,
     cards: action.cards,
   })),
 
-
   on(CardActions.getCardsFailure, (state, action) => ({
     ...state,
   })),
-
 
   on(CardActions.addCard, (state, action) => ({
     ...state,
   })),
 
-
   on(CardActions.addCardSuccess, (state, action) => ({
     ...state,
-    cards: [action.card, ...state.cards],
+    cards: [...state.cards, action.card],
   })),
-
 
   on(CardActions.addCardFailure, (state, action) => ({
     ...state,

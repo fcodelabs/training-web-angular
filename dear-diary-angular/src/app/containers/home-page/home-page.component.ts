@@ -26,9 +26,11 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.titleTxt.setValue(this.titleTxt.value);
     this.descTxt.setValue(this.descTxt.value);
+    console.log(this.cards);
   }
 
   submitBtnAction(): void {
+    console.log(this.cards);
     this.expand = false;
 
     if (this.titleTxt.value != '' && this.descTxt.value != '') {
