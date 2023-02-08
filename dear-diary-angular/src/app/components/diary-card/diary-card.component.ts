@@ -11,14 +11,7 @@ export class DiaryCardComponent implements OnInit {
   isLarge: boolean = false;
   showMore: boolean = false;
 
-  constructor() {
-    // this.card = {
-    //   title: '',
-    //   userName: '',
-    //   description:
-    //     '',
-    // };
-  }
+  constructor() {}
 
   ngOnInit(): void {
     console.log(this.card?.description.length);
