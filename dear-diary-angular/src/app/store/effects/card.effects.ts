@@ -16,7 +16,7 @@ import {
 export class HomePageEffects {
   loadAllCards$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(getCards),
+      ofType(getCards), 
       mergeMap(() =>
         this.HomePageService.getAll().pipe(
           map((cards) => getCardsSuccess({ cards })),
@@ -24,7 +24,20 @@ export class HomePageEffects {
         )
       )
     )
-  );
+  ); 
+
+  addCard$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(addCard),
+      mergeMap((action) =>
+        this.HomePageService.add(action.card).pipe(
+         map(() => addCardSuccess()),
+            catchError((error) => of(addCardFailure({ error })))
+          )
+        )
+      )
+    )
+  ;
 
   constructor(
     private actions$: Actions,

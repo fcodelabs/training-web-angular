@@ -1,5 +1,5 @@
 .card {
-  height:  max-content;
+  height: max-content;
   width: 20rem;
   background-color: #b3d4fc;
   border: 1px solid lightblue;
@@ -31,4 +31,6 @@
   left: 13rem;
   position: relative;
   cursor: pointer;
+  color: #78398b;
+  font-weight: bold;
 }

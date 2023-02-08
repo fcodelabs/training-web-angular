@@ -17,7 +17,6 @@ export const addCard = createAction(
 );
 export const addCardSuccess = createAction(
   '[Dear-diary Page] Add Card Success',
-  props<{ card: cardDetails }>()
 );
 export const addCardFailure = createAction(
   '[Dear-diary Page] Add Card Failure',

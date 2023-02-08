@@ -11,10 +11,10 @@ import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { cardReducer } from './store/reducers/card.reducers';
-//import {AngularFireModule} from '@angular/fire/compat'
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { HomePageEffects } from './store/effects/card.effects';
+
 
 @NgModule({
   declarations: [
@@ -27,16 +27,20 @@ import { HomePageEffects } from './store/effects/card.effects';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    //AngularFireModule.initializeApp(environment.firebase),
+
     provideFirebaseApp(() => initializeApp( environment.firebase )),
     provideFirestore(() => getFirestore()),
+
     StoreModule.forRoot({ cards: cardReducer }),
+
     EffectsModule.forRoot([HomePageEffects]),
+    
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
       autoPause: true,
     }),
+
   ],
 
   providers: [],
