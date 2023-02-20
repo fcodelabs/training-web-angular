@@ -33,7 +33,6 @@ export class HomePageEffects {
         this.HomePageService.add(action.card).pipe(
           map(() => addCardSuccess()),
           map(() => getCards()),
-
           catchError((error) => of(addCardFailure({ error })))
         )
       )

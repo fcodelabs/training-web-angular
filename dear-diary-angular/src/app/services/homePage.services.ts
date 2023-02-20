@@ -26,7 +26,6 @@ export class HomePageService {
   }
 
   getAll(): Observable<cardDetails[]> {
-    console.log('get card func...');
     return new Observable((observer) => {
       const qry = query(this.cardsCollection, orderBy('time'));
       onSnapshot(qry, (snapshot) => {
