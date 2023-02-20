@@ -91,11 +91,11 @@ background-color: #ced7da;
     height: 100vh;
     width: 100vw;
   }
-  .signInCard {
+  .loginForm {
     width: 25rem;
     height: 20rem;
   }
-  .randomBtn {
+  .random-btn {
     height: "2rem";
     left: "40%";
   }
@@ -105,11 +105,11 @@ background-color: #ced7da;
     height: 100vh;
     width: 100%;
   }
-  .signInCard {
+  .loginForm {
     width: 10rem;
     height: 20rem;
   }
-  .randomBtn {
+  .random-btn {
     height: "2rem";
     left: "40%";
   }

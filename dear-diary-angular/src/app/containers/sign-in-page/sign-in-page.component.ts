@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-in-page',
   templateUrl: './sign-in-page.component.html',
@@ -9,7 +10,7 @@ export class SignInPageComponent implements OnInit {
   public disabled: boolean = true;
   userName = new FormControl('', Validators.required);
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -25,5 +26,6 @@ export class SignInPageComponent implements OnInit {
 
   logInAction(): void {
     console.log(this.userName.value);
+    this.router.navigate(['/home']);
   }
 }
