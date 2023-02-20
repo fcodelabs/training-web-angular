@@ -6,8 +6,7 @@ import * as UserActions from "../../../store/actions/userAction";
 import { Store, select } from "@ngrx/store";
 import { AppStateInterface } from "src/app/types/appState.interface";
 import { Router } from "@angular/router";
-import { environment } from "src/environments/environment"; 
-
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-sign-in",
@@ -17,24 +16,26 @@ import { environment } from "src/environments/environment";
 })
 export class SignInComponent {
   public imageSrc: string = environment.loginSrc;
-  constructor(
-    private router: Router
-  ) {}
+
+  constructor(private router: Router) {}
   ngOnInit(): void {}
 
-  public loginForm: FormGroup = new FormGroup({
+  public registerForm: FormGroup = new FormGroup({
     username: new FormControl(),
   });
 
   handleClick() {
     const generator = new chance();
-    this.loginForm.controls["username"].setValue(generator.name());
+    this.registerForm.controls["username"].setValue(generator.name());
+  }
+  clearForm(): void {
+    this.registerForm.reset();
   }
 
   submitForm(): void {
-    this.loginForm.markAllAsTouched();
-    if (this.loginForm.valid) {
-      localStorage.setItem("username", this.loginForm.value.username);
+    this.registerForm.markAllAsTouched();
+    if (this.registerForm.valid) {
+      localStorage.setItem("username", this.registerForm.value.username);
       this.router.navigate(["/home"]);
     } else {
       alert("Please enter a username");

@@ -1,7 +1,12 @@
 <div class="cardformcontainer" [ngStyle]="{ height: height }">
   <div class="formhelper"></div>
   <h2 class="cardformtitle">Add New Card</h2>
-  <form [formGroup]="addCardForm" (ngSubmit)="formSubmit()">
+  <form
+    [formGroup]="addCardForm"
+    (ngSubmit)="formSubmit()"
+    appClickoutside
+    (clickOutside)="onClickOutside()"
+  >
     <div class="cardforminputs">
       <input
         type="text"

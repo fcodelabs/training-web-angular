@@ -4,7 +4,7 @@
       <kendo-avatar
         width="40px"
         height="40px"
-          [imageSrc]="imageSrc"
+        [imageSrc]="imageSrc"
         shape="circle"
       ></kendo-avatar>
       <div>
@@ -16,18 +16,16 @@
     <kendo-card-body>
       <h1 align="center" class="login-title">Sign In</h1>
       <div class="example-wrap">
-        <form class="k-form" [formGroup]="loginForm">
+        <form class="k-form" [formGroup]="registerForm">
           <kendo-formfield>
             <label class="login-label" kendoLabel>Username</label>
             <input
-
               kendoTextBox
               size="large"
               required
               formControlName="username"
               kendoTextBox
               #username
-
               required
               name="first"
               class="login-input"
@@ -64,6 +62,7 @@
         continue
       </button>
       <button
+ (click)="clearForm()"
         kendoButton
         class="login-button-action"
         rounded="large"
@@ -75,4 +74,3 @@
     </kendo-card-actions>
   </kendo-card>
 </div>
-
