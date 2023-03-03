@@ -31,4 +31,6 @@
   left: 13rem;
   position: relative;
   cursor: pointer;
+  color: #78398b;
+  font-weight: bold;
 }

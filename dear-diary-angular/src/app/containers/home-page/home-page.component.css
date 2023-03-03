@@ -1,0 +1,86 @@
+.mainArea {
+  background-color: rgb(59, 165, 202);
+  height: 100%;
+  width: 100%;
+}
+.navbar {
+  position: fixed;
+  height: 3rem;
+  background-color: #00bcd4;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contentA {
+  display: flex;
+  justify-content: center;
+}
+.inputFields {
+  /* background-color: #f1f6f7;
+  height: max-content;
+  width: 96%;
+  border-radius: 10px;
+  top: 4rem;
+  position: relative;
+  display: inline; */
+
+      background-color: #f1f6f7;
+    width: 96%;
+    border-radius: 10px;
+    top: 4rem;
+    margin: 4% 0% 2% 0%;
+}
+.titleInput {
+  margin: 1% 2% 1% 2%;
+  height: 2rem;
+  min-width: 22rem;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding-left: 1%;
+  transition: width 1s;
+}
+#descInput {
+  margin: 1% 2% 1% 2%;
+  height: 40%;
+  width: 87rem;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 1%;
+  transition: height 1s;
+}
+.lable {
+  margin-left: 2rem;
+  margin-top: 1%;
+}
+.submitBtn {
+  border-radius: 15px;
+  background-color: #14a5dd;
+  height: 2rem;
+  color: white;
+  font-size: 16px;
+  border: 1px solid #14a5dd;
+  width: max-content;
+  position: relative;
+  cursor: pointer;
+}
+
+.cardsArea {
+  width: 95%;
+  height: max-content;
+  display: inline-flex;
+  flex-direction: row;
+  background-color: rgb(59, 165, 202);
+  border: 1px solid rgb(59, 165, 202);
+  border-radius: 10px;
+  margin-bottom: 2%;
+  top: 5rem;
+  margin-left: 3%;
+  padding: 8px;
+  flex-wrap: wrap;
+}
+.card {
+  margin-top: 1%;
+   margin-left: 2%;
+  display: inline-block;
+}
